@@ -3,11 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../data/global.dart';
 import '../../page/P1FIRSTUI/FIRSTuiVAR.dart';
-import '../../page/P3HI-HMV-001/HGHMV001var.dart';
+import '../../page/P3HG-HMV-001/HGHMV001var.dart';
 
 //-------------------------------------------------
 String server = GLOserver;
-String serverAUTO = GLOserver;
 
 abstract class TRICKER_Event {}
 
@@ -22,12 +21,6 @@ class TRICKER_HGHMV001geteachITEM extends TRICKER_Event {}
 class TRICKER_HGHMV001geteachGRAPH extends TRICKER_Event {}
 
 class TRICKER_HGHMV001confirmdata extends TRICKER_Event {}
-
-class TRICKER_HGHMV001confirmdata1 extends TRICKER_Event {}
-
-class TRICKER_HGHMV001confirmdata2 extends TRICKER_Event {}
-
-class TRICKER_HGHMV001confirmdata3 extends TRICKER_Event {}
 
 class TRICKER_HGHMV001CLEAR extends TRICKER_Event {}
 
@@ -62,18 +55,6 @@ class TRICKER_HGHMV001_Bloc extends Bloc<TRICKER_Event, String> {
 
     on<TRICKER_HGHMV001confirmdata>((event, emit) {
       return _TRICKER_HGHMV001confirmdata('', emit);
-    });
-
-    on<TRICKER_HGHMV001confirmdata1>((event, emit) {
-      return _TRICKER_HGHMV001confirmdata1('', emit);
-    });
-
-    on<TRICKER_HGHMV001confirmdata2>((event, emit) {
-      return _TRICKER_HGHMV001confirmdata2('', emit);
-    });
-
-    on<TRICKER_HGHMV001confirmdata3>((event, emit) {
-      return _TRICKER_HGHMV001confirmdata3('', emit);
     });
 
     on<TRICKER_HGHMV001CLEAR>((event, emit) {
@@ -150,33 +131,6 @@ class TRICKER_HGHMV001_Bloc extends Bloc<TRICKER_Event, String> {
       String toAdd, Emitter<String> emit) async {
     final response = await Dio().post(
       server + 'HGHMV001-confirmdata',
-      data: {},
-    );
-    emit('');
-  }
-
-  Future<void> _TRICKER_HGHMV001confirmdata1(
-      String toAdd, Emitter<String> emit) async {
-    final response = await Dio().post(
-      'http://172.20.30.46:1880/' + 'hardness202',
-      data: {},
-    );
-    emit('');
-  }
-
-  Future<void> _TRICKER_HGHMV001confirmdata2(
-      String toAdd, Emitter<String> emit) async {
-    final response = await Dio().post(
-      'http://172.20.30.46:1880/' + 'Compound202',
-      data: {},
-    );
-    emit('');
-  }
-
-  Future<void> _TRICKER_HGHMV001confirmdata3(
-      String toAdd, Emitter<String> emit) async {
-    final response = await Dio().post(
-      'http://172.20.30.46:1880/' + 'PR202',
       data: {},
     );
     emit('');

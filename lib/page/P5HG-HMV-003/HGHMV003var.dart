@@ -2,10 +2,8 @@ import 'dart:async';
 
 import '../../model/model.dart';
 import '../../widget/QCWIDGET/consolelayout.dart';
-import '../../widget/common/imgset.dart';
 
-class MCSINSHESvar {
-  static bool iscontrol = false;
+class HGHMV003var {
   static String PO = '';
   static String CP = '';
   static String QTY = '';
@@ -29,31 +27,18 @@ class MCSINSHESvar {
   static String GAPname = '';
   static String GAPnamePick = '';
   static List<String> GAPnameList = [''];
-  static String APPEARANCE = '';
-  static String base64pic01 = imgw;
-  static String base64pic02 = imgw;
-  static String base64pic03 = imgw;
-  static String base64pic04 = imgw;
-  static String base64pic01data = '';
-  static String base64pic02data = '';
-  static String base64pic03data = '';
-  static String base64pic04data = '';
   static List<INSDATA> preview = [];
   static List<INSDATA> confirmdata = [];
   static List<INSDATA> ITEMleftUNIT = [];
   static List<INSDATA> ITEMleftVALUE = [];
   static late Timer DHtimer;
 
-  static String selectINS = '0';
-
   //
   static String ItemPickSELECT = '';
-  //
-  static String PICs = '';
 }
 
-class MCSINSHESSCHEMA {
-  MCSINSHESSCHEMA({
+class HGHMV003SCHEMA {
+  HGHMV003SCHEMA({
     this.UPDATE = '',
     this.PO = '',
     this.CP = '',
@@ -78,7 +63,6 @@ class MCSINSHESSCHEMA {
     this.GAP = '',
     this.GAPname = '',
     this.GAPnamePick = '',
-    this.Pic = '',
     required this.GAPnameList,
     required this.preview,
     required this.confirmdata,
@@ -109,7 +93,6 @@ class MCSINSHESSCHEMA {
   String GAP;
   String GAPname;
   String GAPnamePick;
-  String Pic;
 
   List<String> GAPnameList;
   List<INSDATA> preview;

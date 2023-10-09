@@ -3,20 +3,19 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../data/global.dart';
 import '../../model/model.dart';
-
-import '../../page/P7TPG-MCS-001/MCS-INSHESvar.dart';
+import '../../page/P6HG-HRC-002/HGHRC002var.dart';
 import '../../widget/QCWIDGET/consolelayout.dart';
 
 //-------------------------------------------------
 String server = GLOserver;
 
-abstract class MCSINSHES_Event {}
+abstract class HGHRC002_Event {}
 
-class MCSINSHES_READ extends MCSINSHES_Event {}
+class HGHRC002_READ extends HGHRC002_Event {}
 
-class MCSINSHES_Bloc extends Bloc<MCSINSHES_Event, MCSINSHESSCHEMA> {
-  MCSINSHES_Bloc()
-      : super(MCSINSHESSCHEMA(
+class HGHRC002_Bloc extends Bloc<HGHRC002_Event, HGHRC002SCHEMA> {
+  HGHRC002_Bloc()
+      : super(HGHRC002SCHEMA(
           ItemPick: [''],
           ItemPickcode: [ITEMSET()],
           preview: [],
@@ -25,9 +24,9 @@ class MCSINSHES_Bloc extends Bloc<MCSINSHES_Event, MCSINSHESSCHEMA> {
           ITEMleftVALUE: [],
           GAPnameList: [],
         )) {
-    on<MCSINSHES_READ>((event, emit) {
-      return _MCSINSHES_READ(
-          MCSINSHESSCHEMA(
+    on<HGHRC002_READ>((event, emit) {
+      return _HGHRC002_READ(
+          HGHRC002SCHEMA(
             ItemPick: [''],
             ItemPickcode: [ITEMSET()],
             preview: [],
@@ -39,14 +38,14 @@ class MCSINSHES_Bloc extends Bloc<MCSINSHES_Event, MCSINSHESSCHEMA> {
           emit);
     });
   }
-  Future<void> _MCSINSHES_READ(
-      MCSINSHESSCHEMA toAdd, Emitter<MCSINSHESSCHEMA> emit) async {
+  Future<void> _HGHRC002_READ(
+      HGHRC002SCHEMA toAdd, Emitter<HGHRC002SCHEMA> emit) async {
     //--------------- READ
     final response = await Dio().post(
-      server + "MCSINSHESdb",
+      server + "HGHRC002db",
       data: {},
     );
-    MCSINSHESSCHEMA output = MCSINSHESSCHEMA(
+    HGHRC002SCHEMA output = HGHRC002SCHEMA(
       ItemPick: [''],
       ItemPickcode: [ITEMSET()],
       preview: [],
@@ -101,6 +100,12 @@ class MCSINSHES_Bloc extends Bloc<MCSINSHES_Event, MCSINSHESSCHEMA> {
             V3: databuff['preview'][i]['V3'] == null
                 ? ''
                 : databuff['preview'][i]['V3'].toString(),
+            V4: databuff['preview'][i]['V4'] == null
+                ? ''
+                : databuff['preview'][i]['V4'].toString(),
+            V5: databuff['preview'][i]['V5'] == null
+                ? ''
+                : databuff['preview'][i]['V5'].toString(),
           ));
         }
       }
@@ -117,6 +122,12 @@ class MCSINSHES_Bloc extends Bloc<MCSINSHES_Event, MCSINSHESSCHEMA> {
             V3: databuff['confirmdata'][i]['V3'] == null
                 ? ''
                 : databuff['confirmdata'][i]['V3'].toString(),
+            V4: databuff['confirmdata'][i]['V4'] == null
+                ? ''
+                : databuff['confirmdata'][i]['V4'].toString(),
+            V5: databuff['confirmdata'][i]['V5'] == null
+                ? ''
+                : databuff['confirmdata'][i]['V5'].toString(),
           ));
         }
       }
@@ -153,7 +164,7 @@ class MCSINSHES_Bloc extends Bloc<MCSINSHES_Event, MCSINSHESSCHEMA> {
         }
       }
 
-      output = MCSINSHESSCHEMA(
+      output = HGHRC002SCHEMA(
         UPDATE: 'OK',
         //---- Left
         PO: databuff['PO'] == null ? '' : databuff['PO'].toString(),
@@ -188,8 +199,10 @@ class MCSINSHES_Bloc extends Bloc<MCSINSHES_Event, MCSINSHESSCHEMA> {
             ? ''
             : databuff['GRAPHTYPE'].toString(),
         GAP: databuff['GAP'] == null ? '' : databuff['GAP'].toString(),
-        GAPname: databuff['GAP'] == null ? '' : databuff['GAP'].toString(),
+        GAPname:
+            databuff['GAPname'] == null ? '' : databuff['GAPname'].toString(),
         GAPnameList: GAPnamePickBUFFER,
+
         //---- BOTTOM
         preview: previewBUFFER,
         confirmdata: confirmdataBUFFER,

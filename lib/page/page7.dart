@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../bloc/BlocEvent/07-01-TPGMCS001.dart';
+import '../bloc/BlocEvent/07-01-HGVHT001.dart';
 import '../bloc/Cubit/Rebuild.dart';
 import '../model/model.dart';
-import 'P7TPG-MCS-001/MCS-INSHESmain.dart';
-import 'P7TPG-MCS-001/MCS-INSHESvar.dart';
+import 'P7HG-VHT-001/HGVHT001main.dart';
+import 'P7HG-VHT-001/HGVHT001var.dart';
 
 class Page7 extends StatelessWidget {
   const Page7({Key? key}) : super(key: key);
@@ -23,8 +23,8 @@ class Page7BlocTableBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-        create: (_) => MCSINSHES_Bloc(),
-        child: BlocBuilder<MCSINSHES_Bloc, MCSINSHESSCHEMA>(
+        create: (_) => HGVHT001_Bloc(),
+        child: BlocBuilder<HGVHT001_Bloc, HGVHT001SCHEMA>(
           builder: (context, data) {
             return Page7Body(
               data: data,
@@ -37,12 +37,12 @@ class Page7BlocTableBody extends StatelessWidget {
 class Page7Body extends StatelessWidget {
   Page7Body({Key? key, this.data}) : super(key: key);
 
-  MCSINSHESSCHEMA? data;
+  HGVHT001SCHEMA? data;
 
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: MICROSCOPE_MCSINSHESmain(
+      child: MICROVICKER_HGVHT001main(
         data: data,
       ),
     );

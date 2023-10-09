@@ -3,7 +3,7 @@ import 'dart:async';
 import '../../model/model.dart';
 import '../../widget/QCWIDGET/consolelayout.dart';
 
-class LCRUVS001var {
+class HGHRC002var {
   static String PO = '';
   static String CP = '';
   static String QTY = '';
@@ -26,7 +26,6 @@ class LCRUVS001var {
   static String GAP = '';
   static String GAPname = '';
   static String GAPnamePick = '';
-  static String SINGLEINPUT = '0.03';
   static List<String> GAPnameList = [''];
   static List<INSDATA> preview = [];
   static List<INSDATA> confirmdata = [];
@@ -38,8 +37,8 @@ class LCRUVS001var {
   static String ItemPickSELECT = '';
 }
 
-class LCRUVS001SCHEMA {
-  LCRUVS001SCHEMA({
+class HGHRC002SCHEMA {
+  HGHRC002SCHEMA({
     this.UPDATE = '',
     this.PO = '',
     this.CP = '',

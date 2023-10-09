@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../data/global.dart';
 import '../../page/P1FIRSTUI/FIRSTuiVAR.dart';
-import '../../page/P6HI-MIC-001/HIMIC001var.dart';
+import '../../page/P7HG-VHT-001/HGVHT001var.dart';
 
 //-------------------------------------------------
 String server = GLOserver;
@@ -12,67 +12,67 @@ abstract class TRICKER_Event {}
 
 //--------------------------------
 
-class TRICKER_GETINtoHIMIC001 extends TRICKER_Event {}
+class TRICKER_GETINtoHGVHT001 extends TRICKER_Event {}
 
 //-------------------------------- non returnfunction
 
-class TRICKER_HIMIC001geteachITEM extends TRICKER_Event {}
+class TRICKER_HGVHT001geteachITEM extends TRICKER_Event {}
 
-class TRICKER_HIMIC001geteachGRAPH extends TRICKER_Event {}
+class TRICKER_HGVHT001geteachGRAPH extends TRICKER_Event {}
 
-class TRICKER_HIMIC001confirmdata extends TRICKER_Event {}
+class TRICKER_HGVHT001confirmdata extends TRICKER_Event {}
 
-class TRICKER_HIMIC001CLEAR extends TRICKER_Event {}
+class TRICKER_HGVHT001CLEAR extends TRICKER_Event {}
 
-class TRICKER_HIMIC001RESETVALUE extends TRICKER_Event {}
+class TRICKER_HGVHT001RESETVALUE extends TRICKER_Event {}
 
-class TRICKER_HIMIC001SETZERO extends TRICKER_Event {}
+class TRICKER_HGVHT001SETZERO extends TRICKER_Event {}
 
 //-------------------------------- FINISH
 
-class TRICKER_HIMIC001FINISH extends TRICKER_Event {}
+class TRICKER_HGVHT001FINISH extends TRICKER_Event {}
 
 //-------------------------------- no request
 
 class TRICKER_FLUSH extends TRICKER_Event {}
 
-class TRICKER_HIMIC001_Bloc extends Bloc<TRICKER_Event, String> {
-  TRICKER_HIMIC001_Bloc() : super('') {
+class TRICKER_HGVHT001_Bloc extends Bloc<TRICKER_Event, String> {
+  TRICKER_HGVHT001_Bloc() : super('') {
     //--------------------------------
-    on<TRICKER_GETINtoHIMIC001>((event, emit) {
-      return _TRICKER_GETINtoHIMIC001('', emit);
+    on<TRICKER_GETINtoHGVHT001>((event, emit) {
+      return _TRICKER_GETINtoHGVHT001('', emit);
     });
 
     //-------------------------------- non returnfunction
 
-    on<TRICKER_HIMIC001geteachITEM>((event, emit) {
-      return _TRICKER_HIMIC001geteachITEM('', emit);
+    on<TRICKER_HGVHT001geteachITEM>((event, emit) {
+      return _TRICKER_HGVHT001geteachITEM('', emit);
     });
 
-    on<TRICKER_HIMIC001geteachGRAPH>((event, emit) {
-      return _TRICKER_HIMIC001geteachGRAPH('', emit);
+    on<TRICKER_HGVHT001geteachGRAPH>((event, emit) {
+      return _TRICKER_HGVHT001geteachGRAPH('', emit);
     });
 
-    on<TRICKER_HIMIC001confirmdata>((event, emit) {
-      return _TRICKER_HIMIC001confirmdata('', emit);
+    on<TRICKER_HGVHT001confirmdata>((event, emit) {
+      return _TRICKER_HGVHT001confirmdata('', emit);
     });
 
-    on<TRICKER_HIMIC001CLEAR>((event, emit) {
-      return _TRICKER_HIMIC001CLEAR('', emit);
+    on<TRICKER_HGVHT001CLEAR>((event, emit) {
+      return _TRICKER_HGVHT001CLEAR('', emit);
     });
 
-    on<TRICKER_HIMIC001RESETVALUE>((event, emit) {
-      return _TRICKER_HIMIC001RESETVALUE('', emit);
+    on<TRICKER_HGVHT001RESETVALUE>((event, emit) {
+      return _TRICKER_HGVHT001RESETVALUE('', emit);
     });
 
-    on<TRICKER_HIMIC001SETZERO>((event, emit) {
-      return _TRICKER_HIMIC001SETZERO('', emit);
+    on<TRICKER_HGVHT001SETZERO>((event, emit) {
+      return _TRICKER_HGVHT001SETZERO('', emit);
     });
 
     //-------------------------------- FINISH
 
-    on<TRICKER_HIMIC001FINISH>((event, emit) {
-      return _TRICKER_HIMIC001FINISH('', emit);
+    on<TRICKER_HGVHT001FINISH>((event, emit) {
+      return _TRICKER_HGVHT001FINISH('', emit);
     });
 
     //-------------------------------- no request
@@ -82,10 +82,10 @@ class TRICKER_HIMIC001_Bloc extends Bloc<TRICKER_Event, String> {
     });
   }
 
-  Future<void> _TRICKER_GETINtoHIMIC001(
+  Future<void> _TRICKER_GETINtoHGVHT001(
       String toAdd, Emitter<String> emit) async {
     final response = await Dio().post(
-      server + 'GETINtoHIMIC001',
+      server + 'GETINtoHGVHT001',
       data: {
         "PO": FIRSTUI.POACTIVE,
         "CP": FIRSTUI.CPACTIVE,
@@ -105,71 +105,71 @@ class TRICKER_HIMIC001_Bloc extends Bloc<TRICKER_Event, String> {
     emit(output);
   }
 
-  Future<void> _TRICKER_HIMIC001geteachITEM(
+  Future<void> _TRICKER_HGVHT001geteachITEM(
       String toAdd, Emitter<String> emit) async {
     final response = await Dio().post(
-      server + 'HIMIC001-geteachITEM',
+      server + 'HGVHT001-geteachITEM',
       data: {
-        "ITEMs": HIMIC001var.ItemPickSELECT,
+        "ITEMs": HGVHT001var.ItemPickSELECT,
       },
     );
     emit('');
   }
 
-  Future<void> _TRICKER_HIMIC001geteachGRAPH(
+  Future<void> _TRICKER_HGVHT001geteachGRAPH(
       String toAdd, Emitter<String> emit) async {
     final response = await Dio().post(
-      server + 'HIMIC001-geteachGRAPH',
+      server + 'HGVHT001-geteachGRAPH',
       data: {
-        "GAPname": HIMIC001var.GAPname,
+        "GAPname": HGVHT001var.GAPname,
       },
     );
     emit('');
   }
 
-  Future<void> _TRICKER_HIMIC001confirmdata(
+  Future<void> _TRICKER_HGVHT001confirmdata(
       String toAdd, Emitter<String> emit) async {
     final response = await Dio().post(
-      server + 'HIMIC001-confirmdata',
+      server + 'HGVHT001-confirmdata',
       data: {},
     );
     emit('');
   }
 
-  Future<void> _TRICKER_HIMIC001CLEAR(
+  Future<void> _TRICKER_HGVHT001CLEAR(
       String toAdd, Emitter<String> emit) async {
     final response = await Dio().post(
-      server + 'HIMIC001-CLEAR',
+      server + 'HGVHT001-CLEAR',
       data: {},
     );
     emit('');
   }
 
-  Future<void> _TRICKER_HIMIC001RESETVALUE(
+  Future<void> _TRICKER_HGVHT001RESETVALUE(
       String toAdd, Emitter<String> emit) async {
     final response = await Dio().post(
-      server + 'HIMIC001-RESETVALUE',
+      server + 'HGVHT001-RESETVALUE',
       data: {},
     );
     emit('');
   }
 
-  Future<void> _TRICKER_HIMIC001SETZERO(
+  Future<void> _TRICKER_HGVHT001SETZERO(
       String toAdd, Emitter<String> emit) async {
     final response = await Dio().post(
-      server + 'HIMIC001-SETZERO',
+      server + 'HGVHT001-SETZERO',
       data: {},
     );
     emit('');
   }
 
   //-------------------------------- FINISH
-  //TRICKER_HIMIC001FINISH
+  //TRICKER_HGVHT001FINISH
 
-  Future<void> _TRICKER_HIMIC001FINISH(
+  Future<void> _TRICKER_HGVHT001FINISH(
       String toAdd, Emitter<String> emit) async {
     final response = await Dio().post(
-      server + 'HIMIC001-FINISH',
+      server + 'HGVHT001-FINISH',
       data: {},
     );
     emit('');

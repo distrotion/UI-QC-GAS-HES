@@ -3,7 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../data/global.dart';
 import '../../model/model.dart';
-import '../../page/P3HI-HMV-001/HGHMV001var.dart';
+
+import '../../page/P3HG-HMV-001/HGHMV001var.dart';
 import '../../widget/QCWIDGET/consolelayout.dart';
 
 //-------------------------------------------------
@@ -46,7 +47,6 @@ class HGHMV001_Bloc extends Bloc<HGHMV001_Event, HGHMV001SCHEMA> {
       data: {},
     );
     HGHMV001SCHEMA output = HGHMV001SCHEMA(
-      Pic: "",
       ItemPick: [''],
       ItemPickcode: [ITEMSET()],
       preview: [],
@@ -209,24 +209,10 @@ class HGHMV001_Bloc extends Bloc<HGHMV001_Event, HGHMV001SCHEMA> {
         //---- RIGHT
         ITEMleftUNIT: ITEMleftUNITBUFFER,
         ITEMleftVALUE: ITEMleftVALUEBUFFER,
-        //
-        Pic: databuff['PIC'] != null ? outPIC(databuff['PIC'].toString()) : "",
       );
     } else {
       //
     }
     emit(output);
   }
-}
-
-String outPIC(String input) {
-  String output = "";
-  List<String> data = [];
-  data = input.toString().split(",");
-
-  if (data.length > 1) {
-    output = data[1];
-  }
-
-  return output;
 }

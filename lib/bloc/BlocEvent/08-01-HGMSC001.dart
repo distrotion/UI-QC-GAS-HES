@@ -4,19 +4,20 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../data/global.dart';
 import '../../model/model.dart';
 
-import '../../page/P6HI-MIC-001/HIMIC001var.dart';
+import '../../page/P8HG-MSC-001/HGMSC001var.dart';
+
 import '../../widget/QCWIDGET/consolelayout.dart';
 
 //-------------------------------------------------
 String server = GLOserver;
 
-abstract class HIMIC001_Event {}
+abstract class HGMSC001_Event {}
 
-class HIMIC001_READ extends HIMIC001_Event {}
+class HGMSC001_READ extends HGMSC001_Event {}
 
-class HIMIC001_Bloc extends Bloc<HIMIC001_Event, HIMIC001SCHEMA> {
-  HIMIC001_Bloc()
-      : super(HIMIC001SCHEMA(
+class HGMSC001_Bloc extends Bloc<HGMSC001_Event, HGMSC001SCHEMA> {
+  HGMSC001_Bloc()
+      : super(HGMSC001SCHEMA(
           ItemPick: [''],
           ItemPickcode: [ITEMSET()],
           preview: [],
@@ -25,9 +26,9 @@ class HIMIC001_Bloc extends Bloc<HIMIC001_Event, HIMIC001SCHEMA> {
           ITEMleftVALUE: [],
           GAPnameList: [],
         )) {
-    on<HIMIC001_READ>((event, emit) {
-      return _HIMIC001_READ(
-          HIMIC001SCHEMA(
+    on<HGMSC001_READ>((event, emit) {
+      return _HGMSC001_READ(
+          HGMSC001SCHEMA(
             ItemPick: [''],
             ItemPickcode: [ITEMSET()],
             preview: [],
@@ -39,14 +40,14 @@ class HIMIC001_Bloc extends Bloc<HIMIC001_Event, HIMIC001SCHEMA> {
           emit);
     });
   }
-  Future<void> _HIMIC001_READ(
-      HIMIC001SCHEMA toAdd, Emitter<HIMIC001SCHEMA> emit) async {
+  Future<void> _HGMSC001_READ(
+      HGMSC001SCHEMA toAdd, Emitter<HGMSC001SCHEMA> emit) async {
     //--------------- READ
     final response = await Dio().post(
-      server + "HIMIC001db",
+      server + "HGMSC001db",
       data: {},
     );
-    HIMIC001SCHEMA output = HIMIC001SCHEMA(
+    HGMSC001SCHEMA output = HGMSC001SCHEMA(
       ItemPick: [''],
       ItemPickcode: [ITEMSET()],
       preview: [],
@@ -101,12 +102,6 @@ class HIMIC001_Bloc extends Bloc<HIMIC001_Event, HIMIC001SCHEMA> {
             V3: databuff['preview'][i]['V3'] == null
                 ? ''
                 : databuff['preview'][i]['V3'].toString(),
-            V4: databuff['preview'][i]['V4'] == null
-                ? ''
-                : databuff['preview'][i]['V4'].toString(),
-            V5: databuff['preview'][i]['V5'] == null
-                ? ''
-                : databuff['preview'][i]['V5'].toString(),
           ));
         }
       }
@@ -123,12 +118,6 @@ class HIMIC001_Bloc extends Bloc<HIMIC001_Event, HIMIC001SCHEMA> {
             V3: databuff['confirmdata'][i]['V3'] == null
                 ? ''
                 : databuff['confirmdata'][i]['V3'].toString(),
-            V4: databuff['confirmdata'][i]['V4'] == null
-                ? ''
-                : databuff['confirmdata'][i]['V4'].toString(),
-            V5: databuff['confirmdata'][i]['V5'] == null
-                ? ''
-                : databuff['confirmdata'][i]['V5'].toString(),
           ));
         }
       }
@@ -165,7 +154,7 @@ class HIMIC001_Bloc extends Bloc<HIMIC001_Event, HIMIC001SCHEMA> {
         }
       }
 
-      output = HIMIC001SCHEMA(
+      output = HGMSC001SCHEMA(
         UPDATE: 'OK',
         //---- Left
         PO: databuff['PO'] == null ? '' : databuff['PO'].toString(),
@@ -200,8 +189,7 @@ class HIMIC001_Bloc extends Bloc<HIMIC001_Event, HIMIC001SCHEMA> {
             ? ''
             : databuff['GRAPHTYPE'].toString(),
         GAP: databuff['GAP'] == null ? '' : databuff['GAP'].toString(),
-        GAPname:
-            databuff['GAPname'] == null ? '' : databuff['GAPname'].toString(),
+        GAPname: databuff['GAP'] == null ? '' : databuff['GAP'].toString(),
         GAPnameList: GAPnamePickBUFFER,
         //---- BOTTOM
         preview: previewBUFFER,
@@ -209,23 +197,10 @@ class HIMIC001_Bloc extends Bloc<HIMIC001_Event, HIMIC001SCHEMA> {
         //---- RIGHT
         ITEMleftUNIT: ITEMleftUNITBUFFER,
         ITEMleftVALUE: ITEMleftVALUEBUFFER,
-        Pic: databuff['PIC'] != null ? outPIC(databuff['PIC'].toString()) : "",
       );
     } else {
       //
     }
     emit(output);
   }
-}
-
-String outPIC(String input) {
-  String output = "";
-  List<String> data = [];
-  data = input.toString().split(",");
-
-  if (data.length > 1) {
-    output = data[1];
-  }
-
-  return output;
 }

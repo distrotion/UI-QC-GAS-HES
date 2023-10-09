@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../bloc/BlocEvent/04-01-HIHMV002.dart';
-
-import 'P4HI-HMV-002/HIHMV002main.dart';
-import 'P4HI-HMV-002/HIHMV002var.dart';
+import '../bloc/BlocEvent/04-01-TPGHMV002.dart';
+import 'P4HG-HMV-002/HGHMV002var.dart';
+import 'P4HG-HMV-002/HGMV002main.dart';
 
 class Page4 extends StatelessWidget {
   const Page4({Key? key}) : super(key: key);
@@ -23,8 +21,8 @@ class Page4BlocTableBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-        create: (_) => HIHMV002_Bloc(),
-        child: BlocBuilder<HIHMV002_Bloc, HIHMV002SCHEMA>(
+        create: (_) => HGHMV002_Bloc(),
+        child: BlocBuilder<HGHMV002_Bloc, HGHMV002SCHEMA>(
           builder: (context, data) {
             return Page4Body(
               data: data,
@@ -36,11 +34,11 @@ class Page4BlocTableBody extends StatelessWidget {
 
 class Page4Body extends StatelessWidget {
   Page4Body({Key? key, this.data}) : super(key: key);
-  HIHMV002SCHEMA? data;
+  HGHMV002SCHEMA? data;
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: MICROVICKER_HIHMV002main(
+      child: MICROVICKER_HGHMV002main(
         data: data,
       ),
     );

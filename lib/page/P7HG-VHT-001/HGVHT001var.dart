@@ -3,7 +3,7 @@ import 'dart:async';
 import '../../model/model.dart';
 import '../../widget/QCWIDGET/consolelayout.dart';
 
-class HIRGH001var {
+class HGVHT001var {
   static String PO = '';
   static String CP = '';
   static String QTY = '';
@@ -35,12 +35,10 @@ class HIRGH001var {
 
   //
   static String ItemPickSELECT = '';
-  //
-  static String PICs = '';
 }
 
-class HIRGH001SCHEMA {
-  HIRGH001SCHEMA({
+class HGVHT001SCHEMA {
+  HGVHT001SCHEMA({
     this.UPDATE = '',
     this.PO = '',
     this.CP = '',
@@ -65,7 +63,6 @@ class HIRGH001SCHEMA {
     this.GAP = '',
     this.GAPname = '',
     this.GAPnamePick = '',
-    this.Pic = '',
     required this.GAPnameList,
     required this.preview,
     required this.confirmdata,
@@ -96,7 +93,6 @@ class HIRGH001SCHEMA {
   String GAP;
   String GAPname;
   String GAPnamePick;
-  String Pic;
 
   List<String> GAPnameList;
   List<INSDATA> preview;

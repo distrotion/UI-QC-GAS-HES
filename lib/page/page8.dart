@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../bloc/BlocEvent/08-01-LCRUVS001.dart';
-import 'P8LCR-UVS-001/LCRUVS001main.dart';
-import 'P8LCR-UVS-001/LCRUVS001var.dart';
+import '../bloc/BlocEvent/08-01-HGMSC001.dart';
+import 'P8HG-MSC-001/HGMSC001main.dart';
+import 'P8HG-MSC-001/HGMSC001var.dart';
 
 class Page8 extends StatelessWidget {
   const Page8({Key? key}) : super(key: key);
@@ -22,8 +22,8 @@ class Page8BlocTableBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-        create: (_) => LCRUVS001_Bloc(),
-        child: BlocBuilder<LCRUVS001_Bloc, LCRUVS001SCHEMA>(
+        create: (_) => HGMSC001_Bloc(),
+        child: BlocBuilder<HGMSC001_Bloc, HGMSC001SCHEMA>(
           builder: (context, data) {
             return Page8Body(
               data: data,
@@ -35,11 +35,11 @@ class Page8BlocTableBody extends StatelessWidget {
 
 class Page8Body extends StatelessWidget {
   Page8Body({Key? key, this.data}) : super(key: key);
-  LCRUVS001SCHEMA? data;
+  HGMSC001SCHEMA? data;
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: MICROVICKER_LCRUVS001main(
+      child: MICROSCOPE_HGMSC001main(
         data: data,
       ),
     );

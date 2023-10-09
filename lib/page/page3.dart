@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../bloc/BlocEvent/03-01-HGHMV001.dart';
-import 'P3HI-HMV-001/HGHMV001main.dart';
-import 'P3HI-HMV-001/HGHMV001var.dart';
+import '../bloc/BlocEvent/03-01-TPGHMV001.dart';
+import 'P3HG-HMV-001/HGHMV001var.dart';
+import 'P3HG-HMV-001/HGHMV001main.dart';
 
 class Page3 extends StatelessWidget {
   const Page3({Key? key}) : super(key: key);

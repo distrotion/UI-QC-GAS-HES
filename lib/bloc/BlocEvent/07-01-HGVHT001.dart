@@ -4,19 +4,19 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../data/global.dart';
 import '../../model/model.dart';
 
-import '../../page/P5HI-RGH-001/HIRGH001var.dart';
+import '../../page/P7HG-VHT-001/HGVHT001var.dart';
 import '../../widget/QCWIDGET/consolelayout.dart';
 
 //-------------------------------------------------
 String server = GLOserver;
 
-abstract class HIRGH001_Event {}
+abstract class HGVHT001_Event {}
 
-class HIRGH001_READ extends HIRGH001_Event {}
+class HGVHT001_READ extends HGVHT001_Event {}
 
-class HIRGH001_Bloc extends Bloc<HIRGH001_Event, HIRGH001SCHEMA> {
-  HIRGH001_Bloc()
-      : super(HIRGH001SCHEMA(
+class HGVHT001_Bloc extends Bloc<HGVHT001_Event, HGVHT001SCHEMA> {
+  HGVHT001_Bloc()
+      : super(HGVHT001SCHEMA(
           ItemPick: [''],
           ItemPickcode: [ITEMSET()],
           preview: [],
@@ -25,9 +25,9 @@ class HIRGH001_Bloc extends Bloc<HIRGH001_Event, HIRGH001SCHEMA> {
           ITEMleftVALUE: [],
           GAPnameList: [],
         )) {
-    on<HIRGH001_READ>((event, emit) {
-      return _HIRGH001_READ(
-          HIRGH001SCHEMA(
+    on<HGVHT001_READ>((event, emit) {
+      return _HGVHT001_READ(
+          HGVHT001SCHEMA(
             ItemPick: [''],
             ItemPickcode: [ITEMSET()],
             preview: [],
@@ -39,14 +39,14 @@ class HIRGH001_Bloc extends Bloc<HIRGH001_Event, HIRGH001SCHEMA> {
           emit);
     });
   }
-  Future<void> _HIRGH001_READ(
-      HIRGH001SCHEMA toAdd, Emitter<HIRGH001SCHEMA> emit) async {
+  Future<void> _HGVHT001_READ(
+      HGVHT001SCHEMA toAdd, Emitter<HGVHT001SCHEMA> emit) async {
     //--------------- READ
     final response = await Dio().post(
-      server + "HIRGH001db",
+      server + "HGVHT001db",
       data: {},
     );
-    HIRGH001SCHEMA output = HIRGH001SCHEMA(
+    HGVHT001SCHEMA output = HGVHT001SCHEMA(
       ItemPick: [''],
       ItemPickcode: [ITEMSET()],
       preview: [],
@@ -165,7 +165,7 @@ class HIRGH001_Bloc extends Bloc<HIRGH001_Event, HIRGH001SCHEMA> {
         }
       }
 
-      output = HIRGH001SCHEMA(
+      output = HGVHT001SCHEMA(
         UPDATE: 'OK',
         //---- Left
         PO: databuff['PO'] == null ? '' : databuff['PO'].toString(),
@@ -209,23 +209,10 @@ class HIRGH001_Bloc extends Bloc<HIRGH001_Event, HIRGH001SCHEMA> {
         //---- RIGHT
         ITEMleftUNIT: ITEMleftUNITBUFFER,
         ITEMleftVALUE: ITEMleftVALUEBUFFER,
-        Pic: databuff['PIC'] != null ? outPIC(databuff['PIC'].toString()) : "",
       );
     } else {
       //
     }
     emit(output);
   }
-}
-
-String outPIC(String input) {
-  String output = "";
-  List<String> data = [];
-  data = input.toString().split(",");
-
-  if (data.length > 1) {
-    output = data[1];
-  }
-
-  return output;
 }

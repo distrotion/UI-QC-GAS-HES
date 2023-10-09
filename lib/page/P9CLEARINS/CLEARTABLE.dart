@@ -34,14 +34,14 @@ class _ClearRoomBODYState extends State<ClearRoomBODY> {
   Widget build(BuildContext context) {
     return Container(
       width: 700,
-      height: 401,
+      height: 481,
       decoration: BoxDecoration(
         border: Border.all(color: Colors.black),
         borderRadius: const BorderRadius.all(Radius.circular(0)),
       ),
       child: SizedBox(
         width: 700,
-        height: 400,
+        height: 480,
         child: SingleChildScrollView(
           child: Column(
             children: [
@@ -106,7 +106,7 @@ class _ClearRoomBODYState extends State<ClearRoomBODY> {
                         ),
                         child: Center(
                           child: Text(
-                            "APP-GASHES : ${widget.data?.PO1 ?? ""}",
+                            "TPG-HRC-004 : ${widget.data?.PO1 ?? ""}",
                             style: TxtStyle(
                               fontWeight: FontWeight.bold,
                               color: widget.data!.PO1 == ''
@@ -171,7 +171,7 @@ class _ClearRoomBODYState extends State<ClearRoomBODY> {
                         ),
                         child: Center(
                           child: Text(
-                            "HI-HMV-001 : ${widget.data?.PO2 ?? ""}",
+                            "TPG-HRC-005 : ${widget.data?.PO2 ?? ""}",
                             style: TxtStyle(
                               fontWeight: FontWeight.bold,
                               color: widget.data!.PO2 == ''
@@ -236,7 +236,7 @@ class _ClearRoomBODYState extends State<ClearRoomBODY> {
                         ),
                         child: Center(
                           child: Text(
-                            "HI-HMV-002 : ${widget.data?.PO3 ?? ""}",
+                            "TPG-HMV-002 : ${widget.data?.PO3 ?? ""}",
                             style: TxtStyle(
                               fontWeight: FontWeight.bold,
                               color: widget.data!.PO3 == ''
@@ -301,7 +301,7 @@ class _ClearRoomBODYState extends State<ClearRoomBODY> {
                         ),
                         child: Center(
                           child: Text(
-                            "HI-RGH-001 : ${widget.data?.PO4 ?? ""}",
+                            "TPG-HMV-003 : ${widget.data?.PO4 ?? ""}",
                             style: TxtStyle(
                               fontWeight: FontWeight.bold,
                               color: widget.data!.PO4 == ''
@@ -366,7 +366,7 @@ class _ClearRoomBODYState extends State<ClearRoomBODY> {
                         ),
                         child: Center(
                           child: Text(
-                            "HI-MIC-001 : ${widget.data?.PO5 ?? ""}",
+                            "TPG-MCS-001 : ${widget.data?.PO5 ?? ""}",
                             style: TxtStyle(
                               fontWeight: FontWeight.bold,
                               color: widget.data!.PO5 == ''
@@ -431,7 +431,7 @@ class _ClearRoomBODYState extends State<ClearRoomBODY> {
                         ),
                         child: Center(
                           child: Text(
-                            "MCS-INSHES : ${widget.data?.PO6 ?? ""}",
+                            "TPG-HVK-003 : ${widget.data?.PO6 ?? ""}",
                             style: TxtStyle(
                               fontWeight: FontWeight.bold,
                               color: widget.data!.PO6 == ''
@@ -496,7 +496,7 @@ class _ClearRoomBODYState extends State<ClearRoomBODY> {
                         ),
                         child: Center(
                           child: Text(
-                            "LCR-UVS-001 : ${widget.data?.PO7 ?? ""}",
+                            "APP-GASGW : ${widget.data?.PO7 ?? ""}",
                             style: TxtStyle(
                               fontWeight: FontWeight.bold,
                               color: widget.data!.PO7 == ''
@@ -543,71 +543,71 @@ class _ClearRoomBODYState extends State<ClearRoomBODY> {
                   ],
                 ),
               ),
-              // Container(
-              //   height: 50,
-              //   decoration: BoxDecoration(
-              //     border: Border.all(color: Colors.black),
-              //     borderRadius: const BorderRadius.all(Radius.circular(0)),
-              //   ),
-              //   child: Row(
-              //     children: [
-              //       Expanded(
-              //         flex: 1,
-              //         child: Container(
-              //           decoration: BoxDecoration(
-              //             border: Border.all(color: Colors.black),
-              //             borderRadius:
-              //                 const BorderRadius.all(Radius.circular(0)),
-              //           ),
-              //           child: Center(
-              //             child: Text(
-              //               "APP-GASGW : ${widget.data?.PO7 ?? ""}",
-              //               style: TxtStyle(
-              //                 fontWeight: FontWeight.bold,
-              //                 color: widget.data!.PO7 == ''
-              //                     ? Colors.black
-              //                     : Colors.red,
-              //               ),
-              //             ),
-              //           ),
-              //         ),
-              //       ),
-              //       Expanded(
-              //         flex: 1,
-              //         child: Container(
-              //           decoration: BoxDecoration(
-              //             border: Border.all(color: Colors.black),
-              //             borderRadius:
-              //                 const BorderRadius.all(Radius.circular(0)),
-              //           ),
-              //           child: Padding(
-              //             padding: const EdgeInsetsDirectional.all(5),
-              //             child: InkWell(
-              //               onTap: () {
-              //                 //
-              //                 CLEARroomdata.room = 'PO7';
-              //                 context
-              //                     .read<CLEARroom_Bloc>()
-              //                     .add(CLEARroom_CLEAR());
-              //               },
-              //               child: Container(
-              //                 color: Colors.blue,
-              //                 child: const Center(
-              //                   child: Text(
-              //                     "CLEAR",
-              //                     style: TxtStyle(
-              //                         fontWeight: FontWeight.bold,
-              //                         color: Colors.white),
-              //                   ),
-              //                 ),
-              //               ),
-              //             ),
-              //           ),
-              //         ),
-              //       ),
-              //     ],
-              //   ),
-              // ),
+              Container(
+                height: 50,
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.black),
+                  borderRadius: const BorderRadius.all(Radius.circular(0)),
+                ),
+                child: Row(
+                  children: [
+                    Expanded(
+                      flex: 1,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Colors.black),
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(0)),
+                        ),
+                        child: Center(
+                          child: Text(
+                            "TPG-VCP-002 : ${widget.data?.PO8 ?? ""}",
+                            style: TxtStyle(
+                              fontWeight: FontWeight.bold,
+                              color: widget.data!.PO8 == ''
+                                  ? Colors.black
+                                  : Colors.red,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Colors.black),
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(0)),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsetsDirectional.all(5),
+                          child: InkWell(
+                            onTap: () {
+                              //
+                              CLEARroomdata.room = 'PO8';
+                              context
+                                  .read<CLEARroom_Bloc>()
+                                  .add(CLEARroom_CLEAR());
+                            },
+                            child: Container(
+                              color: Colors.blue,
+                              child: const Center(
+                                child: Text(
+                                  "CLEAR",
+                                  style: TxtStyle(
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             ],
           ),
         ),

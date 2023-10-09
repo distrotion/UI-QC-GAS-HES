@@ -82,50 +82,39 @@ class SELECtINSTRUMENTbody extends StatelessWidget {
       } else if (FIRSTUI.SECLECTins == 'HG-HMV-001') {
         CuPage = Page3();
         MainBodyContext.read<ChangePage_Bloc>().add(ChangePage_nodrower());
+      } else if (FIRSTUI.SECLECTins == 'HG-HMV-002') {
+        CuPage = Page4();
+        MainBodyContext.read<ChangePage_Bloc>().add(ChangePage_nodrower());
+      } else if (FIRSTUI.SECLECTins == 'HG-HMV-003') {
+        CuPage = Page5();
+        MainBodyContext.read<ChangePage_Bloc>().add(ChangePage_nodrower());
+      } else if (FIRSTUI.SECLECTins == 'HG-HRC-002') {
+        CuPage = Page6();
+        MainBodyContext.read<ChangePage_Bloc>().add(ChangePage_nodrower());
+      } else if (FIRSTUI.SECLECTins == 'HG-VHT-001') {
+        CuPage = Page7();
+        MainBodyContext.read<ChangePage_Bloc>().add(ChangePage_nodrower());
+      } else if (FIRSTUI.SECLECTins == 'HG-MSC-001') {
+        CuPage = Page8();
+        MainBodyContext.read<ChangePage_Bloc>().add(ChangePage_nodrower());
       }
-      //
-      //else if (FIRSTUI.SECLECTins == 'HI-HMV-002') {
-      //   CuPage = Page4();
-      //   MainBodyContext.read<ChangePage_Bloc>().add(ChangePage_nodrower());
-      // } else if (FIRSTUI.SECLECTins == 'HI-RGH-001') {
-      //   CuPage = Page5();
-      //   MainBodyContext.read<ChangePage_Bloc>().add(ChangePage_nodrower());
-      // } else if (FIRSTUI.SECLECTins == 'HI-MIC-001') {
-      //   CuPage = Page6();
-      //   MainBodyContext.read<ChangePage_Bloc>().add(ChangePage_nodrower());
-      // } else if (FIRSTUI.SECLECTins == 'MCS-INSHES') {
-      //   CuPage = Page7();
-      //   MainBodyContext.read<ChangePage_Bloc>().add(ChangePage_nodrower());
-      // } else if (FIRSTUI.SECLECTins == 'LCR-UVS-001') {
-      //   CuPage = Page8();
-      //   MainBodyContext.read<ChangePage_Bloc>().add(ChangePage_nodrower());
-      // } else if (FIRSTUI.SECLECTins == 'HI-MICM-001') {
-      //   CuPage = Page8();
-      //   MainBodyContext.read<ChangePage_Bloc>().add(ChangePage_nodrower());
-      // }
     } else {
       if (FIRSTUI.SECLECTins != '') {
         if (FIRSTUI.SECLECTins == 'APP-GASHES') {
           FIRSTUI.INSnotREADY[FIRSTUI.INSint] = 1;
         } else if (FIRSTUI.SECLECTins == 'HG-HMV-001') {
           FIRSTUI.INSnotREADY[FIRSTUI.INSint] = 1;
+        } else if (FIRSTUI.SECLECTins == 'HI-HMV-002') {
+          FIRSTUI.INSnotREADY[FIRSTUI.INSint] = 1;
+        } else if (FIRSTUI.SECLECTins == 'HG-HMV-003') {
+          FIRSTUI.INSnotREADY[FIRSTUI.INSint] = 1;
+        } else if (FIRSTUI.SECLECTins == 'HG-HRC-002') {
+          FIRSTUI.INSnotREADY[FIRSTUI.INSint] = 1;
+        } else if (FIRSTUI.SECLECTins == 'HG-MSC-001') {
+          FIRSTUI.INSnotREADY[FIRSTUI.INSint] = 1;
+        } else if (FIRSTUI.SECLECTins == 'HG-VHT-001') {
+          FIRSTUI.INSnotREADY[FIRSTUI.INSint] = 1;
         }
-
-        // else if (FIRSTUI.SECLECTins == 'HI-HMV-002') {
-        //   FIRSTUI.INSnotREADY[FIRSTUI.INSint] = 1;
-        // } else if (FIRSTUI.SECLECTins == 'HI-RGH-001') {
-        //   FIRSTUI.INSnotREADY[FIRSTUI.INSint] = 1;
-        // } else if (FIRSTUI.SECLECTins == 'HI-MIC-001') {
-        //   FIRSTUI.INSnotREADY[FIRSTUI.INSint] = 1;
-        // } else if (FIRSTUI.SECLECTins == 'MCS-INSHES') {
-        //   FIRSTUI.INSnotREADY[FIRSTUI.INSint] = 1;
-        // } else if (FIRSTUI.SECLECTins == 'APP-GASGW') {
-        //   FIRSTUI.INSnotREADY[FIRSTUI.INSint] = 1;
-        // } else if (FIRSTUI.SECLECTins == 'LCR-UVS-001') {
-        //   FIRSTUI.INSnotREADY[FIRSTUI.INSint] = 1;
-        // } else if (FIRSTUI.SECLECTins == 'HI-MICM-001') {
-        //   FIRSTUI.INSnotREADY[FIRSTUI.INSint] = 1;
-        // }
 
         FIRSTUI.SECLECTins = '';
       } else {
@@ -249,36 +238,34 @@ class SELECtINSTRUMENTbody extends StatelessWidget {
                                     .read<TRICKERMASTER_Bloc>()
                                     .add(TRICKERMASTER_GETINtoHGHMV001());
                               }
-                              // if (_INSlist[i] == 'HI-HMV-002') {
-                              //   context
-                              //       .read<TRICKERMASTER_Bloc>()
-                              //       .add(TRICKERMASTER_GETINtoHIHMV002());
-                              // }
-                              // if (_INSlist[i] == 'HI-RGH-001') {
-                              //   context
-                              //       .read<TRICKERMASTER_Bloc>()
-                              //       .add(TRICKERMASTER_GETINtoHIRGH001());
-                              // }
-                              // if (_INSlist[i] == 'HI-MIC-001') {
-                              //   context
-                              //       .read<TRICKERMASTER_Bloc>()
-                              //       .add(TRICKERMASTER_GETINtoHIMIC001());
-                              // }
-                              // if (_INSlist[i] == 'MCS-INSHES') {
-                              //   context
-                              //       .read<TRICKERMASTER_Bloc>()
-                              //       .add(TRICKERMASTER_GETINtoMCSINSHES());
-                              // }
-                              // if (_INSlist[i] == 'LCR-UVS-001') {
-                              //   context
-                              //       .read<TRICKERMASTER_Bloc>()
-                              //       .add(TRICKERMASTER_GETINtoLCRUVS001());
-                              // }
-                              // if (_INSlist[i] == 'HI-MICM-001') {
-                              //   context
-                              //       .read<TRICKERMASTER_Bloc>()
-                              //       .add(TRICKERMASTER_GETINtoLCRUVS001());
-                              // }
+                              if (_INSlist[i] == 'HG-HMV-002') {
+                                context
+                                    .read<TRICKERMASTER_Bloc>()
+                                    .add(TRICKERMASTER_GETINtoHGHMV002());
+                              }
+                              if (_INSlist[i] == 'HG-HMV-003') {
+                                context
+                                    .read<TRICKERMASTER_Bloc>()
+                                    .add(TRICKERMASTER_GETINtoHGHMV003());
+                              }
+
+                              if (_INSlist[i] == 'HG-HRC-002') {
+                                context
+                                    .read<TRICKERMASTER_Bloc>()
+                                    .add(TRICKERMASTER_GETINtoHGHRC002());
+                              }
+
+                              if (_INSlist[i] == 'HG-VHT-001') {
+                                context
+                                    .read<TRICKERMASTER_Bloc>()
+                                    .add(TRICKERMASTER_GETINtoHGVHT001());
+                              }
+
+                              if (_INSlist[i] == 'HG-MSC-001') {
+                                context
+                                    .read<TRICKERMASTER_Bloc>()
+                                    .add(TRICKERMASTER_GETINtoHGMSC001());
+                              }
                             },
                             child: INSBOX(
                               INS: _INSlist[i],

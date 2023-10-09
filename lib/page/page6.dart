@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../bloc/BlocEvent/06-01-HIMIC001.dart';
-import 'P6HI-MIC-001/HIMIC001main.dart';
-import 'P6HI-MIC-001/HIMIC001var.dart';
+import '../bloc/BlocEvent/06-01-HGHRC002.dart';
+import 'P6HG-HRC-002/HGHRC002main.dart';
+import 'P6HG-HRC-002/HGHRC002var.dart';
 
 class Page6 extends StatelessWidget {
   const Page6({Key? key}) : super(key: key);
@@ -22,8 +22,8 @@ class Page6BlocTableBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-        create: (_) => HIMIC001_Bloc(),
-        child: BlocBuilder<HIMIC001_Bloc, HIMIC001SCHEMA>(
+        create: (_) => HGHRC002_Bloc(),
+        child: BlocBuilder<HGHRC002_Bloc, HGHRC002SCHEMA>(
           builder: (context, data) {
             return Page6Body(
               data: data,
@@ -35,11 +35,11 @@ class Page6BlocTableBody extends StatelessWidget {
 
 class Page6Body extends StatelessWidget {
   Page6Body({Key? key, this.data}) : super(key: key);
-  HIMIC001SCHEMA? data;
+  HGHRC002SCHEMA? data;
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: MICROVICKER_HIMIC001main(
+      child: ROCKWELL_HGHRC002main(
         data: data,
       ),
     );

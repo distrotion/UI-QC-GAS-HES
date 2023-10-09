@@ -4,19 +4,20 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../data/global.dart';
 import '../../model/model.dart';
 
-import '../../page/P8LCR-UVS-001/LCRUVS001var.dart';
+import '../../page/P3HG-HMV-001/HGHMV001var.dart';
+import '../../page/P4HG-HMV-002/HGHMV002var.dart';
 import '../../widget/QCWIDGET/consolelayout.dart';
 
 //-------------------------------------------------
 String server = GLOserver;
 
-abstract class LCRUVS001_Event {}
+abstract class HGHMV002_Event {}
 
-class LCRUVS001_READ extends LCRUVS001_Event {}
+class HGHMV002_READ extends HGHMV002_Event {}
 
-class LCRUVS001_Bloc extends Bloc<LCRUVS001_Event, LCRUVS001SCHEMA> {
-  LCRUVS001_Bloc()
-      : super(LCRUVS001SCHEMA(
+class HGHMV002_Bloc extends Bloc<HGHMV002_Event, HGHMV002SCHEMA> {
+  HGHMV002_Bloc()
+      : super(HGHMV002SCHEMA(
           ItemPick: [''],
           ItemPickcode: [ITEMSET()],
           preview: [],
@@ -25,9 +26,9 @@ class LCRUVS001_Bloc extends Bloc<LCRUVS001_Event, LCRUVS001SCHEMA> {
           ITEMleftVALUE: [],
           GAPnameList: [],
         )) {
-    on<LCRUVS001_READ>((event, emit) {
-      return _LCRUVS001_READ(
-          LCRUVS001SCHEMA(
+    on<HGHMV002_READ>((event, emit) {
+      return _HGHMV002_READ(
+          HGHMV002SCHEMA(
             ItemPick: [''],
             ItemPickcode: [ITEMSET()],
             preview: [],
@@ -39,14 +40,14 @@ class LCRUVS001_Bloc extends Bloc<LCRUVS001_Event, LCRUVS001SCHEMA> {
           emit);
     });
   }
-  Future<void> _LCRUVS001_READ(
-      LCRUVS001SCHEMA toAdd, Emitter<LCRUVS001SCHEMA> emit) async {
+  Future<void> _HGHMV002_READ(
+      HGHMV002SCHEMA toAdd, Emitter<HGHMV002SCHEMA> emit) async {
     //--------------- READ
     final response = await Dio().post(
-      server + "LCRUVS001db",
+      server + "HGHMV002db",
       data: {},
     );
-    LCRUVS001SCHEMA output = LCRUVS001SCHEMA(
+    HGHMV002SCHEMA output = HGHMV002SCHEMA(
       ItemPick: [''],
       ItemPickcode: [ITEMSET()],
       preview: [],
@@ -165,7 +166,7 @@ class LCRUVS001_Bloc extends Bloc<LCRUVS001_Event, LCRUVS001SCHEMA> {
         }
       }
 
-      output = LCRUVS001SCHEMA(
+      output = HGHMV002SCHEMA(
         UPDATE: 'OK',
         //---- Left
         PO: databuff['PO'] == null ? '' : databuff['PO'].toString(),

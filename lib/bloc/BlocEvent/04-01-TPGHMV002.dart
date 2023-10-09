@@ -3,19 +3,21 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../data/global.dart';
 import '../../model/model.dart';
-import '../../page/P4HI-HMV-002/HIHMV002var.dart';
+
+import '../../page/P3HG-HMV-001/HGHMV001var.dart';
+import '../../page/P4HG-HMV-002/HGHMV002var.dart';
 import '../../widget/QCWIDGET/consolelayout.dart';
 
 //-------------------------------------------------
 String server = GLOserver;
 
-abstract class HIHMV002_Event {}
+abstract class HGHMV002_Event {}
 
-class HIHMV002_READ extends HIHMV002_Event {}
+class HGHMV002_READ extends HGHMV002_Event {}
 
-class HIHMV002_Bloc extends Bloc<HIHMV002_Event, HIHMV002SCHEMA> {
-  HIHMV002_Bloc()
-      : super(HIHMV002SCHEMA(
+class HGHMV002_Bloc extends Bloc<HGHMV002_Event, HGHMV002SCHEMA> {
+  HGHMV002_Bloc()
+      : super(HGHMV002SCHEMA(
           ItemPick: [''],
           ItemPickcode: [ITEMSET()],
           preview: [],
@@ -24,9 +26,9 @@ class HIHMV002_Bloc extends Bloc<HIHMV002_Event, HIHMV002SCHEMA> {
           ITEMleftVALUE: [],
           GAPnameList: [],
         )) {
-    on<HIHMV002_READ>((event, emit) {
-      return _HIHMV002_READ(
-          HIHMV002SCHEMA(
+    on<HGHMV002_READ>((event, emit) {
+      return _HGHMV002_READ(
+          HGHMV002SCHEMA(
             ItemPick: [''],
             ItemPickcode: [ITEMSET()],
             preview: [],
@@ -38,14 +40,14 @@ class HIHMV002_Bloc extends Bloc<HIHMV002_Event, HIHMV002SCHEMA> {
           emit);
     });
   }
-  Future<void> _HIHMV002_READ(
-      HIHMV002SCHEMA toAdd, Emitter<HIHMV002SCHEMA> emit) async {
+  Future<void> _HGHMV002_READ(
+      HGHMV002SCHEMA toAdd, Emitter<HGHMV002SCHEMA> emit) async {
     //--------------- READ
     final response = await Dio().post(
-      server + "HIHMV002db",
+      server + "HGHMV002db",
       data: {},
     );
-    HIHMV002SCHEMA output = HIHMV002SCHEMA(
+    HGHMV002SCHEMA output = HGHMV002SCHEMA(
       ItemPick: [''],
       ItemPickcode: [ITEMSET()],
       preview: [],
@@ -164,7 +166,7 @@ class HIHMV002_Bloc extends Bloc<HIHMV002_Event, HIHMV002SCHEMA> {
         }
       }
 
-      output = HIHMV002SCHEMA(
+      output = HGHMV002SCHEMA(
         UPDATE: 'OK',
         //---- Left
         PO: databuff['PO'] == null ? '' : databuff['PO'].toString(),
@@ -208,23 +210,10 @@ class HIHMV002_Bloc extends Bloc<HIHMV002_Event, HIHMV002SCHEMA> {
         //---- RIGHT
         ITEMleftUNIT: ITEMleftUNITBUFFER,
         ITEMleftVALUE: ITEMleftVALUEBUFFER,
-        Pic: databuff['PIC'] != null ? outPIC(databuff['PIC'].toString()) : "",
       );
     } else {
       //
     }
     emit(output);
   }
-}
-
-String outPIC(String input) {
-  String output = "";
-  List<String> data = [];
-  data = input.toString().split(",");
-
-  if (data.length > 1) {
-    output = data[1];
-  }
-
-  return output;
 }

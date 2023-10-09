@@ -3,7 +3,7 @@ import 'dart:async';
 import '../../model/model.dart';
 import '../../widget/QCWIDGET/consolelayout.dart';
 
-class HIHMV002var {
+class HGHMV002var {
   static String PO = '';
   static String CP = '';
   static String QTY = '';
@@ -35,12 +35,10 @@ class HIHMV002var {
 
   //
   static String ItemPickSELECT = '';
-  //
-  static String PICs = '';
 }
 
-class HIHMV002SCHEMA {
-  HIHMV002SCHEMA({
+class HGHMV002SCHEMA {
+  HGHMV002SCHEMA({
     this.UPDATE = '',
     this.PO = '',
     this.CP = '',
@@ -65,7 +63,6 @@ class HIHMV002SCHEMA {
     this.GAP = '',
     this.GAPname = '',
     this.GAPnamePick = '',
-    this.Pic = '',
     required this.GAPnameList,
     required this.preview,
     required this.confirmdata,
@@ -96,7 +93,6 @@ class HIHMV002SCHEMA {
   String GAP;
   String GAPname;
   String GAPnamePick;
-  String Pic;
 
   List<String> GAPnameList;
   List<INSDATA> preview;

@@ -1,16 +1,16 @@
 import 'dart:async';
 
+import 'package:back_button_interceptor/back_button_interceptor.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../bloc/BlocEvent/03-01-HGHMV001.dart';
-import '../../bloc/BlocEvent/03-02-TrickHGHMV001.dart';
+import '../../bloc/BlocEvent/03-01-TPGHMV001.dart';
+import '../../bloc/BlocEvent/03-02-TrickTPGHMV001.dart';
 import '../../bloc/BlocEvent/ChangePageEvent.dart';
 import '../../bloc/cubit/NotificationEvent.dart';
 import '../../data/global.dart';
 import '../../mainBody.dart';
 import '../../widget/QCWIDGET/W1SINGLESHOT/SINGLESHOTwidget.dart';
-import '../../widget/QCWIDGET/W2MULTISHOT/MULTISHOTwidget.dart';
 import '../../widget/common/Loading.dart';
 import '../../widget/onlyINqcui/popup.dart';
 import '../P1FIRSTUI/FIRSTuiVAR.dart';
@@ -59,11 +59,33 @@ class _ROCKWELL_HGHMV001bodyState extends State<ROCKWELL_HGHMV001body> {
   @override
   void initState() {
     super.initState();
+    BackButtonInterceptor.add(myInterceptor);
     context.read<HGHMV001_Bloc>().add(HGHMV001_READ());
   }
 
   @override
+  void dispose() {
+    BackButtonInterceptor.remove(myInterceptor);
+    super.dispose();
+  }
+
+  bool myInterceptor(bool stopDefaultButtonEvent, RouteInfo info) {
+    backpage_fn(); // Do some stuff.
+    return true;
+  }
+
+  backpage_fn() {
+    HGHMV001var.DHtimer.cancel();
+    FIRSTUI.SEARCH = FIRSTUI.POACTIVE;
+    HGHMV001var.ItemPickSELECT = '';
+    context.read<TRICKER_HGHMV001_Bloc>().add(TRICKER_HGHMV001SETZERO());
+    CuPage = Page1();
+    MainBodyContext.read<ChangePage_Bloc>().add(ChangePage_nodrower());
+  }
+
+  @override
   Widget build(BuildContext context) {
+    PageMemory = 4;
     if (widget.data?.UPDATE == 'OK') {
       setState(() {
         HGHMV001var.PO = widget.data?.PO ?? '';
@@ -85,13 +107,6 @@ class _ROCKWELL_HGHMV001bodyState extends State<ROCKWELL_HGHMV001body> {
         // HGHMV001var.PCSleft = '10';
         HGHMV001var.POINTs = widget.data?.POINTs ?? '';
         // HGHMV001var.POINTs = '10';
-        // if (HGHMV001var.ItemPickSELECT != "") {
-        //   //
-        //   if (HGHMV001var.POINTs == "") {
-        //     //
-        //     HGHMV001var.POINTs == "0";
-        //   }
-        // }
         HGHMV001var.UNIT = widget.data?.UNIT ?? '';
         // HGHMV001var.UNIT = 'pcs/lots';
         HGHMV001var.INTERSEC = widget.data?.INTERSEC ?? '';
@@ -105,9 +120,6 @@ class _ROCKWELL_HGHMV001bodyState extends State<ROCKWELL_HGHMV001body> {
         HGHMV001var.confirmdata = widget.data?.confirmdata ?? [];
         HGHMV001var.ITEMleftUNIT = widget.data?.ITEMleftUNIT ?? [];
         HGHMV001var.ITEMleftVALUE = widget.data?.ITEMleftVALUE ?? [];
-        //
-
-        HGHMV001var.PICs = widget.data?.Pic ?? '';
 
         if (HGHMV001var.PCSleft == '0') {
           BlocProvider.of<BlocNotification>(contextGB).UpdateNotification(
@@ -122,9 +134,9 @@ class _ROCKWELL_HGHMV001bodyState extends State<ROCKWELL_HGHMV001body> {
       });
       HGHMV001var.DHtimer = timer;
     }
-    return MULTISHOTmain(
+    return SINGLESHOTmain(
       //------ Left
-      LABEL: "HI-HMV-001",
+      LABEL: "TPG-HMV-002",
       PO: HGHMV001var.PO,
       CP: HGHMV001var.CP,
       QTY: HGHMV001var.QTY,
@@ -163,21 +175,27 @@ class _ROCKWELL_HGHMV001bodyState extends State<ROCKWELL_HGHMV001body> {
             .add(TRICKER_HGHMV001geteachGRAPH());
       },
       //------- Bottom
-      DATA1: (v) {
-        context
-            .read<TRICKER_HGHMV001_Bloc>()
-            .add(TRICKER_HGHMV001confirmdata1());
-      },
-      DATA2: (v) {
-        context
-            .read<TRICKER_HGHMV001_Bloc>()
-            .add(TRICKER_HGHMV001confirmdata2());
-      },
-      DATA3: (v) {
-        print("----");
-        context
-            .read<TRICKER_HGHMV001_Bloc>()
-            .add(TRICKER_HGHMV001confirmdata3());
+      ACCEPT: (v) {
+        if ((HGHMV001var.RESULTFORMAT == 'Graph' &&
+                HGHMV001var.GAPname != '') ||
+            HGHMV001var.RESULTFORMAT != 'Graph') {
+          if (HGHMV001var.PCS != '' &&
+              HGHMV001var.POINTs != '' &&
+              HGHMV001var.ItemPickSELECT != '') {
+            if (int.parse(HGHMV001var.POINTs) >
+                HGHMV001var.confirmdata.length) {
+              context
+                  .read<TRICKER_HGHMV001_Bloc>()
+                  .add(TRICKER_HGHMV001confirmdata());
+            } else {
+              WORNINGpop(context, "Have completed POINTs");
+            }
+          } else {
+            WORNINGpop(context, "Please select item");
+          }
+        } else {
+          WORNINGpop(context, "Please select GRAPH");
+        }
       },
       FINISH: (v) {
         if (HGHMV001var.PCS != '' &&
@@ -216,8 +234,6 @@ class _ROCKWELL_HGHMV001bodyState extends State<ROCKWELL_HGHMV001body> {
       },
       ITEMleftUNIT: HGHMV001var.ITEMleftUNIT,
       ITEMleftVALUE: HGHMV001var.ITEMleftVALUE,
-      //
-      PICB64: HGHMV001var.PICs,
     );
   }
 }
