@@ -138,7 +138,7 @@ class _ROCKWELL_HGVHT001bodyState extends State<ROCKWELL_HGVHT001body> {
     }
     return SINGLESHOTmain(
       //------ Left
-      LABEL: "TPG-HMV-002",
+      LABEL: "HG-VHT-001",
       PO: HGVHT001var.PO,
       CP: HGVHT001var.CP,
       QTY: HGVHT001var.QTY,

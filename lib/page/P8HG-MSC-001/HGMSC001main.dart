@@ -10,7 +10,6 @@ import '../../bloc/BlocEvent/ChangePageEvent.dart';
 import '../../bloc/cubit/NotificationEvent.dart';
 import '../../data/global.dart';
 import '../../mainBody.dart';
-import '../../widget/QCWIDGET/W1SINGLESHOT/SINGLESHOTwidget.dart';
 import '../../widget/QCWIDGET/W1SINGLESHOTIMG/SINGLESHOTIMGwidget.dart';
 import '../../widget/common/ComInputText.dart';
 import '../../widget/common/Loading.dart';
@@ -46,22 +45,21 @@ class _TRICKER_HGMSC001_BlocBuffer extends StatelessWidget {
         create: (_) => TRICKER_HGMSC001_Bloc(),
         child: BlocBuilder<TRICKER_HGMSC001_Bloc, String>(
           builder: (context, trick) {
-            return MICROSCOPE_HGMSC001body(data: data);
+            return ROCKWELL_HGMSC001body(data: data);
           },
         ));
   }
 }
 
-class MICROSCOPE_HGMSC001body extends StatefulWidget {
-  MICROSCOPE_HGMSC001body({Key? key, this.data}) : super(key: key);
+class ROCKWELL_HGMSC001body extends StatefulWidget {
+  ROCKWELL_HGMSC001body({Key? key, this.data}) : super(key: key);
   HGMSC001SCHEMA? data;
 
   @override
-  State<MICROSCOPE_HGMSC001body> createState() =>
-      _MICROSCOPE_HGMSC001bodyState();
+  State<ROCKWELL_HGMSC001body> createState() => _ROCKWELL_HGMSC001bodyState();
 }
 
-class _MICROSCOPE_HGMSC001bodyState extends State<MICROSCOPE_HGMSC001body> {
+class _ROCKWELL_HGMSC001bodyState extends State<ROCKWELL_HGMSC001body> {
   @override
   void initState() {
     super.initState();

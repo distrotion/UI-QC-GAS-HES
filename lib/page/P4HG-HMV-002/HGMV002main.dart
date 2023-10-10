@@ -136,7 +136,7 @@ class _ROCKWELL_HGHMV002bodyState extends State<ROCKWELL_HGHMV002body> {
     }
     return SINGLESHOTmain(
       //------ Left
-      LABEL: "TPG-HMV-002",
+      LABEL: "HG-HMV-002",
       PO: HGHMV002var.PO,
       CP: HGHMV002var.CP,
       QTY: HGHMV002var.QTY,

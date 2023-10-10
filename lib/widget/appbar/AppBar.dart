@@ -43,7 +43,6 @@ class _App_BarState extends State<App_Bar> {
   }
 
   ///###################################################################################
-
 }
 
 class Logo2 extends StatelessWidget {
@@ -92,7 +91,7 @@ class Logo1 extends StatelessWidget {
       child: Container(
         color: const Color(0xff0b1327),
         child: const Text(
-          "TPK UI ISN ",
+          "TPK UI GAS HSE",
           style: TextStyle(
             fontFamily: 'Mitr',
             color: Colors.white,
