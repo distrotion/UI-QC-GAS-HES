@@ -43,6 +43,7 @@ dependencies:
   back_button_interceptor: ^6.0.1
   csv: ^5.0.1
   pdf: ^3.8.4
+  fl_chart: ^0.64.0
 
 dev_dependencies:
   flutter_test:

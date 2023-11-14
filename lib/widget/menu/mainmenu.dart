@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../bloc/BlocEvent/LoginEvent.dart';
 import '../../mainBody.dart';
-import '../../page/Page32.dart';
 import '../../page/page1.dart';
 
 import '../../page/page10.dart';
@@ -118,16 +117,16 @@ class Data_Menu_mainmenu extends StatelessWidget {
           page: Page9(),
           Lv: 1,
         ),
-        // menu_normal(
-        //   name: "GARPH STD",
-        //   page: Page11(),
-        //   Lv: 1,
-        // ),
-        // menu_normal(
-        //   name: "REPORT",
-        //   page: Page10(),
-        //   Lv: 1,
-        // ),
+        menu_normal(
+          name: "GARPH STD",
+          page: Page11(),
+          Lv: 1,
+        ),
+        menu_normal(
+          name: "REPORT",
+          page: Page10(),
+          Lv: 1,
+        ),
         // menu_normal(
         //   name: " SUMMARY REPORT",
         //   page: Page11(),

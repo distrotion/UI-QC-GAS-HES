@@ -22,7 +22,7 @@ class REPORT_Bloc extends Bloc<REPORT_Event, List<dataset>> {
       List<dataset> toAdd, Emitter<List<dataset>> emit) async {
     FreeLoading(REPORTuiMAINcontext);
     final response = await Dio().post(
-      "http://172.23.10.70:2160/" + 'gas12report',
+      "http://172.23.10.73:2160/" + 'gas12report',
       data: {},
     );
 

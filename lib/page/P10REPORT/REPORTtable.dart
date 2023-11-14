@@ -19,11 +19,9 @@ import '../../widget/common/Freescroll.dart';
 import '../../widget/common/Loading.dart';
 import '../../widget/onlyINqcui/popup.dart';
 import '../P31ReportPDFcommon/ReportPDFCommonvar.dart';
-import '../P32ReportPDFACT/ReportPDFACTvar.dart';
-import '../P33ReportPDFTEST/ReportPDFTESTvar.dart';
-import '../Page32.dart';
+
 import '../page31.dart';
-import '../page33.dart';
+
 import 'REPORTvar.dart';
 
 late BuildContext REPORTuiMAINcontext;
@@ -98,36 +96,6 @@ class _REPORTuiBODYState extends State<REPORTuiBODY> {
       });
     }
 
-    if (widget.ret == 'get') {
-      //
-
-      if (REPORTvar.reportTYPE == 0) {
-        js.context.callMethod('open', [
-          'http://172.20.30.46/ReportServer?%2fReport+Project4%2fHESISN-STD&rs:Format=PDF&rs:Command=Render&PO=${REPORTvar.PO}'
-        ]);
-        context.read<REPORT_CALL_Bloc>().add(REPORT_CALL_FLUSH());
-        widget.ret = '';
-        // REPORTvar.PO = '';
-        REPORTvar.reportTYPE = 0;
-      } else if (REPORTvar.reportTYPE == 2) {
-        js.context.callMethod('open', [
-          'http://172.20.30.46/ReportServer?%2fReport+Project4%2fHESISN-ACTN&rs:Format=PDF&rs:Command=Render&PO=${REPORTvar.PO}'
-        ]);
-        context.read<REPORT_CALL_Bloc>().add(REPORT_CALL_FLUSH());
-        widget.ret = '';
-        // REPORTvar.PO = '';
-        REPORTvar.reportTYPE = 0;
-      } else {
-        js.context.callMethod('open', [
-          'http://172.20.30.46/ReportServer?%2fReport+Project4%2fHESISN-COMMON1&rs:Format=PDF&rs:Command=Render&PO=${REPORTvar.PO}'
-        ]);
-        context.read<REPORT_CALL_Bloc>().add(REPORT_CALL_FLUSH());
-        widget.ret = '';
-        // REPORTvar.PO = '';
-        REPORTvar.reportTYPE = 0;
-      }
-    }
-
     if (widget.ret == 'R_OK') {
       setState(() {});
       context.read<REPORT_CALL_Bloc>().add(REPORT_CALL_FLUSH());
@@ -189,32 +157,10 @@ class _REPORTuiBODYState extends State<REPORTuiBODY> {
                     child: PaginatedDataTable(
                       controller: controllerReport,
                       source: _data,
-                      header: Row(
+                      header: const Row(
                         children: [
-                          const Text('ISN REPORT'),
-                          const Spacer(),
-                          Padding(
-                            padding: const EdgeInsetsDirectional.only(
-                                start: 2, end: 2, top: 10, bottom: 10),
-                            child: InkWell(
-                              onTap: () {
-                                WORNINGpop(context, "Please clear cookies ");
-                                context
-                                    .read<REPORT_CALL_Bloc>()
-                                    .add(REPORT_CALL_RESET());
-                              },
-                              child: Container(
-                                width: 100,
-                                color: Colors.red,
-                                child: const Center(
-                                  child: Text(
-                                    "RESET REPORT",
-                                    style: TxtStyle(color: Colors.white),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          )
+                          Text('GAS HES REPORT'),
+                          Spacer(),
                         ],
                       ),
                       columns: [
@@ -468,24 +414,6 @@ class _MyData extends DataTableSource {
               children: [
                 InkWell(
                   onTap: () {
-                    ReportPDFTESTvar.PO = data.f01;
-                    NEWreport(context);
-                  },
-                  child: Padding(
-                    padding: const EdgeInsets.only(right: 15),
-                    child: Container(
-                      width: 100,
-                      color: Colors.pink,
-                      child: const Center(
-                          child: Text(
-                        "STD test",
-                        style: TxtStyle(color: Colors.white),
-                      )),
-                    ),
-                  ),
-                ),
-                InkWell(
-                  onTap: () {
                     // onLoadingFAKE(context);
                     // REPORTvar.reportTYPE = 0;
                     // REPORTvar.PO = data.f01;
@@ -502,41 +430,6 @@ class _MyData extends DataTableSource {
                     )),
                   ),
                 ),
-                InkWell(
-                  onTap: () {
-                    // onLoadingFAKE(context);
-                    // REPORTvar.reportTYPE = 2;
-                    // REPORTvar.PO = data.f01;
-                    // context.read<REPORT_CALL_Bloc>().add(REPORT_CALL());
-                    ReportPDFACTvar.PO = data.f01;
-                    ACTreport(context);
-                  },
-                  child: Container(
-                    width: 50,
-                    color: Colors.orange,
-                    child: const Center(
-                        child: Text(
-                      "ACT",
-                      style: TxtStyle(color: Colors.white),
-                    )),
-                  ),
-                ),
-                InkWell(
-                  onTap: () {
-                    // onLoadingFAKE(context);
-                    REPORTvar.reportTYPE = 1;
-                    REPORTvar.PO = data.f01;
-                    context.read<REPORT_CALL_Bloc>().add(REPORT_CALL());
-                  },
-                  child: Container(
-                    color: Colors.black,
-                    child: const Center(
-                        child: Text(
-                      "COMMON",
-                      style: TxtStyle(color: Colors.white),
-                    )),
-                  ),
-                ),
               ],
             ),
           )),
@@ -544,26 +437,26 @@ class _MyData extends DataTableSource {
   }
 }
 
-void ACTreport(
-  BuildContext contextin,
-) {
-  showDialog(
-    context: contextin,
-    barrierDismissible: true,
-    builder: (BuildContext context) {
-      return Dialog(
-        child: SizedBox(
-            height: 1000,
-            width: 1500,
-            child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: SingleChildScrollView(
-                  child: Page32(),
-                ))),
-      );
-    },
-  );
-}
+// void ACTreport(
+//   BuildContext contextin,
+// ) {
+//   showDialog(
+//     context: contextin,
+//     barrierDismissible: true,
+//     builder: (BuildContext context) {
+//       return Dialog(
+//         child: SizedBox(
+//             height: 1000,
+//             width: 1500,
+//             child: Padding(
+//                 padding: const EdgeInsets.all(8.0),
+//                 child: SingleChildScrollView(
+//                   child: Page32(),
+//                 ))),
+//       );
+//     },
+//   );
+// }
 
 void STDreport(
   BuildContext contextin,
@@ -588,23 +481,23 @@ void STDreport(
   );
 }
 
-void NEWreport(
-  BuildContext contextin,
-) {
-  showDialog(
-    context: contextin,
-    barrierDismissible: true,
-    builder: (BuildContext context) {
-      return Dialog(
-        child: SizedBox(
-            height: 1000,
-            width: 1500,
-            child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: SingleChildScrollView(
-                  child: Page33(),
-                ))),
-      );
-    },
-  );
-}
+// void NEWreport(
+//   BuildContext contextin,
+// ) {
+//   showDialog(
+//     context: contextin,
+//     barrierDismissible: true,
+//     builder: (BuildContext context) {
+//       return Dialog(
+//         child: SizedBox(
+//             height: 1000,
+//             width: 1500,
+//             child: Padding(
+//                 padding: const EdgeInsets.all(8.0),
+//                 child: SingleChildScrollView(
+//                   child: Page33(),
+//                 ))),
+//       );
+//     },
+//   );
+// }

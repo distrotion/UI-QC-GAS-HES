@@ -1,3 +1,5 @@
+import 'package:fl_chart/fl_chart.dart';
+
 import '../../widget/common/imgset.dart';
 
 class ReportPDFCommonvar {
@@ -25,14 +27,14 @@ class ReportPDFCommonvar {
   static List<rawlist> rawlistCompound = [];
   static List<rawlist> rawlistRoughness = [];
 
+  static List<rawlist> rawlistGraph = [];
+  static rawlist rawlistGraphCore = rawlist();
+
   static String remark = '';
 
   static String PASS = '';
 
   static String commp = 'Compound layer';
-
-  static String INC01 = '';
-  static String INC02 = '';
 
   static List<ReportPDFCommonlist> datalist = [
     ReportPDFCommonlist(),
@@ -49,6 +51,12 @@ class ReportPDFCommonvar {
     ReportPDFCommonlist(),
     ReportPDFCommonlist(),
   ];
+  static List<FlSpot> graphupper = [];
+  static List<FlSpot> graphdata = [];
+  static List<FlSpot> graphdata2 = [];
+  static List<FlSpot> graphdata3 = [];
+  static List<FlSpot> graphdata4 = [];
+  static List<FlSpot> graphunder = [];
 }
 
 class ReportPDFCommonlist {
@@ -112,9 +120,6 @@ ReportPDFACTclear() {
   ReportPDFCommonvar.PICstd = '';
   ReportPDFCommonvar.PIC01 = '';
   ReportPDFCommonvar.PIC02 = '';
-
-  ReportPDFCommonvar.INC01 = '';
-  ReportPDFCommonvar.INC02 = '';
 
   ReportPDFCommonvar.datalist = [
     ReportPDFCommonlist(),
