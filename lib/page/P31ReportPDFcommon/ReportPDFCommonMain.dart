@@ -50,6 +50,7 @@ class _ReportPDFCommonState extends State<ReportPDFCommon> {
           databasic: BasicCommonDATA(),
         );
     int HardnessNO = 1;
+    int CoreNO = 1;
     int GraphNO = 1;
     int CompoundNO = 1;
     int RoughnessNO = 1;
@@ -81,10 +82,17 @@ class _ReportPDFCommonState extends State<ReportPDFCommon> {
         ReportPDFCommonvar.remark =
             'Reference data from\n${_dataCOMMON.databasic.PARTNAMEref}\n${_dataCOMMON.databasic.PARTref}';
       }
+
+      ReportPDFCommonvar.INC01 = _dataCOMMON.databasic.INC01;
+      ReportPDFCommonvar.INC02 = _dataCOMMON.databasic.INC02;
 //remark
 
       // print(_dataCOMMON.datain[0]);
       // print(_dataCOMMON.datain.length);
+      ReportPDFCommonvar.rawlistHardness = [];
+      ReportPDFCommonvar.rawlistCompound = [];
+      ReportPDFCommonvar.rawlistRoughness = [];
+      ReportPDFCommonvar.rawlistCORE = [];
 
       for (var i = 0; i < _dataCOMMON.datain.length; i++) {
         String Loadin = '';
@@ -105,8 +113,11 @@ class _ReportPDFCommonState extends State<ReportPDFCommon> {
         //Surface Hardness
 
         if (_dataCOMMON.datain[i].TYPE == 'Number') {
-          if (_dataCOMMON.datain[i].ITEMname.contains('Hardness') ||
-              _dataCOMMON.datain[i].ITEMname.contains('hardness')) {
+          if (_dataCOMMON.datain[i].ITEMname
+                  .toUpperCase()
+                  .contains('HARDNESS') &&
+              _dataCOMMON.datain[i].ITEMname.toUpperCase().contains('CORE') ==
+                  false) {
             for (var li = 0;
                 li < _dataCOMMON.datain[i].datapackset.length;
                 li++) {
@@ -256,7 +267,160 @@ class _ReportPDFCommonState extends State<ReportPDFCommon> {
               HardnessNO++;
               // print('>>${HardnessNO}');
             }
+          } else if (_dataCOMMON.datain[i].ITEMname
+              .toUpperCase()
+              .contains('CORE')) {
+            for (var li = 0;
+                li < _dataCOMMON.datain[i].datapackset.length;
+                li++) {
+              // print(_dataCOMMON.datain[i].datapackset[li].dimensionX);
+
+              if (_dataCOMMON.datain[i].datapackset[li].dimensionX == 0) {}
+              if (_dataCOMMON.datain[i].datapackset[li].dimensionX >= 1) {
+                ReportPDFCommonvar.rawlistCORE.add(rawlist(
+                  DATANO: CoreNO.toString(),
+                  DATAPCS: '1',
+                  DATA: _dataCOMMON.datain[i].datapackset[li].DATA01,
+                ));
+              }
+              if (_dataCOMMON.datain[i].datapackset[li].dimensionX >= 2) {
+                ReportPDFCommonvar.rawlistCORE.add(rawlist(
+                  DATANO: CoreNO.toString(),
+                  DATAPCS: '2',
+                  DATA: _dataCOMMON.datain[i].datapackset[li].DATA02,
+                ));
+              }
+              if (_dataCOMMON.datain[i].datapackset[li].dimensionX >= 3) {
+                ReportPDFCommonvar.rawlistCORE.add(rawlist(
+                  DATANO: CoreNO.toString(),
+                  DATAPCS: '3',
+                  DATA: _dataCOMMON.datain[i].datapackset[li].DATA03,
+                ));
+              }
+              if (_dataCOMMON.datain[i].datapackset[li].dimensionX >= 4) {
+                ReportPDFCommonvar.rawlistCORE.add(rawlist(
+                  DATANO: CoreNO.toString(),
+                  DATAPCS: '4',
+                  DATA: _dataCOMMON.datain[i].datapackset[li].DATA04,
+                ));
+              }
+              if (_dataCOMMON.datain[i].datapackset[li].dimensionX >= 5) {
+                ReportPDFCommonvar.rawlistCORE.add(rawlist(
+                  DATANO: CoreNO.toString(),
+                  DATAPCS: '5',
+                  DATA: _dataCOMMON.datain[i].datapackset[li].DATA05,
+                ));
+              }
+              if (_dataCOMMON.datain[i].datapackset[li].dimensionX >= 6) {
+                ReportPDFCommonvar.rawlistCORE.add(rawlist(
+                  DATANO: CoreNO.toString(),
+                  DATAPCS: '6',
+                  DATA: _dataCOMMON.datain[i].datapackset[li].DATA06,
+                ));
+              }
+              if (_dataCOMMON.datain[i].datapackset[li].dimensionX >= 7) {
+                ReportPDFCommonvar.rawlistCORE.add(rawlist(
+                  DATANO: CoreNO.toString(),
+                  DATAPCS: '7',
+                  DATA: _dataCOMMON.datain[i].datapackset[li].DATA07,
+                ));
+              }
+              if (_dataCOMMON.datain[i].datapackset[li].dimensionX >= 8) {
+                ReportPDFCommonvar.rawlistCORE.add(rawlist(
+                  DATANO: CoreNO.toString(),
+                  DATAPCS: '8',
+                  DATA: _dataCOMMON.datain[i].datapackset[li].DATA08,
+                ));
+              }
+              if (_dataCOMMON.datain[i].datapackset[li].dimensionX >= 9) {
+                ReportPDFCommonvar.rawlistCORE.add(rawlist(
+                  DATANO: CoreNO.toString(),
+                  DATAPCS: '9',
+                  DATA: _dataCOMMON.datain[i].datapackset[li].DATA09,
+                ));
+              }
+              if (_dataCOMMON.datain[i].datapackset[li].dimensionX >= 10) {
+                ReportPDFCommonvar.rawlistCORE.add(rawlist(
+                  DATANO: CoreNO.toString(),
+                  DATAPCS: '10',
+                  DATA: _dataCOMMON.datain[i].datapackset[li].DATA10,
+                ));
+              }
+              if (_dataCOMMON.datain[i].datapackset[li].dimensionX >= 11) {
+                ReportPDFCommonvar.rawlistCORE.add(rawlist(
+                  DATANO: CoreNO.toString(),
+                  DATAPCS: '11',
+                  DATA: _dataCOMMON.datain[i].datapackset[li].DATA11,
+                ));
+              }
+              if (_dataCOMMON.datain[i].datapackset[li].dimensionX >= 12) {
+                ReportPDFCommonvar.rawlistCORE.add(rawlist(
+                  DATANO: CoreNO.toString(),
+                  DATAPCS: '12',
+                  DATA: _dataCOMMON.datain[i].datapackset[li].DATA12,
+                ));
+              }
+              if (_dataCOMMON.datain[i].datapackset[li].dimensionX >= 13) {
+                ReportPDFCommonvar.rawlistCORE.add(rawlist(
+                  DATANO: CoreNO.toString(),
+                  DATAPCS: '13',
+                  DATA: _dataCOMMON.datain[i].datapackset[li].DATA13,
+                ));
+              }
+              if (_dataCOMMON.datain[i].datapackset[li].dimensionX >= 14) {
+                ReportPDFCommonvar.rawlistCORE.add(rawlist(
+                  DATANO: CoreNO.toString(),
+                  DATAPCS: '14',
+                  DATA: _dataCOMMON.datain[i].datapackset[li].DATA14,
+                ));
+              }
+              if (_dataCOMMON.datain[i].datapackset[li].dimensionX >= 15) {
+                ReportPDFCommonvar.rawlistCORE.add(rawlist(
+                  DATANO: CoreNO.toString(),
+                  DATAPCS: '15',
+                  DATA: _dataCOMMON.datain[i].datapackset[li].DATA15,
+                ));
+              }
+              if (_dataCOMMON.datain[i].datapackset[li].dimensionX >= 16) {
+                ReportPDFCommonvar.rawlistCORE.add(rawlist(
+                  DATANO: CoreNO.toString(),
+                  DATAPCS: '16',
+                  DATA: _dataCOMMON.datain[i].datapackset[li].DATA16,
+                ));
+              }
+              if (_dataCOMMON.datain[i].datapackset[li].dimensionX >= 17) {
+                ReportPDFCommonvar.rawlistCORE.add(rawlist(
+                  DATANO: CoreNO.toString(),
+                  DATAPCS: '17',
+                  DATA: _dataCOMMON.datain[i].datapackset[li].DATA17,
+                ));
+              }
+              if (_dataCOMMON.datain[i].datapackset[li].dimensionX >= 18) {
+                ReportPDFCommonvar.rawlistCORE.add(rawlist(
+                  DATANO: CoreNO.toString(),
+                  DATAPCS: '18',
+                  DATA: _dataCOMMON.datain[i].datapackset[li].DATA18,
+                ));
+              }
+              if (_dataCOMMON.datain[i].datapackset[li].dimensionX >= 19) {
+                ReportPDFCommonvar.rawlistCORE.add(rawlist(
+                  DATANO: CoreNO.toString(),
+                  DATAPCS: '19',
+                  DATA: _dataCOMMON.datain[i].datapackset[li].DATA19,
+                ));
+              }
+              if (_dataCOMMON.datain[i].datapackset[li].dimensionX >= 20) {
+                ReportPDFCommonvar.rawlistCORE.add(rawlist(
+                  DATANO: CoreNO.toString(),
+                  DATAPCS: '20',
+                  DATA: _dataCOMMON.datain[i].datapackset[li].DATA20,
+                ));
+              }
+              CoreNO++;
+              // print('>>${CoreNO}');
+            }
           }
+          //  CoreNO++;
         }
 
         if (_dataCOMMON.datain[i].TYPE == 'Graph') {
@@ -646,6 +810,9 @@ class _ReportPDFCommonState extends State<ReportPDFCommon> {
       ReportPDFCommonvar.rawlistHardness = [];
       ReportPDFCommonvar.rawlistCompound = [];
       ReportPDFCommonvar.rawlistRoughness = [];
+      ReportPDFCommonvar.rawlistCORE = [];
+      ReportPDFCommonvar.INC01 = '';
+      ReportPDFCommonvar.INC02 = '';
 
       ReportPDFCommonvar.datalist = [
         ReportPDFCommonlist(),
@@ -761,19 +928,44 @@ class _ReportPDFCommonState extends State<ReportPDFCommon> {
                     imgpath: 'assets/icons/icon-down_4@3x.png',
                     listdropdown: const [
                       MapEntry("-", "-"),
-                      MapEntry("TYPE01", "1"),
-                      MapEntry("TYPE02", "2"),
+                      MapEntry("General", "1"),
+                      MapEntry("JTEKT", "2"),
+                      MapEntry("NTN", "3"),
+                      MapEntry("TBKK", "4"),
+                      MapEntry("GKN", "5"),
                     ],
                     onChangeinside: (d, v) {
                       // print(d);
                       ReportPDFCommonvar.TYPE = d;
-                      if (d == '2') {
+                      if (d == '1') {
                         setState(() {
-                          ReportPDFCommonvar.SCMASKTYPE = SCMASK02;
+                          ReportPDFCommonvar.SCMASKTYPE = imgGeneral;
+                          ReportPDFCommonvar.SCMASKTYPEonTop = '';
+                        });
+                      } else if (d == '2') {
+                        setState(() {
+                          ReportPDFCommonvar.SCMASKTYPE = imgJTEKT;
+                          ReportPDFCommonvar.SCMASKTYPEonTop = '';
+                        });
+                      } else if (d == '3') {
+                        setState(() {
+                          ReportPDFCommonvar.SCMASKTYPE = imgNTN;
+                          ReportPDFCommonvar.SCMASKTYPEonTop = imgNTNonH;
+                        });
+                      } else if (d == '4') {
+                        setState(() {
+                          ReportPDFCommonvar.SCMASKTYPE = imgTBKK;
+                          ReportPDFCommonvar.SCMASKTYPEonTop = '';
+                        });
+                      } else if (d == '5') {
+                        setState(() {
+                          ReportPDFCommonvar.SCMASKTYPE = imgGKN;
+                          ReportPDFCommonvar.SCMASKTYPEonTop = '';
                         });
                       } else {
                         setState(() {
-                          ReportPDFCommonvar.SCMASKTYPE = SCMASK03;
+                          ReportPDFCommonvar.SCMASKTYPE = imgGeneral;
+                          ReportPDFCommonvar.SCMASKTYPEonTop = '';
                         });
                       }
                     },
@@ -1153,13 +1345,24 @@ class _ReportPDFCommonState extends State<ReportPDFCommon> {
                                     ),
                                   ),
                                 ),
-                                widget04: Center(
-                                  child: Text(
-                                    ReportPDFCommonvar.MATERIAL,
-                                    style: const TextStyle(
-                                      fontSize: 16,
+                                widget04: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    if (ReportPDFCommonvar.SCMASKTYPEonTop !=
+                                        '') ...[
+                                      PicShow(
+                                          width: 42,
+                                          height: 42,
+                                          base64: ReportPDFCommonvar
+                                              .SCMASKTYPEonTop),
+                                    ],
+                                    Text(
+                                      ReportPDFCommonvar.MATERIAL,
+                                      style: const TextStyle(
+                                        fontSize: 16,
+                                      ),
                                     ),
-                                  ),
+                                  ],
                                 ),
                                 widget05: const Center(
                                   child: Text(
@@ -1257,10 +1460,12 @@ class _ReportPDFCommonState extends State<ReportPDFCommon> {
                                 ),
                               ),
                               BODY7SLOT(
-                                ListFlex: [6, 1, 4, 2, 2, 2, 2],
-                                widget01: const Center(
+                                ListFlex: const [6, 1, 4, 2, 2, 2, 2],
+                                widget01: Center(
                                   child: Text(
-                                    "Appearance for Rust",
+                                    ReportPDFCommonvar.INC01 != ''
+                                        ? "Appearance for Rust"
+                                        : "",
                                     style: TextStyle(
                                       fontSize: 16,
                                     ),
@@ -1274,33 +1479,41 @@ class _ReportPDFCommonState extends State<ReportPDFCommon> {
                                     ),
                                   ),
                                 ),
-                                widget03: const Center(
+                                widget03: Center(
                                   child: Text(
-                                    "Visual",
+                                    ReportPDFCommonvar.INC01 != ''
+                                        ? "Visual"
+                                        : "",
                                     style: TextStyle(
                                       fontSize: 16,
                                     ),
                                   ),
                                 ),
-                                widget04: const Center(
+                                widget04: Center(
                                   child: Text(
-                                    "10 pcs/rcv.Lot",
+                                    ReportPDFCommonvar.INC01 != ''
+                                        ? "10 pcs/rcv.Lot"
+                                        : "",
                                     style: TextStyle(
                                       fontSize: 16,
                                     ),
                                   ),
                                 ),
-                                widget05: const Center(
+                                widget05: Center(
                                   child: Text(
-                                    "No Rust",
+                                    ReportPDFCommonvar.INC01 != ''
+                                        ? "No Rust"
+                                        : "",
                                     style: TextStyle(
                                       fontSize: 16,
                                     ),
                                   ),
                                 ),
-                                widget06: const Center(
+                                widget06: Center(
                                   child: Text(
-                                    "No Rust",
+                                    ReportPDFCommonvar.INC01 != ''
+                                        ? "No Rust"
+                                        : "",
                                     style: TextStyle(
                                       fontSize: 16,
                                     ),
@@ -1318,49 +1531,59 @@ class _ReportPDFCommonState extends State<ReportPDFCommon> {
                               ),
                               BODY7SLOT(
                                 ListFlex: [6, 1, 4, 2, 2, 2, 2],
-                                widget01: const Center(
+                                widget01: Center(
                                   child: Text(
-                                    "",
+                                    ReportPDFCommonvar.INC02 != ''
+                                        ? "Appearance for scratch"
+                                        : "",
                                     style: TextStyle(
                                       fontSize: 16,
                                     ),
                                   ),
                                 ),
-                                widget02: const Center(
+                                widget02: Center(
                                   child: Text(
-                                    "",
+                                    ReportPDFCommonvar.INC02 != '' ? "" : "",
                                     style: TextStyle(
                                       fontSize: 16,
                                     ),
                                   ),
                                 ),
-                                widget03: const Center(
+                                widget03: Center(
                                   child: Text(
-                                    "",
+                                    ReportPDFCommonvar.INC02 != ''
+                                        ? "Visual"
+                                        : "",
                                     style: TextStyle(
                                       fontSize: 16,
                                     ),
                                   ),
                                 ),
-                                widget04: const Center(
+                                widget04: Center(
                                   child: Text(
-                                    "",
+                                    ReportPDFCommonvar.INC02 != ''
+                                        ? "10 pcs/rcv.Lot"
+                                        : "",
                                     style: TextStyle(
                                       fontSize: 16,
                                     ),
                                   ),
                                 ),
-                                widget05: const Center(
+                                widget05: Center(
                                   child: Text(
-                                    "",
+                                    ReportPDFCommonvar.INC02 != ''
+                                        ? "No Scratch"
+                                        : "",
                                     style: TextStyle(
                                       fontSize: 16,
                                     ),
                                   ),
                                 ),
-                                widget06: const Center(
+                                widget06: Center(
                                   child: Text(
-                                    "",
+                                    ReportPDFCommonvar.INC02 != ''
+                                        ? "No Scratch"
+                                        : "",
                                     style: TextStyle(
                                       fontSize: 16,
                                     ),
@@ -2637,11 +2860,11 @@ class _ReportPDFCommonState extends State<ReportPDFCommon> {
                                           ),
                                           widget02: Center(
                                             child: Text(
-                                              ReportPDFCommonvar.rawlistCompound
-                                                          .length >=
+                                              ReportPDFCommonvar
+                                                          .rawlistCORE.length >=
                                                       1
                                                   ? ReportPDFCommonvar
-                                                      .rawlistCompound[0].DATANO
+                                                      .rawlistCORE[0].DATANO
                                                   : '',
                                               style: const TextStyle(
                                                 fontSize: 16,
@@ -2651,11 +2874,11 @@ class _ReportPDFCommonState extends State<ReportPDFCommon> {
                                           ),
                                           widget03: Center(
                                             child: Text(
-                                              ReportPDFCommonvar.rawlistCompound
-                                                          .length >=
+                                              ReportPDFCommonvar
+                                                          .rawlistCORE.length >=
                                                       2
                                                   ? ReportPDFCommonvar
-                                                      .rawlistCompound[1].DATANO
+                                                      .rawlistCORE[1].DATANO
                                                   : '',
                                               style: const TextStyle(
                                                 fontSize: 16,
@@ -2665,11 +2888,11 @@ class _ReportPDFCommonState extends State<ReportPDFCommon> {
                                           ),
                                           widget04: Center(
                                             child: Text(
-                                              ReportPDFCommonvar.rawlistCompound
-                                                          .length >=
+                                              ReportPDFCommonvar
+                                                          .rawlistCORE.length >=
                                                       3
                                                   ? ReportPDFCommonvar
-                                                      .rawlistCompound[2].DATANO
+                                                      .rawlistCORE[2].DATANO
                                                   : '',
                                               style: const TextStyle(
                                                 fontSize: 16,
@@ -2679,11 +2902,11 @@ class _ReportPDFCommonState extends State<ReportPDFCommon> {
                                           ),
                                           widget05: Center(
                                             child: Text(
-                                              ReportPDFCommonvar.rawlistCompound
-                                                          .length >=
+                                              ReportPDFCommonvar
+                                                          .rawlistCORE.length >=
                                                       4
                                                   ? ReportPDFCommonvar
-                                                      .rawlistCompound[3].DATANO
+                                                      .rawlistCORE[3].DATANO
                                                   : '',
                                               style: const TextStyle(
                                                 fontSize: 16,
@@ -2693,11 +2916,11 @@ class _ReportPDFCommonState extends State<ReportPDFCommon> {
                                           ),
                                           widget06: Center(
                                             child: Text(
-                                              ReportPDFCommonvar.rawlistCompound
-                                                          .length >=
+                                              ReportPDFCommonvar
+                                                          .rawlistCORE.length >=
                                                       5
                                                   ? ReportPDFCommonvar
-                                                      .rawlistCompound[4].DATANO
+                                                      .rawlistCORE[4].DATANO
                                                   : '',
                                               style: const TextStyle(
                                                 fontSize: 16,
@@ -2719,12 +2942,11 @@ class _ReportPDFCommonState extends State<ReportPDFCommon> {
                                           ),
                                           widget02: Center(
                                             child: Text(
-                                              ReportPDFCommonvar.rawlistCompound
-                                                          .length >=
+                                              ReportPDFCommonvar
+                                                          .rawlistCORE.length >=
                                                       1
                                                   ? ReportPDFCommonvar
-                                                      .rawlistCompound[0]
-                                                      .DATAPCS
+                                                      .rawlistCORE[0].DATAPCS
                                                   : '',
                                               style: const TextStyle(
                                                 fontSize: 16,
@@ -2734,12 +2956,11 @@ class _ReportPDFCommonState extends State<ReportPDFCommon> {
                                           ),
                                           widget03: Center(
                                             child: Text(
-                                              ReportPDFCommonvar.rawlistCompound
-                                                          .length >=
+                                              ReportPDFCommonvar
+                                                          .rawlistCORE.length >=
                                                       2
                                                   ? ReportPDFCommonvar
-                                                      .rawlistCompound[1]
-                                                      .DATAPCS
+                                                      .rawlistCORE[1].DATAPCS
                                                   : '',
                                               style: const TextStyle(
                                                 fontSize: 16,
@@ -2749,12 +2970,11 @@ class _ReportPDFCommonState extends State<ReportPDFCommon> {
                                           ),
                                           widget04: Center(
                                             child: Text(
-                                              ReportPDFCommonvar.rawlistCompound
-                                                          .length >=
+                                              ReportPDFCommonvar
+                                                          .rawlistCORE.length >=
                                                       3
                                                   ? ReportPDFCommonvar
-                                                      .rawlistCompound[2]
-                                                      .DATAPCS
+                                                      .rawlistCORE[2].DATAPCS
                                                   : '',
                                               style: const TextStyle(
                                                 fontSize: 16,
@@ -2764,12 +2984,11 @@ class _ReportPDFCommonState extends State<ReportPDFCommon> {
                                           ),
                                           widget05: Center(
                                             child: Text(
-                                              ReportPDFCommonvar.rawlistCompound
-                                                          .length >=
+                                              ReportPDFCommonvar
+                                                          .rawlistCORE.length >=
                                                       4
                                                   ? ReportPDFCommonvar
-                                                      .rawlistCompound[3]
-                                                      .DATAPCS
+                                                      .rawlistCORE[3].DATAPCS
                                                   : '',
                                               style: const TextStyle(
                                                 fontSize: 16,
@@ -2779,12 +2998,11 @@ class _ReportPDFCommonState extends State<ReportPDFCommon> {
                                           ),
                                           widget06: Center(
                                             child: Text(
-                                              ReportPDFCommonvar.rawlistCompound
-                                                          .length >=
+                                              ReportPDFCommonvar
+                                                          .rawlistCORE.length >=
                                                       5
                                                   ? ReportPDFCommonvar
-                                                      .rawlistCompound[4]
-                                                      .DATAPCS
+                                                      .rawlistCORE[4].DATAPCS
                                                   : '',
                                               style: const TextStyle(
                                                 fontSize: 16,
@@ -2806,11 +3024,11 @@ class _ReportPDFCommonState extends State<ReportPDFCommon> {
                                           ),
                                           widget02: Center(
                                             child: Text(
-                                              ReportPDFCommonvar.rawlistCompound
-                                                          .length >=
+                                              ReportPDFCommonvar
+                                                          .rawlistCORE.length >=
                                                       1
                                                   ? ReportPDFCommonvar
-                                                      .rawlistCompound[0].DATA
+                                                      .rawlistCORE[0].DATA
                                                   : '',
                                               style: const TextStyle(
                                                 fontSize: 16,
@@ -2820,11 +3038,11 @@ class _ReportPDFCommonState extends State<ReportPDFCommon> {
                                           ),
                                           widget03: Center(
                                             child: Text(
-                                              ReportPDFCommonvar.rawlistCompound
-                                                          .length >=
+                                              ReportPDFCommonvar
+                                                          .rawlistCORE.length >=
                                                       2
                                                   ? ReportPDFCommonvar
-                                                      .rawlistCompound[1].DATA
+                                                      .rawlistCORE[1].DATA
                                                   : '',
                                               style: const TextStyle(
                                                 fontSize: 16,
@@ -2834,11 +3052,11 @@ class _ReportPDFCommonState extends State<ReportPDFCommon> {
                                           ),
                                           widget04: Center(
                                             child: Text(
-                                              ReportPDFCommonvar.rawlistCompound
-                                                          .length >=
+                                              ReportPDFCommonvar
+                                                          .rawlistCORE.length >=
                                                       3
                                                   ? ReportPDFCommonvar
-                                                      .rawlistCompound[2].DATA
+                                                      .rawlistCORE[2].DATA
                                                   : '',
                                               style: const TextStyle(
                                                 fontSize: 16,
@@ -2848,11 +3066,11 @@ class _ReportPDFCommonState extends State<ReportPDFCommon> {
                                           ),
                                           widget05: Center(
                                             child: Text(
-                                              ReportPDFCommonvar.rawlistCompound
-                                                          .length >=
+                                              ReportPDFCommonvar
+                                                          .rawlistCORE.length >=
                                                       4
                                                   ? ReportPDFCommonvar
-                                                      .rawlistCompound[3].DATA
+                                                      .rawlistCORE[3].DATA
                                                   : '',
                                               style: const TextStyle(
                                                 fontSize: 16,
@@ -2862,11 +3080,11 @@ class _ReportPDFCommonState extends State<ReportPDFCommon> {
                                           ),
                                           widget06: Center(
                                             child: Text(
-                                              ReportPDFCommonvar.rawlistCompound
-                                                          .length >=
+                                              ReportPDFCommonvar
+                                                          .rawlistCORE.length >=
                                                       5
                                                   ? ReportPDFCommonvar
-                                                      .rawlistCompound[4].DATA
+                                                      .rawlistCORE[4].DATA
                                                   : '',
                                               style: const TextStyle(
                                                 fontSize: 16,

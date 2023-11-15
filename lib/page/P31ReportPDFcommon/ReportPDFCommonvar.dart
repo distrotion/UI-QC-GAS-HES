@@ -23,9 +23,13 @@ class ReportPDFCommonvar {
   static String PIC02 = '';
   static String TYPE = '-';
   static String SCMASKTYPE = SCMASK03;
+  static String SCMASKTYPEonTop = '';
   static List<rawlist> rawlistHardness = [];
   static List<rawlist> rawlistCompound = [];
   static List<rawlist> rawlistRoughness = [];
+  static List<rawlist> rawlistCORE = [];
+
+  //rawlistCORE
 
   static List<rawlist> rawlistGraph = [];
   static rawlist rawlistGraphCore = rawlist();
@@ -35,6 +39,9 @@ class ReportPDFCommonvar {
   static String PASS = '';
 
   static String commp = 'Compound layer';
+
+  static String INC01 = '';
+  static String INC02 = '';
 
   static List<ReportPDFCommonlist> datalist = [
     ReportPDFCommonlist(),
