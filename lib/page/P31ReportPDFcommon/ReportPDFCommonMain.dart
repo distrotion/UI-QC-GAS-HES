@@ -1162,7 +1162,7 @@ class _ReportPDFCommonState extends State<ReportPDFCommon> {
                                                       top: 20,
                                                     ),
                                                     child: Text(
-                                                      "Quality Testing Report (GAS GW)",
+                                                      "Quality Testing Report",
                                                       style: TextStyle(
                                                         fontSize: 24,
                                                       ),
@@ -1172,7 +1172,7 @@ class _ReportPDFCommonState extends State<ReportPDFCommon> {
                                                     padding: EdgeInsets.only(
                                                         top: 30, bottom: 10),
                                                     child: Text(
-                                                      "(ใบรายงานผลการตรวจสอบผลิตภัณฑ์สำหรับกระบวนการ GAS GW)",
+                                                      "(ใบรายงานผลการตรวจสอบผลิตภัณฑ์สำหรับกระบวนการ GAS Hemaraj)",
                                                       style: TextStyle(
                                                         fontSize: 16,
                                                       ),
@@ -1191,7 +1191,7 @@ class _ReportPDFCommonState extends State<ReportPDFCommon> {
                                         height: 60,
                                         child: Center(
                                           child: Text(
-                                            "FR-HQC-03/026-01-01/08/22",
+                                            "FR-HQC-03/029-00-20/11/23",
                                             style: TextStyle(
                                               fontSize: 24,
                                               fontWeight: FontWeight.bold,
