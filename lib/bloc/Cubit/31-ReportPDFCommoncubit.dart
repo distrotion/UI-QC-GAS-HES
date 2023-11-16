@@ -271,14 +271,10 @@ class ReportPDFCommon_Cubit extends Cubit<CommonReportOutput> {
                       String condition =
                           SPECIFICATIONdata['condition'].toString();
 
-                      // print(condition);
                       // print(condition.contains("LOL(<)"));
                       // print(condition.contains("HIM(>)"));
                       // Actual
                       // print(SPECIFICATIONdata);
-
-                      double maxdata = 0;
-                      double mindata = 0;
 
                       String dataUNIT =
                           PATTERNlist['FINAL'][fi]['UNIT'].toString();
@@ -295,8 +291,8 @@ class ReportPDFCommon_Cubit extends Cubit<CommonReportOutput> {
                       }
 
                       if (condition.contains("BTW")) {
-                        // print(SPECIFICATIONdata['BTW_LOW']);
-                        // print(SPECIFICATIONdata['BTW_HI']);
+                        print(SPECIFICATIONdata['BTW_LOW']);
+                        print(SPECIFICATIONdata['BTW_HI']);
                         SPECIFICATION =
                             '${SPECIFICATIONdata['BTW_LOW'].toString()}-${SPECIFICATIONdata['BTW_HI'].toString()} ${unitP.replaceAll('?', 'µ')}';
 
@@ -338,7 +334,7 @@ class ReportPDFCommon_Cubit extends Cubit<CommonReportOutput> {
                       break;
                     }
                   }
-                  int desinal = 2;
+                  int desinal = 1;
 
                   for (var Fci = 0; Fci < ITEMSlist.length; Fci++) {
                     if (ITEMSlist[Fci]['masterID'].toString() == itemss) {
@@ -347,7 +343,7 @@ class ReportPDFCommon_Cubit extends Cubit<CommonReportOutput> {
                           .toString()
                           .toUpperCase()
                           .contains("HARDNESS")) {
-                        desinal = 0;
+                        desinal = 1;
                       }
 
                       if (ITEMSlist[Fci]['ITEMs'].toString().contains("trid")) {
@@ -1185,7 +1181,7 @@ class ReportPDFCommon_Cubit extends Cubit<CommonReportOutput> {
                     }
                   }
 
-                  int desinal = 2;
+                  int desinal = 1;
                   // print(itemss);
                   for (var Fci = 0; Fci < ITEMSlist.length; Fci++) {
                     if (ITEMSlist[Fci]['masterID'].toString() == itemss) {
@@ -1500,7 +1496,7 @@ class ReportPDFCommon_Cubit extends Cubit<CommonReportOutput> {
                     }
                   }
 
-                  int desinal = 2;
+                  int desinal = 1;
                   // print(itemss);
                   for (var Fci = 0; Fci < ITEMSlist.length; Fci++) {
                     if (ITEMSlist[Fci]['masterID'].toString() == itemss) {
@@ -1778,7 +1774,7 @@ class ReportPDFCommon_Cubit extends Cubit<CommonReportOutput> {
         output.datain = ITEMlist;
       }
     }
-
+    print(passlist);
     // print(BasicCommonDATAs.PASS);
 
     emit(output);
