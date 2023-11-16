@@ -737,25 +737,31 @@ class _ReportPDFCommonState extends State<ReportPDFCommon> {
             }
           }
 
-          ReportPDFCommonvar.rawlistGraphCore = rawlist(
-            DATAPCS: "Core",
-            DATA: ReportPDFCommonvar
-                .rawlistGraph[ReportPDFCommonvar.rawlistGraph.length - 1].DATA,
-          );
+          // ReportPDFCommonvar.rawlistGraphCore = rawlist(
+          //   DATAPCS: "Core",
+          //   DATA: ReportPDFCommonvar
+          //       .rawlistGraph[ReportPDFCommonvar.rawlistGraph.length - 1].DATA,
+          // );
           // print(">>>${ReportPDFCommonvar.rawlistGraph.length}");
-          ReportPDFCommonvar.rawlistGraph.removeLast();
-          ReportPDFCommonvar.rawlistGraphCore = rawlist(
-            DATAPCS: "Core",
-            DATA: ReportPDFCommonvar
-                .rawlistGraph[ReportPDFCommonvar.rawlistGraph.length - 1].DATA,
-          );
-          print(">>>${ReportPDFCommonvar.rawlistGraph.length}");
-          ReportPDFCommonvar.rawlistGraph.removeLast();
+          // ReportPDFCommonvar.rawlistGraph.removeLast();
+          if (ReportPDFCommonvar.rawlistGraph.length > 2) {
+            ReportPDFCommonvar.rawlistGraphCore = rawlist(
+              DATAPCS: "Core",
+              DATA: ReportPDFCommonvar
+                  .rawlistGraph[ReportPDFCommonvar.rawlistGraph.length - 1]
+                  .DATA,
+            );
+            // print(">>>${ReportPDFCommonvar.rawlistGraph.length}");
+
+            ReportPDFCommonvar.rawlistGraph
+                .removeAt(ReportPDFCommonvar.rawlistGraph.length - 1);
+          }
+
           ReportPDFCommonvar.graphupper = [
             FlSpot(ReportPDFCommonvar.graphdata[0].x, 1000),
             FlSpot(
                 ReportPDFCommonvar
-                    .graphdata[ReportPDFCommonvar.graphdata.length - 1].x,
+                    .graphdata[ReportPDFCommonvar.graphdata.length - 2].x,
                 1000)
           ];
           ReportPDFCommonvar.graphdata2 = [
@@ -780,14 +786,35 @@ class _ReportPDFCommonState extends State<ReportPDFCommon> {
             FlSpot(ReportPDFCommonvar.graphdata[0].x, 0),
             FlSpot(
                 ReportPDFCommonvar
-                    .graphdata[ReportPDFCommonvar.graphdata.length - 1].x,
+                    .graphdata[ReportPDFCommonvar.graphdata.length - 2].x,
                 0)
           ];
         }
 
+        // if (ReportPDFCommonvar.graphupper.length > 1) {
+        //   ReportPDFCommonvar.graphupper;
+        // }
+
+        // if (ReportPDFCommonvar.graphdata2.length > 1) {
+        //   ReportPDFCommonvar.graphdata2;
+        // }
+        // if (ReportPDFCommonvar.graphdata3.length > 1) {
+        //   ReportPDFCommonvar.graphdata3;
+        // }
+        // if (ReportPDFCommonvar.graphdata4.length > 1) {
+        //   ReportPDFCommonvar.graphdata4;
+        // }
+        // if (ReportPDFCommonvar.graphunder.length > 1) {
+        //   ReportPDFCommonvar.graphunder;
+        // }
+
         //Compound Layer
 
         // Roughness
+      }
+      if (ReportPDFCommonvar.graphdata.length > 1) {
+        ReportPDFCommonvar.graphdata.removeLast();
+        //     .removeAt(ReportPDFCommonvar.graphdata.length - 1);
       }
 
       // print(ReportPDFCommonvar.datalist);
@@ -3345,11 +3372,12 @@ class _ReportPDFCommonState extends State<ReportPDFCommon> {
                                           ),
                                         ),
                                       ),
-                                      widget16: Center(
+                                      widget16: const Center(
                                         child: Text(
-                                          ReportPDFCommonvar
-                                              .rawlistGraphCore.DATAPCS,
-                                          style: const TextStyle(
+                                          "CORE",
+                                          // ReportPDFCommonvar
+                                          //     .rawlistGraphCore.DATAPCS,
+                                          style: TextStyle(
                                             fontSize: 16,
                                             fontWeight: FontWeight.bold,
                                           ),
@@ -3581,6 +3609,8 @@ class _ReportPDFCommonState extends State<ReportPDFCommon> {
                                 PASS: ReportPDFCommonvar.PASS,
                                 PICS: _dataCOMMON.databasic.PICstd,
                                 Remark: ReportPDFCommonvar.remark,
+                                NAME02: "Kritsada",
+                                NAME03: "Kritsada",
                               ),
                             ],
                           ),

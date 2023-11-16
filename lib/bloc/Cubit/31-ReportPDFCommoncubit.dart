@@ -379,6 +379,7 @@ class ReportPDFCommon_Cubit extends Cubit<CommonReportOutput> {
                       String ConvesData = 'PO3';
                       if (conves == 'yes') {
                         ConvesData = 'PO5';
+                        // ConvesData = 'PO3';
                       }
 
                       for (pcsi = 0; pcsi < datainside.length - 1; pcsi++) {

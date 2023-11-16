@@ -185,7 +185,10 @@ class ControlChart01 extends StatelessWidget {
                       // print(value);
                       print(value);
                       print(meta);
-                      return bottomTitleWidgets(value, meta, _datedata);
+                      return bottomTitleWidgets(
+                          double.parse(value.toStringAsFixed(2)),
+                          meta,
+                          _datedata);
                     }),
               ),
               leftTitles: AxisTitles(

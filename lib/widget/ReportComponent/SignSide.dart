@@ -16,6 +16,9 @@ class TAILSLOT extends StatelessWidget {
     this.PICS,
     this.PASS,
     this.Remark,
+    this.NAME01,
+    this.NAME02,
+    this.NAME03,
   }) : super(key: key);
   Widget? widget01;
   Widget? widget02;
@@ -26,6 +29,9 @@ class TAILSLOT extends StatelessWidget {
   String? PICS;
   String? PASS;
   String? Remark;
+  String? NAME01;
+  String? NAME02;
+  String? NAME03;
 
   @override
   Widget build(BuildContext context) {
@@ -106,26 +112,62 @@ class TAILSLOT extends StatelessWidget {
                                       ),
                                     ),
                                   ),
-                                  widget02: Align(
-                                    alignment: Alignment.bottomRight,
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(4.0),
-                                      child: Text(formattedDate),
-                                    ),
+                                  widget02: Column(
+                                    children: [
+                                      Align(
+                                        alignment: Alignment.center,
+                                        child: Padding(
+                                          padding: const EdgeInsets.only(
+                                              bottom: 20, top: 25),
+                                          child: Text(NAME01 ?? ''),
+                                        ),
+                                      ),
+                                      Align(
+                                        alignment: Alignment.bottomRight,
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(4.0),
+                                          child: Text(formattedDate),
+                                        ),
+                                      ),
+                                    ],
                                   ),
-                                  widget03: Align(
-                                    alignment: Alignment.bottomRight,
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(4.0),
-                                      child: Text(formattedDate),
-                                    ),
+                                  widget03: Column(
+                                    children: [
+                                      Align(
+                                        alignment: Alignment.center,
+                                        child: Padding(
+                                          padding: const EdgeInsets.only(
+                                              bottom: 20, top: 25),
+                                          child: Text(NAME02 ?? ''),
+                                        ),
+                                      ),
+                                      Align(
+                                        alignment: Alignment.bottomRight,
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(4.0),
+                                          child: Text(formattedDate),
+                                        ),
+                                      ),
+                                    ],
                                   ),
-                                  widget04: Align(
-                                    alignment: Alignment.bottomRight,
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(4.0),
-                                      child: Text(formattedDate),
-                                    ),
+                                  widget04: Column(
+                                    children: [
+                                      Align(
+                                        alignment: Alignment.center,
+                                        child: Padding(
+                                          padding: const EdgeInsets.only(
+                                              bottom: 20, top: 25),
+                                          child: Text(NAME03 ?? ''),
+                                        ),
+                                      ),
+                                      Align(
+                                        alignment: Alignment.bottomRight,
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(4.0),
+                                          child: Text(formattedDate),
+                                        ),
+                                      ),
+                                    ],
                                   ),
                                 ),
                               ],

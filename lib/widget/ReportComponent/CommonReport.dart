@@ -1936,7 +1936,7 @@ class HEAD16SLOT extends StatelessWidget {
           Expanded(
             flex: _ListFlex[15],
             child: Container(
-              child: widget15 ?? const SizedBox(),
+              child: widget16 ?? const SizedBox(),
               decoration: BoxDecoration(
                 border: Border.all(color: Colors.black, width: 3),
               ),
