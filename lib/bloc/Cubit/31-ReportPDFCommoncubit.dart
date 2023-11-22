@@ -6,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../widget/common/Safty.dart';
 
 String server = 'http://172.23.10.40:16700/';
+// String server = 'http://127.0.0.1:16700/';
 
 class ReportPDFCommon_Cubit extends Cubit<CommonReportOutput> {
   ReportPDFCommon_Cubit()
@@ -28,6 +29,7 @@ class ReportPDFCommon_Cubit extends Cubit<CommonReportOutput> {
       var databuff = response.data;
       // var databuff = test01;
 
+      print(databuff['DESIMAL']);
       //commontest04
       // var databuff = ACTtestdata01;
 
@@ -46,6 +48,7 @@ class ReportPDFCommon_Cubit extends Cubit<CommonReportOutput> {
         var CALCULATElist = databuff['INSTRUMENTS'] ?? [];
         var SPECIFICATIONlist = databuff['SPECIFICATION'] ?? [];
         var UNITlist = databuff['UNIT'] ?? [];
+        var DESIMALlist = databuff['DESIMAL'] ?? [];
 
         int NO_NUMBER = 0;
 
@@ -347,6 +350,17 @@ class ReportPDFCommon_Cubit extends Cubit<CommonReportOutput> {
                       }
 
                       if (ITEMSlist[Fci]['ITEMs'].toString().contains("trid")) {
+                        desinal = 1;
+                      }
+                    }
+                  }
+                  for (var B = 0; B < ITEMSlist.length; B++) {
+                    for (var d = 0; d < DESIMALlist.length; d++) {
+                      if (DESIMALlist[d]['ITEMs'].toString() ==
+                          ITEMSlist[B]['masterID'].toString()) {
+                        desinal =
+                            int.parse(ConverstStr(DESIMALlist[d]['DESIMAL01']));
+                      } else {
                         desinal = 1;
                       }
                     }
@@ -753,6 +767,17 @@ class ReportPDFCommon_Cubit extends Cubit<CommonReportOutput> {
                         desinal = 1;
                       }
                       if (ITEMSlist[Fci]['ITEMs'].toString().contains("trid")) {
+                        desinal = 1;
+                      }
+                    }
+                  }
+                  for (var B = 0; B < ITEMSlist.length; B++) {
+                    for (var d = 0; d < DESIMALlist.length; d++) {
+                      if (DESIMALlist[d]['ITEMs'].toString() ==
+                          ITEMSlist[B]['masterID'].toString()) {
+                        desinal =
+                            int.parse(ConverstStr(DESIMALlist[d]['DESIMAL01']));
+                      } else {
                         desinal = 1;
                       }
                     }
@@ -1193,6 +1218,17 @@ class ReportPDFCommon_Cubit extends Cubit<CommonReportOutput> {
                       }
                       if (ITEMSlist[Fci]['ITEMs'].toString().contains("trid")) {
                         desinal = 1;
+                      } else {
+                        desinal = 1;
+                      }
+                    }
+                  }
+                  for (var B = 0; B < ITEMSlist.length; B++) {
+                    for (var d = 0; d < DESIMALlist.length; d++) {
+                      if (DESIMALlist[d]['ITEMs'].toString() ==
+                          ITEMSlist[B]['masterID'].toString()) {
+                        desinal =
+                            int.parse(ConverstStr(DESIMALlist[d]['DESIMAL01']));
                       }
                     }
                   }
@@ -1508,6 +1544,17 @@ class ReportPDFCommon_Cubit extends Cubit<CommonReportOutput> {
                       }
                       if (ITEMSlist[Fci]['ITEMs'].toString().contains("trid")) {
                         desinal = 1;
+                      } else {
+                        desinal = 1;
+                      }
+                    }
+                  }
+                  for (var B = 0; B < ITEMSlist.length; B++) {
+                    for (var d = 0; d < DESIMALlist.length; d++) {
+                      if (DESIMALlist[d]['ITEMs'].toString() ==
+                          ITEMSlist[B]['masterID'].toString()) {
+                        desinal =
+                            int.parse(ConverstStr(DESIMALlist[d]['DESIMAL01']));
                       }
                     }
                   }
