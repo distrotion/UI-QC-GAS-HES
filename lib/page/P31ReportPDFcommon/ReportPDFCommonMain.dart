@@ -424,6 +424,7 @@ class _ReportPDFCommonState extends State<ReportPDFCommon> {
         }
 
         if (_dataCOMMON.datain[i].TYPE == 'Graph') {
+          ReportPDFCommonvar.rawlistGraph = [];
           if (_dataCOMMON.datain[i].ITEMname.contains('Hardness') ||
               _dataCOMMON.datain[i].ITEMname.contains('hardness')) {
             for (var li = 0;
