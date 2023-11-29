@@ -1002,6 +1002,26 @@ class _ReportPDFCommonState extends State<ReportPDFCommon> {
                   ),
                 ),
               ),
+              Padding(
+                padding: const EdgeInsets.only(left: 60),
+                child: ComInputText(
+                  height: 40,
+                  width: 200,
+                  isContr: ReportPDFCommonvar.iscontrol,
+                  fnContr: (input) {
+                    setState(() {
+                      ReportPDFCommonvar.iscontrol = input;
+                    });
+                  },
+                  sPlaceholder: "Inspected By",
+                  sValue: ReportPDFCommonvar.SignInsBy,
+                  returnfunc: (String s) {
+                    setState(() {
+                      ReportPDFCommonvar.SignInsBy = s;
+                    });
+                  },
+                ),
+              ),
               const Spacer(),
               Padding(
                 padding: const EdgeInsets.all(3.0),
@@ -3609,6 +3629,7 @@ class _ReportPDFCommonState extends State<ReportPDFCommon> {
                                 PASS: ReportPDFCommonvar.PASS,
                                 PICS: _dataCOMMON.databasic.PICstd,
                                 Remark: ReportPDFCommonvar.remark,
+                                NAME01: ReportPDFCommonvar.SignInsBy,
                                 NAME02: "Kritsada",
                                 NAME03: "Kritsada",
                               ),

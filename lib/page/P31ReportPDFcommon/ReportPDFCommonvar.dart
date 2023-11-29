@@ -43,6 +43,8 @@ class ReportPDFCommonvar {
   static String INC01 = '';
   static String INC02 = '';
 
+  static String SignInsBy = '';
+
   static List<ReportPDFCommonlist> datalist = [
     ReportPDFCommonlist(),
     ReportPDFCommonlist(),
@@ -128,6 +130,7 @@ ReportPDFACTclear() {
   ReportPDFCommonvar.PIC01 = '';
   ReportPDFCommonvar.PIC02 = '';
 
+  ReportPDFCommonvar.SignInsBy = '';
   ReportPDFCommonvar.datalist = [
     ReportPDFCommonlist(),
     ReportPDFCommonlist(),
