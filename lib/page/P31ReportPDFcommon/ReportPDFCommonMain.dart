@@ -426,7 +426,11 @@ class _ReportPDFCommonState extends State<ReportPDFCommon> {
         if (_dataCOMMON.datain[i].TYPE == 'Graph') {
           ReportPDFCommonvar.rawlistGraph = [];
           if (_dataCOMMON.datain[i].ITEMname.contains('Hardness') ||
-              _dataCOMMON.datain[i].ITEMname.contains('hardness')) {
+                  _dataCOMMON.datain[i].ITEMname.contains('hardness') ||
+                  _dataCOMMON.datain[i].ITEMname.contains('(Graph)')
+
+              //
+              ) {
             for (var li = 0;
                 li < _dataCOMMON.datain[i].datapackset.length;
                 li++) {
@@ -792,22 +796,22 @@ class _ReportPDFCommonState extends State<ReportPDFCommon> {
           ];
         }
 
-        // if (ReportPDFCommonvar.graphupper.length > 1) {
-        //   ReportPDFCommonvar.graphupper;
-        // }
+        if (ReportPDFCommonvar.graphupper.length > 1) {
+          ReportPDFCommonvar.graphupper;
+        }
 
-        // if (ReportPDFCommonvar.graphdata2.length > 1) {
-        //   ReportPDFCommonvar.graphdata2;
-        // }
-        // if (ReportPDFCommonvar.graphdata3.length > 1) {
-        //   ReportPDFCommonvar.graphdata3;
-        // }
-        // if (ReportPDFCommonvar.graphdata4.length > 1) {
-        //   ReportPDFCommonvar.graphdata4;
-        // }
-        // if (ReportPDFCommonvar.graphunder.length > 1) {
-        //   ReportPDFCommonvar.graphunder;
-        // }
+        if (ReportPDFCommonvar.graphdata2.length > 1) {
+          ReportPDFCommonvar.graphdata2;
+        }
+        if (ReportPDFCommonvar.graphdata3.length > 1) {
+          ReportPDFCommonvar.graphdata3;
+        }
+        if (ReportPDFCommonvar.graphdata4.length > 1) {
+          ReportPDFCommonvar.graphdata4;
+        }
+        if (ReportPDFCommonvar.graphunder.length > 1) {
+          ReportPDFCommonvar.graphunder;
+        }
 
         //Compound Layer
 
