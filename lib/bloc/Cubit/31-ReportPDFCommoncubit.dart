@@ -339,21 +339,21 @@ class ReportPDFCommon_Cubit extends Cubit<CommonReportOutput> {
                   }
                   int desinal = 1;
 
-                  for (var Fci = 0; Fci < ITEMSlist.length; Fci++) {
-                    if (ITEMSlist[Fci]['masterID'].toString() == itemss) {
-                      // print(ITEMSlist[Fci]);
-                      if (ITEMSlist[Fci]['ITEMs']
-                          .toString()
-                          .toUpperCase()
-                          .contains("HARDNESS")) {
-                        desinal = 1;
-                      }
+                  // for (var Fci = 0; Fci < ITEMSlist.length; Fci++) {
+                  //   if (ITEMSlist[Fci]['masterID'].toString() == itemss) {
+                  //     // print(ITEMSlist[Fci]);
+                  //     if (ITEMSlist[Fci]['ITEMs']
+                  //         .toString()
+                  //         .toUpperCase()
+                  //         .contains("HARDNESS")) {
+                  //       desinal = 1;
+                  //     }
 
-                      if (ITEMSlist[Fci]['ITEMs'].toString().contains("trid")) {
-                        desinal = 1;
-                      }
-                    }
-                  }
+                  //     if (ITEMSlist[Fci]['ITEMs'].toString().contains("trid")) {
+                  //       desinal = 1;
+                  //     }
+                  //   }
+                  // }
                   for (var B = 0; B < ITEMSlist.length; B++) {
                     for (var d = 0; d < DESIMALlist.length; d++) {
                       if (DESIMALlist[d]['ITEMs'].toString() ==
@@ -758,19 +758,19 @@ class ReportPDFCommon_Cubit extends Cubit<CommonReportOutput> {
                     }
                   }
                   int desinal = 1;
-                  for (var Fci = 0; Fci < ITEMSlist.length; Fci++) {
-                    if (ITEMSlist[Fci]['masterID'].toString() == itemss) {
-                      // print(ITEMSlist[Fci]);
-                      if (ITEMSlist[Fci]['ITEMs']
-                          .toString()
-                          .contains("Hardness")) {
-                        desinal = 1;
-                      }
-                      if (ITEMSlist[Fci]['ITEMs'].toString().contains("trid")) {
-                        desinal = 1;
-                      }
-                    }
-                  }
+                  // for (var Fci = 0; Fci < ITEMSlist.length; Fci++) {
+                  //   if (ITEMSlist[Fci]['masterID'].toString() == itemss) {
+                  //     // print(ITEMSlist[Fci]);
+                  //     if (ITEMSlist[Fci]['ITEMs']
+                  //         .toString()
+                  //         .contains("Hardness")) {
+                  //       desinal = 1;
+                  //     }
+                  //     if (ITEMSlist[Fci]['ITEMs'].toString().contains("trid")) {
+                  //       desinal = 1;
+                  //     }
+                  //   }
+                  // }
                   for (var B = 0; B < ITEMSlist.length; B++) {
                     for (var d = 0; d < DESIMALlist.length; d++) {
                       if (DESIMALlist[d]['ITEMs'].toString() ==

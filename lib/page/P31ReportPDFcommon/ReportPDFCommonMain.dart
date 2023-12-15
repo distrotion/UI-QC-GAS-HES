@@ -94,6 +94,13 @@ class _ReportPDFCommonState extends State<ReportPDFCommon> {
       ReportPDFCommonvar.rawlistRoughness = [];
       ReportPDFCommonvar.rawlistCORE = [];
 
+      ReportPDFCommonvar.graphupper = [];
+      ReportPDFCommonvar.graphdata = [];
+      ReportPDFCommonvar.graphdata2 = [];
+      ReportPDFCommonvar.graphdata3 = [];
+      ReportPDFCommonvar.graphdata4 = [];
+      ReportPDFCommonvar.graphunder = [];
+
       for (var i = 0; i < _dataCOMMON.datain.length; i++) {
         String Loadin = '';
         if (_dataCOMMON.datain[i].LOAD != '' &&
