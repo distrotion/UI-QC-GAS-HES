@@ -354,15 +354,24 @@ class ReportPDFCommon_Cubit extends Cubit<CommonReportOutput> {
                   //     }
                   //   }
                   // }
-                  for (var B = 0; B < ITEMSlist.length; B++) {
-                    for (var d = 0; d < DESIMALlist.length; d++) {
-                      if (DESIMALlist[d]['ITEMs'].toString() ==
-                          ITEMSlist[B]['masterID'].toString()) {
-                        desinal =
-                            int.parse(ConverstStr(DESIMALlist[d]['DESIMAL01']));
-                      } else {
-                        desinal = 1;
-                      }
+                  // for (var B = 0; B < ITEMSlist.length; B++) {
+                  //   for (var d = 0; d < DESIMALlist.length; d++) {
+                  //     if (DESIMALlist[d]['ITEMs'].toString() ==
+                  //         ITEMSlist[B]['masterID'].toString()) {
+                  //       desinal =
+                  //           int.parse(ConverstStr(DESIMALlist[d]['DESIMAL01']));
+                  //     } else {
+                  //       desinal = 1;
+                  //     }
+                  //   }
+                  // }
+                  for (var d = 0; d < DESIMALlist.length; d++) {
+                    if (DESIMALlist[d]['ITEMs'].toString() == itemss) {
+                      desinal =
+                          int.parse(ConverstStr(DESIMALlist[d]['DESIMAL01']));
+                      break;
+                    } else {
+                      desinal = 1;
                     }
                   }
                   // print(ITEMname);
@@ -771,18 +780,30 @@ class ReportPDFCommon_Cubit extends Cubit<CommonReportOutput> {
                   //     }
                   //   }
                   // }
-                  for (var B = 0; B < ITEMSlist.length; B++) {
-                    for (var d = 0; d < DESIMALlist.length; d++) {
-                      if (DESIMALlist[d]['ITEMs'].toString() ==
-                          ITEMSlist[B]['masterID'].toString()) {
-                        desinal =
-                            int.parse(ConverstStr(DESIMALlist[d]['DESIMAL01']));
-                      } else {
-                        desinal = 1;
-                      }
+
+                  // for (var B = 0; B < ITEMSlist.length; B++) {
+                  //   for (var d = 0; d < DESIMALlist.length; d++) {
+                  //     if (DESIMALlist[d]['ITEMs'].toString() ==
+                  //         ITEMSlist[B]['masterID'].toString()) {
+                  //       desinal =
+                  //           int.parse(ConverstStr(DESIMALlist[d]['DESIMAL01']));
+                  //     } else {
+                  //       desinal = 1;
+                  //     }
+                  //   }
+                  // }
+
+                  for (var d = 0; d < DESIMALlist.length; d++) {
+                    if (DESIMALlist[d]['ITEMs'].toString() == itemss) {
+                      desinal =
+                          int.parse(ConverstStr(DESIMALlist[d]['DESIMAL01']));
+                      break;
+                    } else {
+                      desinal = 1;
                     }
                   }
-                  // print(ITEMname);
+
+                  // print(itemss);
 
                   List<datainlist> listdataset = [];
                   for (var i = 0; i < 20; i++) {
@@ -1139,6 +1160,10 @@ class ReportPDFCommon_Cubit extends Cubit<CommonReportOutput> {
                         FINALANSdata[itemss + "_point"]['y'].toString();
                   }
 
+                  print("<<<<<<<<<<<<<<<");
+                  print((double.parse(ConverstStr(reslp))).toStringAsFixed(2));
+                  print("<<<<<<<<<<<<<<<");
+
                   ITEMlist.add(FINALCHECKlistCommonClass(
                     TYPE: "Graph",
                     ITEM: itemss,
@@ -1150,7 +1175,8 @@ class ReportPDFCommon_Cubit extends Cubit<CommonReportOutput> {
                     NO: NO_NUMBER,
                     FREQ: FREQ,
                     datapackset: listdataset,
-                    RESULT: reslp,
+                    RESULT: (double.parse(ConverstStr(reslp)))
+                        .toStringAsFixed(desinal),
                     LOAD: LOAD,
                     Cross: reslpCross,
                   ));
@@ -1209,27 +1235,36 @@ class ReportPDFCommon_Cubit extends Cubit<CommonReportOutput> {
 
                   int desinal = 1;
                   // print(itemss);
-                  for (var Fci = 0; Fci < ITEMSlist.length; Fci++) {
-                    if (ITEMSlist[Fci]['masterID'].toString() == itemss) {
-                      if (ITEMSlist[Fci]['ITEMs']
-                          .toString()
-                          .contains("pound")) {
-                        desinal = 1;
-                      }
-                      if (ITEMSlist[Fci]['ITEMs'].toString().contains("trid")) {
-                        desinal = 1;
-                      } else {
-                        desinal = 1;
-                      }
-                    }
-                  }
-                  for (var B = 0; B < ITEMSlist.length; B++) {
-                    for (var d = 0; d < DESIMALlist.length; d++) {
-                      if (DESIMALlist[d]['ITEMs'].toString() ==
-                          ITEMSlist[B]['masterID'].toString()) {
-                        desinal =
-                            int.parse(ConverstStr(DESIMALlist[d]['DESIMAL01']));
-                      }
+                  // for (var Fci = 0; Fci < ITEMSlist.length; Fci++) {
+                  //   if (ITEMSlist[Fci]['masterID'].toString() == itemss) {
+                  //     if (ITEMSlist[Fci]['ITEMs']
+                  //         .toString()
+                  //         .contains("pound")) {
+                  //       desinal = 1;
+                  //     }
+                  //     if (ITEMSlist[Fci]['ITEMs'].toString().contains("trid")) {
+                  //       desinal = 1;
+                  //     } else {
+                  //       desinal = 1;
+                  //     }
+                  //   }
+                  // }
+                  // for (var B = 0; B < ITEMSlist.length; B++) {
+                  //   for (var d = 0; d < DESIMALlist.length; d++) {
+                  //     if (DESIMALlist[d]['ITEMs'].toString() ==
+                  //         ITEMSlist[B]['masterID'].toString()) {
+                  //       desinal =
+                  //           int.parse(ConverstStr(DESIMALlist[d]['DESIMAL01']));
+                  //     }
+                  //   }
+                  // }
+                  for (var d = 0; d < DESIMALlist.length; d++) {
+                    if (DESIMALlist[d]['ITEMs'].toString() == itemss) {
+                      desinal =
+                          int.parse(ConverstStr(DESIMALlist[d]['DESIMAL01']));
+                      break;
+                    } else {
+                      desinal = 1;
                     }
                   }
 
@@ -1535,27 +1570,36 @@ class ReportPDFCommon_Cubit extends Cubit<CommonReportOutput> {
 
                   int desinal = 1;
                   // print(itemss);
-                  for (var Fci = 0; Fci < ITEMSlist.length; Fci++) {
-                    if (ITEMSlist[Fci]['masterID'].toString() == itemss) {
-                      if (ITEMSlist[Fci]['ITEMs']
-                          .toString()
-                          .contains("pound")) {
-                        desinal = 1;
-                      }
-                      if (ITEMSlist[Fci]['ITEMs'].toString().contains("trid")) {
-                        desinal = 1;
-                      } else {
-                        desinal = 1;
-                      }
-                    }
-                  }
-                  for (var B = 0; B < ITEMSlist.length; B++) {
-                    for (var d = 0; d < DESIMALlist.length; d++) {
-                      if (DESIMALlist[d]['ITEMs'].toString() ==
-                          ITEMSlist[B]['masterID'].toString()) {
-                        desinal =
-                            int.parse(ConverstStr(DESIMALlist[d]['DESIMAL01']));
-                      }
+                  // for (var Fci = 0; Fci < ITEMSlist.length; Fci++) {
+                  //   if (ITEMSlist[Fci]['masterID'].toString() == itemss) {
+                  //     if (ITEMSlist[Fci]['ITEMs']
+                  //         .toString()
+                  //         .contains("pound")) {
+                  //       desinal = 1;
+                  //     }
+                  //     if (ITEMSlist[Fci]['ITEMs'].toString().contains("trid")) {
+                  //       desinal = 1;
+                  //     } else {
+                  //       desinal = 1;
+                  //     }
+                  //   }
+                  // }
+                  // for (var B = 0; B < ITEMSlist.length; B++) {
+                  //   for (var d = 0; d < DESIMALlist.length; d++) {
+                  //     if (DESIMALlist[d]['ITEMs'].toString() ==
+                  //         ITEMSlist[B]['masterID'].toString()) {
+                  //       desinal =
+                  //           int.parse(ConverstStr(DESIMALlist[d]['DESIMAL01']));
+                  //     }
+                  //   }
+                  // }
+                  for (var d = 0; d < DESIMALlist.length; d++) {
+                    if (DESIMALlist[d]['ITEMs'].toString() == itemss) {
+                      desinal =
+                          int.parse(ConverstStr(DESIMALlist[d]['DESIMAL01']));
+                      break;
+                    } else {
+                      desinal = 1;
                     }
                   }
 
