@@ -116,6 +116,7 @@ class _ReportPDFCommonState extends State<ReportPDFCommon> {
         ReportPDFCommonvar.datalist[i].SPECIFICATIONname =
             _dataCOMMON.datain[i].SPECIFICATION;
         ReportPDFCommonvar.datalist[i].RESULT = _dataCOMMON.datain[i].RESULT;
+        ReportPDFCommonvar.datalist[i].REMARK = _dataCOMMON.datain[i].Remark;
         //print(ReportPDFCommonvar.datalist[i].RESULT.length);
         //Surface Hardness
 
@@ -1801,6 +1802,18 @@ class _ReportPDFCommonState extends State<ReportPDFCommon> {
                                     ),
                                   ),
                                 ),
+                                widget07: Center(
+                                  child: Text(
+                                    ReportPDFCommonvar.datalist[0].REMARK,
+                                    style: TextStyle(
+                                      fontSize: ReportPDFCommonvar
+                                                  .datalist[0].REMARK.length >
+                                              30
+                                          ? 12
+                                          : 16,
+                                    ),
+                                  ),
+                                ),
                               ),
                               BODY7SLOT(
                                 ListFlex: [6, 1, 4, 2, 2, 2, 2],
@@ -1862,6 +1875,18 @@ class _ReportPDFCommonState extends State<ReportPDFCommon> {
                                     style: TextStyle(
                                       fontSize: ReportPDFCommonvar
                                                   .datalist[1].RESULT.length >
+                                              30
+                                          ? 12
+                                          : 16,
+                                    ),
+                                  ),
+                                ),
+                                widget07: Center(
+                                  child: Text(
+                                    ReportPDFCommonvar.datalist[1].REMARK,
+                                    style: TextStyle(
+                                      fontSize: ReportPDFCommonvar
+                                                  .datalist[1].REMARK.length >
                                               30
                                           ? 12
                                           : 16,
@@ -1935,6 +1960,18 @@ class _ReportPDFCommonState extends State<ReportPDFCommon> {
                                     ),
                                   ),
                                 ),
+                                widget07: Center(
+                                  child: Text(
+                                    ReportPDFCommonvar.datalist[2].REMARK,
+                                    style: TextStyle(
+                                      fontSize: ReportPDFCommonvar
+                                                  .datalist[2].REMARK.length >
+                                              30
+                                          ? 12
+                                          : 16,
+                                    ),
+                                  ),
+                                ),
                               ),
                               BODY7SLOT(
                                 ListFlex: [6, 1, 4, 2, 2, 2, 2],
@@ -1996,6 +2033,18 @@ class _ReportPDFCommonState extends State<ReportPDFCommon> {
                                     style: TextStyle(
                                       fontSize: ReportPDFCommonvar
                                                   .datalist[3].RESULT.length >
+                                              30
+                                          ? 12
+                                          : 16,
+                                    ),
+                                  ),
+                                ),
+                                widget07: Center(
+                                  child: Text(
+                                    ReportPDFCommonvar.datalist[3].REMARK,
+                                    style: TextStyle(
+                                      fontSize: ReportPDFCommonvar
+                                                  .datalist[3].REMARK.length >
                                               30
                                           ? 12
                                           : 16,
@@ -2069,6 +2118,18 @@ class _ReportPDFCommonState extends State<ReportPDFCommon> {
                                     ),
                                   ),
                                 ),
+                                widget07: Center(
+                                  child: Text(
+                                    ReportPDFCommonvar.datalist[4].REMARK,
+                                    style: TextStyle(
+                                      fontSize: ReportPDFCommonvar
+                                                  .datalist[4].REMARK.length >
+                                              30
+                                          ? 12
+                                          : 16,
+                                    ),
+                                  ),
+                                ),
                               ),
                               BODY7SLOT(
                                 ListFlex: [6, 1, 4, 2, 2, 2, 2],
@@ -2136,6 +2197,18 @@ class _ReportPDFCommonState extends State<ReportPDFCommon> {
                                     ),
                                   ),
                                 ),
+                                widget07: Center(
+                                  child: Text(
+                                    ReportPDFCommonvar.datalist[5].REMARK,
+                                    style: TextStyle(
+                                      fontSize: ReportPDFCommonvar
+                                                  .datalist[5].REMARK.length >
+                                              30
+                                          ? 12
+                                          : 16,
+                                    ),
+                                  ),
+                                ),
                               ),
                               BODY7SLOT(
                                 ListFlex: [6, 1, 4, 2, 2, 2, 2],
@@ -2197,6 +2270,18 @@ class _ReportPDFCommonState extends State<ReportPDFCommon> {
                                     style: TextStyle(
                                       fontSize: ReportPDFCommonvar
                                                   .datalist[6].RESULT.length >
+                                              30
+                                          ? 12
+                                          : 16,
+                                    ),
+                                  ),
+                                ),
+                                widget07: Center(
+                                  child: Text(
+                                    ReportPDFCommonvar.datalist[7].REMARK,
+                                    style: TextStyle(
+                                      fontSize: ReportPDFCommonvar
+                                                  .datalist[7].REMARK.length >
                                               30
                                           ? 12
                                           : 16,

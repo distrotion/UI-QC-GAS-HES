@@ -85,6 +85,7 @@ class ReportPDFCommonlist {
     this.DATA02 = '',
     this.DATA03 = '',
     this.DATAAVG = '',
+    this.REMARK = '',
   });
   String ITEM;
   String ITEMname = '';
@@ -101,6 +102,7 @@ class ReportPDFCommonlist {
   String DATA02 = '';
   String DATA03 = '';
   String DATAAVG = '';
+  String REMARK = '';
 }
 
 class rawlist {

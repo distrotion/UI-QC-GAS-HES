@@ -257,6 +257,24 @@ class ReportPDFCommon_Cubit extends Cubit<CommonReportOutput> {
                   double maxdata = 0;
                   double mindata = 0;
 
+                  String remark = PATTERNlist['FINAL'][fi]['REMARK'].toString();
+
+                  print('>>${remark}');
+
+                  String convss =
+                      PATTERNlist['FINAL'][fi]['CONVERSE'].toString();
+
+                  if (convss != '' && convss != '-') {
+                    for (var ih = 0; ih < UNITlist.length; ih++) {
+                      // print(UNITlist[ih]['masterID'].toString());
+                      if (convss == UNITlist[ih]['masterID'].toString()) {
+                        // print(UNITlist[ih]);
+                        remark = "From ${UNITlist[ih]['UNIT']}";
+                        break;
+                      }
+                    }
+                  }
+
                   try {
                     String SPECIFICATIONbuff2 =
                         SPECIFICATIONbuff.replaceAll('{', '{"');
@@ -647,6 +665,7 @@ class ReportPDFCommon_Cubit extends Cubit<CommonReportOutput> {
                     RESULT:
                         (avgall / listdataset.length).toStringAsFixed(desinal),
                     LOAD: LOAD,
+                    Remark: remark,
                   ));
                 }
               }
@@ -1547,6 +1566,24 @@ class ReportPDFCommon_Cubit extends Cubit<CommonReportOutput> {
                   String SPECIFICATION = '';
                   String LOAD = PATTERNlist['FINAL'][fi]['LOAD'].toString();
 
+                  String remark = PATTERNlist['FINAL'][fi]['REMARK'].toString();
+
+                  print('>>${remark}');
+
+                  String convss =
+                      PATTERNlist['FINAL'][fi]['CONVERSE'].toString();
+
+                  if (convss != '') {
+                    for (var ih = 0; ih < UNITlist.length; ih++) {
+                      // print(UNITlist[ih]['masterID'].toString());
+                      if (convss == UNITlist[ih]['masterID'].toString()) {
+                        // print(UNITlist[ih]);
+                        remark = "${UNITlist[ih]['UNIT']}";
+                        break;
+                      }
+                    }
+                  }
+
                   for (var Fci = 0; Fci < METHODlist.length; Fci++) {
                     if (METHODlist[Fci]['masterID'].toString() == METHODss) {
                       METHODname = METHODlist[Fci]['METHOD'].toString();
@@ -1848,6 +1885,7 @@ class ReportPDFCommon_Cubit extends Cubit<CommonReportOutput> {
                     datapackset: listdataset,
                     RESULT: avgall.toStringAsFixed(desinal),
                     LOAD: LOAD,
+                    Remark: remark,
                   ));
                 }
               }
@@ -1897,6 +1935,7 @@ class FINALCHECKlistCommonClass {
     this.datapackset = const [],
     this.LOAD = '',
     this.Cross = '',
+    this.Remark = '',
   });
   int NO;
   String TYPE;
@@ -1914,6 +1953,7 @@ class FINALCHECKlistCommonClass {
   List<datainlist> datapackset;
   String LOAD;
   String Cross;
+  String Remark;
 }
 
 // class datainlist {
