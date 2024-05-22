@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../bloc/Cubit/31-ReportPDFCommoncubit.dart';
+import '../../data/CommonTestData.dart';
 import '../../widget/GRAPH/LineGraph01.dart';
 import '../../widget/ReportComponent/CommonReport.dart';
 import '../../widget/ReportComponent/PicSlot.dart';
@@ -970,9 +971,11 @@ class _ReportPDFCommonState extends State<ReportPDFCommon> {
                       MapEntry("-", "-"),
                       MapEntry("General", "1"),
                       MapEntry("JTEKT", "2"),
-                      MapEntry("NTN", "3"),
+                      MapEntry("NTN122-4-7", "3"),
                       MapEntry("TBKK", "4"),
                       MapEntry("GKN", "5"),
+                      MapEntry("SIAMADVANCE", "6"),
+                      MapEntry("NTN500T850T", "7"),
                     ],
                     onChangeinside: (d, v) {
                       // print(d);
@@ -1001,6 +1004,16 @@ class _ReportPDFCommonState extends State<ReportPDFCommon> {
                         setState(() {
                           ReportPDFCommonvar.SCMASKTYPE = imgGKN;
                           ReportPDFCommonvar.SCMASKTYPEonTop = '';
+                        });
+                      } else if (d == '6') {
+                        setState(() {
+                          ReportPDFCommonvar.SCMASKTYPE = SIAMADVANCE;
+                          ReportPDFCommonvar.SCMASKTYPEonTop = '';
+                        });
+                      } else if (d == '7') {
+                        setState(() {
+                          ReportPDFCommonvar.SCMASKTYPE = NTN500T850T;
+                          ReportPDFCommonvar.SCMASKTYPEonTop = NTN500T850T;
                         });
                       } else {
                         setState(() {
@@ -3244,7 +3257,9 @@ class _ReportPDFCommonState extends State<ReportPDFCommon> {
                               ),
                               PICSLO2SIDEGRAPH(
                                 PIC01: _dataCOMMON.databasic.PIC01,
-                                PIC02: _dataCOMMON.databasic.PIC02,
+                                PIC02: _dataCOMMON.databasic.PIC02 == wpic
+                                    ? _dataCOMMON.databasic.PIC03
+                                    : _dataCOMMON.databasic.PIC02,
                                 widget01: Column(
                                   children: [
                                     Padding(

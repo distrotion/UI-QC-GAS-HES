@@ -269,7 +269,11 @@ class ReportPDFCommon_Cubit extends Cubit<CommonReportOutput> {
                       // print(UNITlist[ih]['masterID'].toString());
                       if (convss == UNITlist[ih]['masterID'].toString()) {
                         // print(UNITlist[ih]);
-                        remark = "From ${UNITlist[ih]['UNIT']}";
+                        String Unitss = "${UNITlist[ih]['UNIT']}";
+                        if (Unitss.contains("-") == false) {
+                          remark = "From ${UNITlist[ih]['UNIT']}";
+                        }
+
                         break;
                       }
                     }
@@ -785,6 +789,7 @@ class ReportPDFCommon_Cubit extends Cubit<CommonReportOutput> {
                       break;
                     }
                   }
+                  print("------------->");
                   int desinal = 1;
                   // for (var Fci = 0; Fci < ITEMSlist.length; Fci++) {
                   //   if (ITEMSlist[Fci]['masterID'].toString() == itemss) {
@@ -841,309 +846,623 @@ class ReportPDFCommon_Cubit extends Cubit<CommonReportOutput> {
                       // print(PATTERNlist['FINAL'][fi]);
                       // print(ITEMSlist);
 
+                      // for (pcsi = 0; pcsi < datainside.length - 1; pcsi++) {
+                      //   // print(pcsi);
+                      //   // print(datainside[pcsi]['PO3']);
+                      //   //   double.parse(ConverstStr(datainside[pcsi]['PIC1data'].toString())).toStringAsFixed(2);
+                      //   // print(datainside[pcsi]);
+                      //   if (pcsi == 0) {
+                      //     datainpcsi.DATA01 = double.parse(ConverstStr(
+                      //             datainside[pcsi]['PO3'].toString()))
+                      //         .toStringAsFixed(desinal);
+
+                      //     datainpcsi.DATA01p = double.parse(ConverstStr(
+                      //             datainside[pcsi]['PO8'].toString()))
+                      //         .toString();
+
+                      //     passlist.add(checkdata(
+                      //             maxdata,
+                      //             mindata,
+                      //             double.parse(ConverstStr(
+                      //                 datainside[pcsi]['PO3'].toString())))
+                      //         .toString());
+                      //   } else if (pcsi == 1) {
+                      //     datainpcsi.DATA02 = double.parse(ConverstStr(
+                      //             datainside[pcsi]['PO3'].toString()))
+                      //         .toStringAsFixed(desinal);
+
+                      //     datainpcsi.DATA02p = double.parse(ConverstStr(
+                      //             datainside[pcsi]['PO8'].toString()))
+                      //         .toString();
+
+                      //     passlist.add(checkdata(
+                      //             maxdata,
+                      //             mindata,
+                      //             double.parse(ConverstStr(
+                      //                 datainside[pcsi]['PO3'].toString())))
+                      //         .toString());
+                      //   } else if (pcsi == 2) {
+                      //     datainpcsi.DATA03 = double.parse(ConverstStr(
+                      //             datainside[pcsi]['PO3'].toString()))
+                      //         .toStringAsFixed(desinal);
+
+                      //     datainpcsi.DATA03p = double.parse(ConverstStr(
+                      //             datainside[pcsi]['PO8'].toString()))
+                      //         .toString();
+
+                      //     passlist.add(checkdata(
+                      //             maxdata,
+                      //             mindata,
+                      //             double.parse(ConverstStr(
+                      //                 datainside[pcsi]['PO3'].toString())))
+                      //         .toString());
+                      //   } else if (pcsi == 3) {
+                      //     datainpcsi.DATA04 = double.parse(ConverstStr(
+                      //             datainside[pcsi]['PO3'].toString()))
+                      //         .toStringAsFixed(desinal);
+
+                      //     datainpcsi.DATA04p = double.parse(ConverstStr(
+                      //             datainside[pcsi]['PO8'].toString()))
+                      //         .toString();
+
+                      //     passlist.add(checkdata(
+                      //             maxdata,
+                      //             mindata,
+                      //             double.parse(ConverstStr(
+                      //                 datainside[pcsi]['PO3'].toString())))
+                      //         .toString());
+                      //   } else if (pcsi == 4) {
+                      //     datainpcsi.DATA05 = double.parse(ConverstStr(
+                      //             datainside[pcsi]['PO3'].toString()))
+                      //         .toStringAsFixed(desinal);
+
+                      //     datainpcsi.DATA05p = double.parse(ConverstStr(
+                      //             datainside[pcsi]['PO8'].toString()))
+                      //         .toString();
+
+                      //     passlist.add(checkdata(
+                      //             maxdata,
+                      //             mindata,
+                      //             double.parse(ConverstStr(
+                      //                 datainside[pcsi]['PO3'].toString())))
+                      //         .toString());
+                      //   } else if (pcsi == 5) {
+                      //     datainpcsi.DATA06 = double.parse(ConverstStr(
+                      //             datainside[pcsi]['PO3'].toString()))
+                      //         .toStringAsFixed(desinal);
+
+                      //     datainpcsi.DATA06p = double.parse(ConverstStr(
+                      //             datainside[pcsi]['PO8'].toString()))
+                      //         .toString();
+
+                      //     passlist.add(checkdata(
+                      //             maxdata,
+                      //             mindata,
+                      //             double.parse(ConverstStr(
+                      //                 datainside[pcsi]['PO3'].toString())))
+                      //         .toString());
+                      //   } else if (pcsi == 6) {
+                      //     datainpcsi.DATA07 = double.parse(ConverstStr(
+                      //             datainside[pcsi]['PO3'].toString()))
+                      //         .toStringAsFixed(desinal);
+
+                      //     datainpcsi.DATA07p = double.parse(ConverstStr(
+                      //             datainside[pcsi]['PO8'].toString()))
+                      //         .toString();
+
+                      //     passlist.add(checkdata(
+                      //             maxdata,
+                      //             mindata,
+                      //             double.parse(ConverstStr(
+                      //                 datainside[pcsi]['PO3'].toString())))
+                      //         .toString());
+                      //   } else if (pcsi == 7) {
+                      //     datainpcsi.DATA08 = double.parse(ConverstStr(
+                      //             datainside[pcsi]['PO3'].toString()))
+                      //         .toStringAsFixed(desinal);
+
+                      //     datainpcsi.DATA08p = double.parse(ConverstStr(
+                      //             datainside[pcsi]['PO8'].toString()))
+                      //         .toString();
+
+                      //     passlist.add(checkdata(
+                      //             maxdata,
+                      //             mindata,
+                      //             double.parse(ConverstStr(
+                      //                 datainside[pcsi]['PO3'].toString())))
+                      //         .toString());
+                      //   } else if (pcsi == 8) {
+                      //     datainpcsi.DATA09 = double.parse(ConverstStr(
+                      //             datainside[pcsi]['PO3'].toString()))
+                      //         .toStringAsFixed(desinal);
+
+                      //     datainpcsi.DATA09p = double.parse(ConverstStr(
+                      //             datainside[pcsi]['PO8'].toString()))
+                      //         .toString();
+
+                      //     passlist.add(checkdata(
+                      //             maxdata,
+                      //             mindata,
+                      //             double.parse(ConverstStr(
+                      //                 datainside[pcsi]['PO3'].toString())))
+                      //         .toString());
+                      //   } else if (pcsi == 9) {
+                      //     datainpcsi.DATA10 = double.parse(ConverstStr(
+                      //             datainside[pcsi]['PO3'].toString()))
+                      //         .toStringAsFixed(desinal);
+
+                      //     datainpcsi.DATA10p = double.parse(ConverstStr(
+                      //             datainside[pcsi]['PO8'].toString()))
+                      //         .toString();
+
+                      //     passlist.add(checkdata(
+                      //             maxdata,
+                      //             mindata,
+                      //             double.parse(ConverstStr(
+                      //                 datainside[pcsi]['PO3'].toString())))
+                      //         .toString());
+                      //   } else if (pcsi == 10) {
+                      //     datainpcsi.DATA11 = double.parse(ConverstStr(
+                      //             datainside[pcsi]['PO3'].toString()))
+                      //         .toStringAsFixed(desinal);
+
+                      //     datainpcsi.DATA11p = double.parse(ConverstStr(
+                      //             datainside[pcsi]['PO8'].toString()))
+                      //         .toString();
+
+                      //     passlist.add(checkdata(
+                      //             maxdata,
+                      //             mindata,
+                      //             double.parse(ConverstStr(
+                      //                 datainside[pcsi]['PO3'].toString())))
+                      //         .toString());
+                      //   } else if (pcsi == 11) {
+                      //     datainpcsi.DATA12 = double.parse(ConverstStr(
+                      //             datainside[pcsi]['PO3'].toString()))
+                      //         .toStringAsFixed(desinal);
+
+                      //     datainpcsi.DATA12p = double.parse(ConverstStr(
+                      //             datainside[pcsi]['PO8'].toString()))
+                      //         .toString();
+
+                      //     passlist.add(checkdata(
+                      //             maxdata,
+                      //             mindata,
+                      //             double.parse(ConverstStr(
+                      //                 datainside[pcsi]['PO3'].toString())))
+                      //         .toString());
+                      //   } else if (pcsi == 12) {
+                      //     datainpcsi.DATA13 = double.parse(ConverstStr(
+                      //             datainside[pcsi]['PO3'].toString()))
+                      //         .toStringAsFixed(desinal);
+
+                      //     datainpcsi.DATA13p = double.parse(ConverstStr(
+                      //             datainside[pcsi]['PO8'].toString()))
+                      //         .toString();
+
+                      //     passlist.add(checkdata(
+                      //             maxdata,
+                      //             mindata,
+                      //             double.parse(ConverstStr(
+                      //                 datainside[pcsi]['PO3'].toString())))
+                      //         .toString());
+                      //   } else if (pcsi == 13) {
+                      //     datainpcsi.DATA14 = double.parse(ConverstStr(
+                      //             datainside[pcsi]['PO3'].toString()))
+                      //         .toStringAsFixed(desinal);
+                      //     datainpcsi.DATA14p = double.parse(ConverstStr(
+                      //             datainside[pcsi]['PO8'].toString()))
+                      //         .toString();
+
+                      //     passlist.add(checkdata(
+                      //             maxdata,
+                      //             mindata,
+                      //             double.parse(ConverstStr(
+                      //                 datainside[pcsi]['PO3'].toString())))
+                      //         .toString());
+                      //   } else if (pcsi == 14) {
+                      //     datainpcsi.DATA15 = double.parse(ConverstStr(
+                      //             datainside[pcsi]['PO3'].toString()))
+                      //         .toStringAsFixed(desinal);
+
+                      //     datainpcsi.DATA15p = double.parse(ConverstStr(
+                      //             datainside[pcsi]['PO8'].toString()))
+                      //         .toString();
+
+                      //     passlist.add(checkdata(
+                      //             maxdata,
+                      //             mindata,
+                      //             double.parse(ConverstStr(
+                      //                 datainside[pcsi]['PO3'].toString())))
+                      //         .toString());
+                      //   } else if (pcsi == 15) {
+                      //     datainpcsi.DATA16 = double.parse(ConverstStr(
+                      //             datainside[pcsi]['PO3'].toString()))
+                      //         .toStringAsFixed(desinal);
+
+                      //     datainpcsi.DATA16p = double.parse(ConverstStr(
+                      //             datainside[pcsi]['PO8'].toString()))
+                      //         .toString();
+
+                      //     passlist.add(checkdata(
+                      //             maxdata,
+                      //             mindata,
+                      //             double.parse(ConverstStr(
+                      //                 datainside[pcsi]['PO3'].toString())))
+                      //         .toString());
+                      //   } else if (pcsi == 16) {
+                      //     datainpcsi.DATA17 = double.parse(ConverstStr(
+                      //             datainside[pcsi]['PO3'].toString()))
+                      //         .toStringAsFixed(desinal);
+
+                      //     datainpcsi.DATA17p = double.parse(ConverstStr(
+                      //             datainside[pcsi]['PO8'].toString()))
+                      //         .toString();
+
+                      //     passlist.add(checkdata(
+                      //             maxdata,
+                      //             mindata,
+                      //             double.parse(ConverstStr(
+                      //                 datainside[pcsi]['PO3'].toString())))
+                      //         .toString());
+                      //   } else if (pcsi == 17) {
+                      //     datainpcsi.DATA18 = double.parse(ConverstStr(
+                      //             datainside[pcsi]['PO3'].toString()))
+                      //         .toStringAsFixed(desinal);
+
+                      //     datainpcsi.DATA18p = double.parse(ConverstStr(
+                      //             datainside[pcsi]['PO8'].toString()))
+                      //         .toString();
+
+                      //     passlist.add(checkdata(
+                      //             maxdata,
+                      //             mindata,
+                      //             double.parse(ConverstStr(
+                      //                 datainside[pcsi]['PO3'].toString())))
+                      //         .toString());
+                      //   } else if (pcsi == 18) {
+                      //     datainpcsi.DATA19 = double.parse(ConverstStr(
+                      //             datainside[pcsi]['PO3'].toString()))
+                      //         .toStringAsFixed(desinal);
+
+                      //     datainpcsi.DATA19p = double.parse(ConverstStr(
+                      //             datainside[pcsi]['PO8'].toString()))
+                      //         .toString();
+
+                      //     passlist.add(checkdata(
+                      //             maxdata,
+                      //             mindata,
+                      //             double.parse(ConverstStr(
+                      //                 datainside[pcsi]['PO3'].toString())))
+                      //         .toString());
+                      //   } else if (pcsi == 19) {
+                      //     datainpcsi.DATA20 = double.parse(ConverstStr(
+                      //             datainside[pcsi]['PO3'].toString()))
+                      //         .toStringAsFixed(desinal);
+
+                      //     datainpcsi.DATA20p = double.parse(ConverstStr(
+                      //             datainside[pcsi]['PO8'].toString()))
+                      //         .toString();
+
+                      //     passlist.add(checkdata(
+                      //             maxdata,
+                      //             mindata,
+                      //             double.parse(ConverstStr(
+                      //                 datainside[pcsi]['PO3'].toString())))
+                      //         .toString());
+                      //   }
+                      // }
+
+                      print(datainside.length);
+
                       for (pcsi = 0; pcsi < datainside.length - 1; pcsi++) {
                         // print(pcsi);
-                        // print(datainside[pcsi]['PO3']);
-                        //   double.parse(ConverstStr(datainside[pcsi]['PIC1data'].toString())).toStringAsFixed(2);
-                        // print(datainside[pcsi]);
-                        if (pcsi == 0) {
-                          datainpcsi.DATA01 = double.parse(ConverstStr(
-                                  datainside[pcsi]['PO3'].toString()))
-                              .toStringAsFixed(desinal);
+                        print("---====>>");
+                        print(datainside[pcsi]['PO3']);
+                        // 3410288012
+                        print(datainside[pcsi]['PO8']);
 
-                          datainpcsi.DATA01p = double.parse(ConverstStr(
-                                  datainside[pcsi]['PO8'].toString()))
-                              .toString();
+                        // print(datainside[pcsi]['PO3']);
+                        //   double.parse(ConverstStr(datainside[pcsi]['PIC1data'])).toStringAsFixed(2);
+                        // print(datainside[pcsi]); ConverstStr(datainside[pcsi]['PO3']
+                        if (pcsi == 0) {
+                          datainpcsi.DATA01 =
+                              double.parse(ConverstStr(datainside[pcsi]['PO3']))
+                                  .toStringAsFixed(desinal);
+
+                          datainpcsi.DATA01p = double.parse(
+                                  ConverstStr((datainside[pcsi]['PO8'])))
+                              .toStringAsFixed(1);
 
                           passlist.add(checkdata(
                                   maxdata,
                                   mindata,
-                                  double.parse(ConverstStr(
-                                      datainside[pcsi]['PO3'].toString())))
+                                  double.parse(
+                                      ConverstStr(datainside[pcsi]['PO3'])))
                               .toString());
                         } else if (pcsi == 1) {
-                          datainpcsi.DATA02 = double.parse(ConverstStr(
-                                  datainside[pcsi]['PO3'].toString()))
-                              .toStringAsFixed(desinal);
+                          datainpcsi.DATA02 =
+                              double.parse(ConverstStr(datainside[pcsi]['PO3']))
+                                  .toStringAsFixed(desinal);
 
-                          datainpcsi.DATA02p = double.parse(ConverstStr(
-                                  datainside[pcsi]['PO8'].toString()))
-                              .toString();
+                          datainpcsi.DATA02p =
+                              double.parse(ConverstStr(datainside[pcsi]['PO8']))
+                                  .toStringAsFixed(1);
 
                           passlist.add(checkdata(
                                   maxdata,
                                   mindata,
-                                  double.parse(ConverstStr(
-                                      datainside[pcsi]['PO3'].toString())))
+                                  double.parse(
+                                      ConverstStr(datainside[pcsi]['PO3'])))
                               .toString());
                         } else if (pcsi == 2) {
-                          datainpcsi.DATA03 = double.parse(ConverstStr(
-                                  datainside[pcsi]['PO3'].toString()))
-                              .toStringAsFixed(desinal);
+                          datainpcsi.DATA03 =
+                              double.parse(ConverstStr(datainside[pcsi]['PO3']))
+                                  .toStringAsFixed(desinal);
 
-                          datainpcsi.DATA03p = double.parse(ConverstStr(
-                                  datainside[pcsi]['PO8'].toString()))
-                              .toString();
+                          datainpcsi.DATA03p =
+                              double.parse(ConverstStr(datainside[pcsi]['PO8']))
+                                  .toStringAsFixed(1);
 
                           passlist.add(checkdata(
                                   maxdata,
                                   mindata,
-                                  double.parse(ConverstStr(
-                                      datainside[pcsi]['PO3'].toString())))
+                                  double.parse(
+                                      ConverstStr(datainside[pcsi]['PO3'])))
                               .toString());
                         } else if (pcsi == 3) {
-                          datainpcsi.DATA04 = double.parse(ConverstStr(
-                                  datainside[pcsi]['PO3'].toString()))
-                              .toStringAsFixed(desinal);
+                          datainpcsi.DATA04 =
+                              double.parse(ConverstStr(datainside[pcsi]['PO3']))
+                                  .toStringAsFixed(desinal);
 
-                          datainpcsi.DATA04p = double.parse(ConverstStr(
-                                  datainside[pcsi]['PO8'].toString()))
-                              .toString();
+                          datainpcsi.DATA04p =
+                              double.parse(ConverstStr(datainside[pcsi]['PO8']))
+                                  .toStringAsFixed(1);
 
                           passlist.add(checkdata(
                                   maxdata,
                                   mindata,
-                                  double.parse(ConverstStr(
-                                      datainside[pcsi]['PO3'].toString())))
+                                  double.parse(
+                                      ConverstStr(datainside[pcsi]['PO3'])))
                               .toString());
                         } else if (pcsi == 4) {
-                          datainpcsi.DATA05 = double.parse(ConverstStr(
-                                  datainside[pcsi]['PO3'].toString()))
-                              .toStringAsFixed(desinal);
+                          datainpcsi.DATA05 =
+                              double.parse(ConverstStr(datainside[pcsi]['PO3']))
+                                  .toStringAsFixed(desinal);
 
-                          datainpcsi.DATA05p = double.parse(ConverstStr(
-                                  datainside[pcsi]['PO8'].toString()))
-                              .toString();
+                          datainpcsi.DATA05p =
+                              double.parse(ConverstStr(datainside[pcsi]['PO8']))
+                                  .toStringAsFixed(1);
 
                           passlist.add(checkdata(
                                   maxdata,
                                   mindata,
-                                  double.parse(ConverstStr(
-                                      datainside[pcsi]['PO3'].toString())))
+                                  double.parse(
+                                      ConverstStr(datainside[pcsi]['PO3'])))
                               .toString());
                         } else if (pcsi == 5) {
-                          datainpcsi.DATA06 = double.parse(ConverstStr(
-                                  datainside[pcsi]['PO3'].toString()))
-                              .toStringAsFixed(desinal);
+                          datainpcsi.DATA06 =
+                              double.parse(ConverstStr(datainside[pcsi]['PO3']))
+                                  .toStringAsFixed(desinal);
 
-                          datainpcsi.DATA06p = double.parse(ConverstStr(
-                                  datainside[pcsi]['PO8'].toString()))
-                              .toString();
+                          datainpcsi.DATA06p =
+                              double.parse(ConverstStr(datainside[pcsi]['PO8']))
+                                  .toStringAsFixed(1);
 
                           passlist.add(checkdata(
                                   maxdata,
                                   mindata,
-                                  double.parse(ConverstStr(
-                                      datainside[pcsi]['PO3'].toString())))
+                                  double.parse(
+                                      ConverstStr(datainside[pcsi]['PO3'])))
                               .toString());
                         } else if (pcsi == 6) {
-                          datainpcsi.DATA07 = double.parse(ConverstStr(
-                                  datainside[pcsi]['PO3'].toString()))
-                              .toStringAsFixed(desinal);
+                          datainpcsi.DATA07 =
+                              double.parse(ConverstStr(datainside[pcsi]['PO3']))
+                                  .toStringAsFixed(desinal);
 
-                          datainpcsi.DATA07p = double.parse(ConverstStr(
-                                  datainside[pcsi]['PO8'].toString()))
-                              .toString();
+                          datainpcsi.DATA07p =
+                              double.parse(ConverstStr(datainside[pcsi]['PO8']))
+                                  .toStringAsFixed(1);
 
                           passlist.add(checkdata(
                                   maxdata,
                                   mindata,
-                                  double.parse(ConverstStr(
-                                      datainside[pcsi]['PO3'].toString())))
+                                  double.parse(
+                                      ConverstStr(datainside[pcsi]['PO3'])))
                               .toString());
                         } else if (pcsi == 7) {
-                          datainpcsi.DATA08 = double.parse(ConverstStr(
-                                  datainside[pcsi]['PO3'].toString()))
-                              .toStringAsFixed(desinal);
+                          datainpcsi.DATA08 =
+                              double.parse(ConverstStr(datainside[pcsi]['PO3']))
+                                  .toStringAsFixed(desinal);
 
-                          datainpcsi.DATA08p = double.parse(ConverstStr(
-                                  datainside[pcsi]['PO8'].toString()))
-                              .toString();
+                          datainpcsi.DATA08p =
+                              double.parse(ConverstStr(datainside[pcsi]['PO8']))
+                                  .toStringAsFixed(1);
 
                           passlist.add(checkdata(
                                   maxdata,
                                   mindata,
-                                  double.parse(ConverstStr(
-                                      datainside[pcsi]['PO3'].toString())))
+                                  double.parse(
+                                      ConverstStr(datainside[pcsi]['PO3'])))
                               .toString());
                         } else if (pcsi == 8) {
-                          datainpcsi.DATA09 = double.parse(ConverstStr(
-                                  datainside[pcsi]['PO3'].toString()))
-                              .toStringAsFixed(desinal);
+                          datainpcsi.DATA09 =
+                              double.parse(ConverstStr(datainside[pcsi]['PO3']))
+                                  .toStringAsFixed(desinal);
 
-                          datainpcsi.DATA09p = double.parse(ConverstStr(
-                                  datainside[pcsi]['PO8'].toString()))
-                              .toString();
+                          datainpcsi.DATA09p =
+                              double.parse(ConverstStr(datainside[pcsi]['PO8']))
+                                  .toStringAsFixed(1);
 
                           passlist.add(checkdata(
                                   maxdata,
                                   mindata,
-                                  double.parse(ConverstStr(
-                                      datainside[pcsi]['PO3'].toString())))
+                                  double.parse(
+                                      ConverstStr(datainside[pcsi]['PO3'])))
                               .toString());
                         } else if (pcsi == 9) {
-                          datainpcsi.DATA10 = double.parse(ConverstStr(
-                                  datainside[pcsi]['PO3'].toString()))
-                              .toStringAsFixed(desinal);
+                          datainpcsi.DATA10 =
+                              double.parse(ConverstStr(datainside[pcsi]['PO3']))
+                                  .toStringAsFixed(desinal);
 
-                          datainpcsi.DATA10p = double.parse(ConverstStr(
-                                  datainside[pcsi]['PO8'].toString()))
-                              .toString();
+                          datainpcsi.DATA10p =
+                              double.parse(ConverstStr(datainside[pcsi]['PO8']))
+                                  .toStringAsFixed(1);
 
                           passlist.add(checkdata(
                                   maxdata,
                                   mindata,
-                                  double.parse(ConverstStr(
-                                      datainside[pcsi]['PO3'].toString())))
+                                  double.parse(
+                                      ConverstStr(datainside[pcsi]['PO3'])))
                               .toString());
                         } else if (pcsi == 10) {
-                          datainpcsi.DATA11 = double.parse(ConverstStr(
-                                  datainside[pcsi]['PO3'].toString()))
-                              .toStringAsFixed(desinal);
+                          datainpcsi.DATA11 =
+                              double.parse(ConverstStr(datainside[pcsi]['PO3']))
+                                  .toStringAsFixed(desinal);
 
-                          datainpcsi.DATA11p = double.parse(ConverstStr(
-                                  datainside[pcsi]['PO8'].toString()))
-                              .toString();
+                          datainpcsi.DATA11p =
+                              double.parse(ConverstStr(datainside[pcsi]['PO8']))
+                                  .toStringAsFixed(1);
 
                           passlist.add(checkdata(
                                   maxdata,
                                   mindata,
-                                  double.parse(ConverstStr(
-                                      datainside[pcsi]['PO3'].toString())))
+                                  double.parse(
+                                      ConverstStr(datainside[pcsi]['PO3'])))
                               .toString());
                         } else if (pcsi == 11) {
-                          datainpcsi.DATA12 = double.parse(ConverstStr(
-                                  datainside[pcsi]['PO3'].toString()))
-                              .toStringAsFixed(desinal);
+                          datainpcsi.DATA12 =
+                              double.parse(ConverstStr(datainside[pcsi]['PO3']))
+                                  .toStringAsFixed(desinal);
 
-                          datainpcsi.DATA12p = double.parse(ConverstStr(
-                                  datainside[pcsi]['PO8'].toString()))
-                              .toString();
+                          datainpcsi.DATA12p =
+                              double.parse(ConverstStr(datainside[pcsi]['PO8']))
+                                  .toStringAsFixed(1);
 
                           passlist.add(checkdata(
                                   maxdata,
                                   mindata,
-                                  double.parse(ConverstStr(
-                                      datainside[pcsi]['PO3'].toString())))
+                                  double.parse(
+                                      ConverstStr(datainside[pcsi]['PO3'])))
                               .toString());
                         } else if (pcsi == 12) {
-                          datainpcsi.DATA13 = double.parse(ConverstStr(
-                                  datainside[pcsi]['PO3'].toString()))
-                              .toStringAsFixed(desinal);
+                          datainpcsi.DATA13 =
+                              double.parse(ConverstStr(datainside[pcsi]['PO3']))
+                                  .toStringAsFixed(desinal);
 
-                          datainpcsi.DATA13p = double.parse(ConverstStr(
-                                  datainside[pcsi]['PO8'].toString()))
-                              .toString();
+                          datainpcsi.DATA13p =
+                              double.parse(ConverstStr(datainside[pcsi]['PO8']))
+                                  .toStringAsFixed(1);
 
                           passlist.add(checkdata(
                                   maxdata,
                                   mindata,
-                                  double.parse(ConverstStr(
-                                      datainside[pcsi]['PO3'].toString())))
+                                  double.parse(
+                                      ConverstStr(datainside[pcsi]['PO3'])))
                               .toString());
                         } else if (pcsi == 13) {
-                          datainpcsi.DATA14 = double.parse(ConverstStr(
-                                  datainside[pcsi]['PO3'].toString()))
-                              .toStringAsFixed(desinal);
-                          datainpcsi.DATA14p = double.parse(ConverstStr(
-                                  datainside[pcsi]['PO8'].toString()))
-                              .toString();
+                          datainpcsi.DATA14 =
+                              double.parse(ConverstStr(datainside[pcsi]['PO3']))
+                                  .toStringAsFixed(desinal);
+                          datainpcsi.DATA14p =
+                              double.parse(ConverstStr(datainside[pcsi]['PO8']))
+                                  .toStringAsFixed(1);
 
                           passlist.add(checkdata(
                                   maxdata,
                                   mindata,
-                                  double.parse(ConverstStr(
-                                      datainside[pcsi]['PO3'].toString())))
+                                  double.parse(
+                                      ConverstStr(datainside[pcsi]['PO3'])))
                               .toString());
                         } else if (pcsi == 14) {
-                          datainpcsi.DATA15 = double.parse(ConverstStr(
-                                  datainside[pcsi]['PO3'].toString()))
-                              .toStringAsFixed(desinal);
+                          datainpcsi.DATA15 =
+                              double.parse(ConverstStr(datainside[pcsi]['PO3']))
+                                  .toStringAsFixed(desinal);
 
-                          datainpcsi.DATA15p = double.parse(ConverstStr(
-                                  datainside[pcsi]['PO8'].toString()))
-                              .toString();
+                          datainpcsi.DATA15p =
+                              double.parse(ConverstStr(datainside[pcsi]['PO8']))
+                                  .toStringAsFixed(1);
 
                           passlist.add(checkdata(
                                   maxdata,
                                   mindata,
-                                  double.parse(ConverstStr(
-                                      datainside[pcsi]['PO3'].toString())))
+                                  double.parse(
+                                      ConverstStr(datainside[pcsi]['PO3'])))
                               .toString());
                         } else if (pcsi == 15) {
-                          datainpcsi.DATA16 = double.parse(ConverstStr(
-                                  datainside[pcsi]['PO3'].toString()))
-                              .toStringAsFixed(desinal);
+                          datainpcsi.DATA16 =
+                              double.parse(ConverstStr(datainside[pcsi]['PO3']))
+                                  .toStringAsFixed(desinal);
 
-                          datainpcsi.DATA16p = double.parse(ConverstStr(
-                                  datainside[pcsi]['PO8'].toString()))
-                              .toString();
+                          datainpcsi.DATA16p =
+                              double.parse(ConverstStr(datainside[pcsi]['PO8']))
+                                  .toStringAsFixed(1);
 
                           passlist.add(checkdata(
                                   maxdata,
                                   mindata,
-                                  double.parse(ConverstStr(
-                                      datainside[pcsi]['PO3'].toString())))
+                                  double.parse(
+                                      ConverstStr(datainside[pcsi]['PO3'])))
                               .toString());
                         } else if (pcsi == 16) {
-                          datainpcsi.DATA17 = double.parse(ConverstStr(
-                                  datainside[pcsi]['PO3'].toString()))
-                              .toStringAsFixed(desinal);
+                          datainpcsi.DATA17 =
+                              double.parse(ConverstStr(datainside[pcsi]['PO3']))
+                                  .toStringAsFixed(desinal);
 
-                          datainpcsi.DATA17p = double.parse(ConverstStr(
-                                  datainside[pcsi]['PO8'].toString()))
-                              .toString();
+                          datainpcsi.DATA17p =
+                              double.parse(ConverstStr(datainside[pcsi]['PO8']))
+                                  .toStringAsFixed(1);
 
                           passlist.add(checkdata(
                                   maxdata,
                                   mindata,
-                                  double.parse(ConverstStr(
-                                      datainside[pcsi]['PO3'].toString())))
+                                  double.parse(
+                                      ConverstStr(datainside[pcsi]['PO3'])))
                               .toString());
                         } else if (pcsi == 17) {
-                          datainpcsi.DATA18 = double.parse(ConverstStr(
-                                  datainside[pcsi]['PO3'].toString()))
-                              .toStringAsFixed(desinal);
+                          datainpcsi.DATA18 =
+                              double.parse(ConverstStr(datainside[pcsi]['PO3']))
+                                  .toStringAsFixed(desinal);
 
-                          datainpcsi.DATA18p = double.parse(ConverstStr(
-                                  datainside[pcsi]['PO8'].toString()))
-                              .toString();
+                          datainpcsi.DATA18p =
+                              double.parse(ConverstStr(datainside[pcsi]['PO8']))
+                                  .toStringAsFixed(1);
 
                           passlist.add(checkdata(
                                   maxdata,
                                   mindata,
-                                  double.parse(ConverstStr(
-                                      datainside[pcsi]['PO3'].toString())))
+                                  double.parse(
+                                      ConverstStr(datainside[pcsi]['PO3'])))
                               .toString());
                         } else if (pcsi == 18) {
-                          datainpcsi.DATA19 = double.parse(ConverstStr(
-                                  datainside[pcsi]['PO3'].toString()))
-                              .toStringAsFixed(desinal);
+                          datainpcsi.DATA19 =
+                              double.parse(ConverstStr(datainside[pcsi]['PO3']))
+                                  .toStringAsFixed(desinal);
 
-                          datainpcsi.DATA19p = double.parse(ConverstStr(
-                                  datainside[pcsi]['PO8'].toString()))
-                              .toString();
+                          datainpcsi.DATA19p =
+                              double.parse(ConverstStr(datainside[pcsi]['PO8']))
+                                  .toStringAsFixed(1);
 
                           passlist.add(checkdata(
                                   maxdata,
                                   mindata,
-                                  double.parse(ConverstStr(
-                                      datainside[pcsi]['PO3'].toString())))
+                                  double.parse(
+                                      ConverstStr(datainside[pcsi]['PO3'])))
                               .toString());
                         } else if (pcsi == 19) {
-                          datainpcsi.DATA20 = double.parse(ConverstStr(
-                                  datainside[pcsi]['PO3'].toString()))
-                              .toStringAsFixed(desinal);
+                          datainpcsi.DATA20 =
+                              double.parse(ConverstStr(datainside[pcsi]['PO3']))
+                                  .toStringAsFixed(desinal);
 
-                          datainpcsi.DATA20p = double.parse(ConverstStr(
-                                  datainside[pcsi]['PO8'].toString()))
-                              .toString();
+                          datainpcsi.DATA20p =
+                              double.parse(ConverstStr(datainside[pcsi]['PO8']))
+                                  .toStringAsFixed(1);
 
                           passlist.add(checkdata(
                                   maxdata,
                                   mindata,
-                                  double.parse(ConverstStr(
-                                      datainside[pcsi]['PO3'].toString())))
+                                  double.parse(
+                                      ConverstStr(datainside[pcsi]['PO3'])))
                               .toString());
                         }
                       }
@@ -1479,6 +1798,10 @@ class ReportPDFCommon_Cubit extends Cubit<CommonReportOutput> {
                         // print('>>${datainpcsi.DATA03}');
 
                         // print('>>${datainpcsi.DATAAVG}');
+                        if (BasicCommonDATAs.PIC01 != '') {
+                          BasicCommonDATAs.PIC03 =
+                              datainside[pcsi]['PIC1'].toString();
+                        }
 
                         if (pcsi == 0) {
                           if (BasicCommonDATAs.PIC01 == '') {
@@ -1490,7 +1813,7 @@ class ReportPDFCommon_Cubit extends Cubit<CommonReportOutput> {
                                 datainside[pcsi]['PIC2'].toString();
                           }
                         }
-//3310275880
+
                         if (pcsi == 1) {
                           if (BasicCommonDATAs.PIC02 == '') {
                             BasicCommonDATAs.PIC02 =
@@ -1832,7 +2155,10 @@ class ReportPDFCommon_Cubit extends Cubit<CommonReportOutput> {
                         // print('>>${datainpcsi.DATA03}');
 
                         // print('>>${datainpcsi.DATAAVG}');
-
+                        if (BasicCommonDATAs.PIC01 != '') {
+                          BasicCommonDATAs.PIC03 =
+                              datainside[pcsi]['PIC1'].toString();
+                        }
                         if (pcsi == 0) {
                           if (BasicCommonDATAs.PIC01 == '') {
                             BasicCommonDATAs.PIC01 =
@@ -1844,6 +2170,7 @@ class ReportPDFCommon_Cubit extends Cubit<CommonReportOutput> {
                           }
                         }
 //3310275880
+//3410280513
                         if (pcsi == 1) {
                           if (BasicCommonDATAs.PIC02 == '') {
                             BasicCommonDATAs.PIC02 =
