@@ -44,41 +44,90 @@ class LoginPageWidget extends StatelessWidget {
                   const SizedBox(
                     height: 20,
                   ),
-                  // SizedBox(
-                  //   height: 40,
+                  SizedBox(
+                    height: 40,
+                    // child: TextFormField(
+                    //   onChanged: (value) {},
+                    //   initialValue: "",
+                    //   decoration: InputDecoration(
+                    //     contentPadding: EdgeInsets.all(8),
+                    //     hintText: 'TPK ID',
+                    //     hintStyle: const TextStyle(
+                    //       fontFamily: 'Mitr',
+                    //       color: Color(0xffb2b2b2),
+                    //       fontSize: 14,
+                    //       fontWeight: FontWeight.w300,
+                    //       fontStyle: FontStyle.normal,
+                    //       letterSpacing: 0,
+                    //     ),
+                    //     border: OutlineInputBorder(
+                    //       borderSide:
+                    //           const BorderSide(color: Colors.red, width: 1),
+                    //       borderRadius: BorderRadius.circular(8),
+                    //     ),
+                    //     // suffixIcon: Icon(
+                    //     //   Icons.search,
+                    //     // ),
+                    //   ),
+                    // ),
+                    child: ComInputText(
+                      height: 40,
+                      width: 240,
+                      isContr: logindata.isControl,
+                      fnContr: (input) {
+                        logindata.isControl = input;
+                      },
+                      sValue: logindata.userID,
+                      returnfunc: (String s) {
+                        logindata.userID = s;
+                      },
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  SizedBox(
+                    height: 40,
+                    // child: TextFormField(
+                    //   onChanged: (value) {},
+                    //   obscureText: true,
+                    //   initialValue: "",
+                    //   decoration: InputDecoration(
+                    //     contentPadding: EdgeInsets.all(8),
+                    //     hintText: 'Password',
+                    //     hintStyle: const TextStyle(
+                    //       fontFamily: 'Mitr',
+                    //       color: Color(0xffb2b2b2),
+                    //       fontSize: 14,
+                    //       fontWeight: FontWeight.w300,
+                    //       fontStyle: FontStyle.normal,
+                    //       letterSpacing: 0,
+                    //     ),
+                    //     border: OutlineInputBorder(
+                    //       borderSide:
+                    //           const BorderSide(color: Colors.red, width: 1),
+                    //       borderRadius: BorderRadius.circular(8),
+                    //     ),
 
-                  //   child: ComInputText(
-                  //     height: 40,
-                  //     width: 240,
-                  //     isContr: logindata.isControl,
-                  //     fnContr: (input) {
-                  //       logindata.isControl = input;
-                  //     },
-                  //     sValue: logindata.userID,
-                  //     returnfunc: (String s) {
-                  //       logindata.userID = s;
-                  //     },
-                  //   ),
-                  // ),
-                  // const SizedBox(
-                  //   height: 20,
-                  // ),
-                  // SizedBox(
-                  //   height: 40,
-                  //   child: ComInputText(
-                  //     height: 40,
-                  //     width: 240,
-                  //     isPassword: true,
-                  //     isContr: logindata.isControl,
-                  //     fnContr: (input) {
-                  //       logindata.isControl = input;
-                  //     },
-                  //     sValue: logindata.userPASS,
-                  //     returnfunc: (String s) {
-                  //       logindata.userPASS = s;
-                  //     },
-                  //   ),
-                  // ),
+                    //     // suffixIcon: Icon(
+                    //     //   Icons.search,
+                    //     // ),
+                    //   ),
+                    // ),
+                    child: ComInputText(
+                      height: 40,
+                      width: 240,
+                      isPassword: true,
+                      isContr: logindata.isControl,
+                      fnContr: (input) {
+                        logindata.isControl = input;
+                      },
+                      sValue: logindata.userPASS,
+                      returnfunc: (String s) {
+                        logindata.userPASS = s;
+                      },
+                    ),
+                  ),
                   const SizedBox(
                     height: 20,
                   ),

@@ -10,6 +10,7 @@ import 'page/loginpage.dart';
 import 'widget/appbar/AppBar.dart';
 import 'widget/menu/mainmenu.dart';
 import 'widget/notification/noti01.dart';
+import 'package:qlevar_router/qlevar_router.dart';
 
 //-------------------------------------
 
@@ -17,7 +18,9 @@ late BuildContext MainBodyContext;
 late BuildContext LoginContext;
 
 class MainBlocRebuild extends StatelessWidget {
-  const MainBlocRebuild({Key? key}) : super(key: key);
+  MainBlocRebuild({
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

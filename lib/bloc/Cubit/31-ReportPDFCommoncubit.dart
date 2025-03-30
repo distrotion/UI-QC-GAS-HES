@@ -2,7 +2,9 @@ import 'dart:convert';
 
 import 'package:dio/dio.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
 
+import '../../data/global.dart';
 import '../../widget/common/Safty.dart';
 
 String server = 'http://172.23.10.40:16700/';
@@ -29,7 +31,7 @@ class ReportPDFCommon_Cubit extends Cubit<CommonReportOutput> {
       var databuff = response.data;
       // var databuff = test01;
 
-      print(databuff['DESIMAL']);
+      // print(databuff['DESIMAL']);
       //commontest04
       // var databuff = ACTtestdata01;
 
@@ -1172,7 +1174,7 @@ class ReportPDFCommon_Cubit extends Cubit<CommonReportOutput> {
 
                           datainpcsi.DATA01p = double.parse(
                                   ConverstStr((datainside[pcsi]['PO8'])))
-                              .toStringAsFixed(1);
+                              .toStringAsFixed(2);
 
                           passlist.add(checkdata(
                                   maxdata,
@@ -1187,7 +1189,7 @@ class ReportPDFCommon_Cubit extends Cubit<CommonReportOutput> {
 
                           datainpcsi.DATA02p =
                               double.parse(ConverstStr(datainside[pcsi]['PO8']))
-                                  .toStringAsFixed(1);
+                                  .toStringAsFixed(2);
 
                           passlist.add(checkdata(
                                   maxdata,
@@ -2169,8 +2171,7 @@ class ReportPDFCommon_Cubit extends Cubit<CommonReportOutput> {
                                 datainside[pcsi]['PIC2'].toString();
                           }
                         }
-//3310275880
-//3410280513
+
                         if (pcsi == 1) {
                           if (BasicCommonDATAs.PIC02 == '') {
                             BasicCommonDATAs.PIC02 =
@@ -2229,6 +2230,42 @@ class ReportPDFCommon_Cubit extends Cubit<CommonReportOutput> {
 
         output.databasic = BasicCommonDATAs;
         output.datain = ITEMlist;
+      }
+      //-----------
+      var now1 = DateTime.now().subtract(Duration(days: 30));
+      var now2 = DateTime.now().add(Duration(days: 5));
+      String day = DateFormat('dd').format(now1);
+      String month = DateFormat('MM').format(now1);
+      String year = DateFormat('yyyy').format(now1);
+
+      String days = DateFormat('dd').format(now2);
+      String months = DateFormat('MM').format(now2);
+      String years = DateFormat('yyyy').format(now2);
+      final response9 = await Dio().post(
+        "${server2}10GETDATAFROMJOBBINGAQC/GETDATA",
+        data: {
+          "HEADER": {
+            "PLANT": "2300",
+            "ORD_ST_DATE_FR": "${day}.${month}.${year}",
+            "ORD_ST_DATE_TO": "${days}.${months}.${years}",
+            "ORDER_TYPE": "",
+            "PROD_SUP": ""
+          },
+          "PROC_ORD": [
+            {"PROCESS_ORDER": PO, "MATERIAL": ""}
+          ]
+        },
+      );
+      if (response9.statusCode == 200) {
+        var databuffref = response9.data;
+        // print(databuffref);
+        if (databuffref['HEADER_INFO'] != null) {
+          if (databuffref['HEADER_INFO'].length > 0) {
+            // print(databuffref['HEADER_INFO'][0]['USER_STATUS']);
+            output.databasic.USER_STATUS =
+                databuffref['HEADER_INFO'][0]['USER_STATUS'].toString();
+          }
+        }
       }
     }
     print(passlist);
@@ -2452,6 +2489,7 @@ class BasicCommonDATA {
     this.PASS = '',
     this.INC01 = '',
     this.INC02 = '',
+    this.USER_STATUS = '',
   });
 
   String PO;
@@ -2477,6 +2515,8 @@ class BasicCommonDATA {
 
   String INC01;
   String INC02;
+
+  String USER_STATUS;
 }
 
 class CommonReportOutput {

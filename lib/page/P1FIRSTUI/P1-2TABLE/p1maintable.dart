@@ -48,6 +48,9 @@ class _MAINTABLEP1State extends State<MAINTABLEP1> {
                     setState(() {
                       FIRSTUI.SEARCH = s;
                     });
+                    if (s.substring(0, 4) == '0034') {
+                      FIRSTUI.SEARCH = s.substring(2);
+                    }
                   },
                 ),
                 const Spacer(),

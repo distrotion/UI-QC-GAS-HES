@@ -12,7 +12,8 @@ import '../../widget/common/Loading.dart';
 
 // String server = GLOserver;
 String server = 'http://172.23.10.40:1885/';
-String sap = "sap_GASHES";
+// String sap = "sap_GASHES";
+String sap = "sap_GASHES_TEST";
 //String sap = "sap";
 
 abstract class LOADSAP_Event {}

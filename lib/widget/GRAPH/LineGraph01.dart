@@ -80,6 +80,8 @@ class ControlChart01 extends StatelessWidget {
     List<FlSpot> _under = under ?? [];
     Map<String, String> _datedata = datedata ?? {};
 
+    for (var i = 0; i < _data.length; i++) {}
+
     TextEditingController controller = TextEditingController();
     ScrollController controllerReport = ScrollController();
 

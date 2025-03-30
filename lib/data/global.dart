@@ -12,6 +12,13 @@ class USERDATA {
   static int UserLV = 0;
   static String NAME = '';
   static String ID = '';
+  static String LV = '';
+  static String Section = '';
+  static String Def = '';
+  static String LOCATION = '';
+
+  static List<String> DefList = [];
+  static List<String> LOCATIONList = [];
 }
 
 // class PageLevel {
@@ -34,4 +41,6 @@ class logindata {
 }
 
 // String GLOserver = 'http://127.0.0.1:16020/';
+
+String server2 = 'http://172.23.10.168:14094/';
 String GLOserver = 'http://172.23.10.40:16020/';

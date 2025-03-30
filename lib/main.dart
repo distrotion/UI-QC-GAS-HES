@@ -6,10 +6,25 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'bloc/Observe/appBlocObserver.dart';
 import 'bloc/cubit/Rebuild.dart';
 import 'mainBody.dart';
+import 'dart:html' as html;
 
 //--------------------------------------
 
+Map<String, String>? initialQueryParameters;
+
 void main() {
+  final hash = html.window.location;
+  print("1111");
+  print(hash);
+
+  // if (hash.contains('?')) {
+  //   // Extract query parameters: "xxx=123"
+  //   final queryString = hash.split('?')[1];
+
+  //   // Parse into a map
+  //   final params = Uri.splitQueryString(queryString);
+  //   print(params['xxx']); // "123"
+  // }
   BlocOverrides.runZoned(
     () => runApp(const MyApp()),
     blocObserver: AppBlocObserver(),
@@ -43,7 +58,11 @@ class MainContext extends StatelessWidget {
             primarySwatch: Colors.blue,
           ),
           debugShowCheckedModeBanner: false,
-          home: const MainBlocRebuild(),
+          // initialRoute: '/',
+          // routes: {
+          //   '/': (context) => MainBlocRebuild(),
+          // },
+          home: MainBlocRebuild(),
         );
       },
     );

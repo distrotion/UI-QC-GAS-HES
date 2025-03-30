@@ -10,6 +10,7 @@ import '../../page/page11.dart';
 import '../../page/page13.dart';
 import '../../page/page2.dart';
 import '../../page/page3.dart';
+import '../../page/page303.dart';
 import '../../page/page9.dart';
 import 'sub_widget.dart';
 
@@ -131,6 +132,11 @@ class Data_Menu_mainmenu extends StatelessWidget {
         menu_normal(
           name: "EXPORT DATA",
           page: Page13(),
+          Lv: 1,
+        ),
+        menu_normal(
+          name: "Special QCFN",
+          page: Page303(),
           Lv: 1,
         ),
         // menu_normal(
