@@ -38,6 +38,7 @@ class logindata {
   static bool isControl = false;
   static String userID = '';
   static String userPASS = '';
+  static String loginlink = '';
 }
 
 // String GLOserver = 'http://127.0.0.1:16020/';

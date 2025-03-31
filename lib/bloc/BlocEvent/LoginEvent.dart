@@ -22,7 +22,11 @@ abstract class LoginEvent {}
 
 class LoginPage extends LoginEvent {}
 
+//logindata.loginlink
+
 class ReLogin extends LoginEvent {}
+
+class LinkLogin extends LoginEvent {}
 
 class Logout extends LoginEvent {}
 
@@ -33,6 +37,10 @@ class Login_Bloc extends Bloc<LoginEvent, String> {
     });
     on<ReLogin>((event, emit) {
       return _ReLogin_Function(state, emit);
+    });
+
+    on<LinkLogin>((event, emit) {
+      return _LinkLogin_Function(state, emit);
     });
     on<Logout>((event, emit) {
       return _Logout_Function(state, emit);
@@ -160,6 +168,71 @@ class Login_Bloc extends Bloc<LoginEvent, String> {
       USERDATA.DefList = [];
       USERDATA.LOCATIONList = [];
     }
+
+    emit(token);
+  }
+
+  Future<void> _LinkLogin_Function(String toAdd, Emitter<String> emit) async {
+    final SharedPreferences prefs = await _prefs;
+    // token = (prefs.getString('tokenSP') ?? '');
+
+    // if (token != '') {
+    // var databuff = jsonDecode(token);
+
+    // print(databuff['ID'].toString());
+    final response = await Dio().post(
+      server + "re_login",
+      data: {
+        "ID": logindata.loginlink,
+        // "PASS": logindata.userPASS,
+      },
+    );
+    if (response.statusCode == 200) {
+      var databuff = response.data;
+      print(databuff);
+      if (databuff['return'] == 'OK') {
+        token =
+            '{"ID":"${databuff['ID'].toString()}","NAME":"${databuff['NAME'].toString()}","LV":"${databuff['LV'].toString()}","Section":"${databuff['Section'].toString()}","Def":"${databuff['Def'].toString()}"  ,"LOCATION":"${databuff['LOCATION'].toString()}"}';
+        USERDATA.ID = databuff['ID'].toString();
+        USERDATA.NAME = databuff['NAME'].toString();
+        USERDATA.UserLV = int.parse(databuff['LV'].toString());
+        USERDATA.Section = databuff['Section'].toString();
+        USERDATA.Def = databuff['Def'].toString();
+        USERDATA.LOCATION = databuff['LOCATION'].toString();
+        USERDATA.DefList =
+            USERDATA.Def.substring(1, USERDATA.Def.length - 1).split(',');
+        USERDATA.LOCATIONList = USERDATA.LOCATION
+            .substring(1, USERDATA.LOCATION.length - 1)
+            .replaceAll(" ", "")
+            .split(',');
+      } else {
+        token = (prefs.getString('tokenSP') ?? '');
+        USERDATA.UserLV = 0;
+      }
+    }
+
+    // USERDATA.ID = databuff['ID'].toString();
+    // USERDATA.UserLV = int.parse(databuff['LV'].toString());
+    // USERDATA.NAME = databuff['NAME'].toString();
+    // USERDATA.Section = databuff['Section'].toString();
+    // USERDATA.Def = databuff['Def'].toString();
+    // USERDATA.LOCATION = databuff['LOCATION'].toString();
+
+    // USERDATA.DefList =
+    //     USERDATA.Def.substring(1, USERDATA.Def.length - 1).split(',');
+    // USERDATA.LOCATIONList = USERDATA.LOCATION
+    //     .substring(1, USERDATA.LOCATION.length - 1)
+    //     .split(',');
+    // } else {
+    //   USERDATA.ID = '';
+    //   USERDATA.UserLV = 0;
+    //   USERDATA.NAME = '';
+    //   USERDATA.Section = '';
+    //   USERDATA.Def = '';
+    //   USERDATA.LOCATION = '';
+    //   USERDATA.DefList = [];
+    //   USERDATA.LOCATIONList = [];
+    // }
 
     emit(token);
   }

@@ -20,7 +20,9 @@ late BuildContext LoginContext;
 class MainBlocRebuild extends StatelessWidget {
   MainBlocRebuild({
     Key? key,
+    this.login,
   }) : super(key: key);
+  String? login;
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +40,9 @@ class MainBlocRebuild extends StatelessWidget {
                         return Scaffold(
                           body: Stack(
                             children: [
-                              pre_login(),
+                              pre_login(
+                                login: login,
+                              ),
                               Positioned(
                                   top: 64,
                                   right: 24,
@@ -56,7 +60,11 @@ class MainBlocRebuild extends StatelessWidget {
 }
 
 class pre_login extends StatefulWidget {
-  const pre_login({Key? key}) : super(key: key);
+  pre_login({
+    Key? key,
+    this.login,
+  }) : super(key: key);
+  String? login;
 
   @override
   State<pre_login> createState() => _pre_loginState();
@@ -67,6 +75,11 @@ class _pre_loginState extends State<pre_login> {
   void initState() {
     super.initState();
     context.read<Login_Bloc>().add(ReLogin());
+    print(widget.login);
+    if (widget.login != '') {
+      logindata.loginlink = widget.login ?? '';
+      context.read<Login_Bloc>().add(LinkLogin());
+    }
     // print("initState");
   }
 

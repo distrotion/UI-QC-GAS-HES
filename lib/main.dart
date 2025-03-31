@@ -11,11 +11,11 @@ import 'dart:html' as html;
 //--------------------------------------
 
 Map<String, String>? initialQueryParameters;
-
+String hashs = '';
 void main() {
-  final hash = html.window.location;
+  hashs = html.window.location.toString();
   print("1111");
-  print(hash);
+  print(hashs);
 
   // if (hash.contains('?')) {
   //   // Extract query parameters: "xxx=123"
@@ -58,11 +58,24 @@ class MainContext extends StatelessWidget {
             primarySwatch: Colors.blue,
           ),
           debugShowCheckedModeBanner: false,
-          // initialRoute: '/',
-          // routes: {
-          //   '/': (context) => MainBlocRebuild(),
-          // },
-          home: MainBlocRebuild(),
+          initialRoute: '/',
+          routes: {
+            '/': (context) {
+              List<String> dataout = [];
+              String out = '';
+              if (hashs.contains("/#/")) {
+                dataout = hashs.split("/#/");
+              }
+              if (dataout.length > 0) {
+                out = dataout[1];
+              }
+              print(out);
+              return MainBlocRebuild(
+                login: out,
+              );
+            },
+          },
+          // home: MainBlocRebuild(),
         );
       },
     );
